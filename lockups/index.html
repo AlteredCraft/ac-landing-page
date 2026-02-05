@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlteredCraft Lockup Review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f5f5f5;
+      color: #1f1d1d;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 4px; }
+    .subtitle { color: #666; font-size: 1rem; margin-bottom: 48px; }
+
+    section { margin-bottom: 64px; }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #D4B84A;
+    }
+
+    .description { color: #666; margin-bottom: 24px; font-size: 0.95rem; }
+
+    /* Cards */
+    .lockup-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .lockup-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .card-header {
+      padding: 16px 24px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-header h3 { font-size: 1rem; font-weight: 600; }
+
+    .tag {
+      font-size: 0.7rem;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: #e8e8e8;
+      color: #666;
+    }
+    .tag.primary { background: #D4B84A; color: white; }
+    .tag.alt { background: #5A94D4; color: white; }
+
+    /* Lockup layout */
+    .lockup-preview {
+      padding: 48px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 140px;
+    }
+
+    .lockup-preview.dark { background: #1f1d1d; }
+    .lockup-preview.light { background: #fafafa; }
+
+    .lockup-h {
+      display: flex;
+      align-items: center;
+    }
+
+    .lockup-h .wm {
+      font-weight: 600;
+      white-space: nowrap;
+      letter-spacing: -0.02em;
+    }
+
+    .lockup-h .wm .slash { color: #D4B84A; }
+    .lockup-h .wm .text-dark { color: #1F1D1D; }
+    .lockup-h .wm .text-light { color: #F5F3EF; }
+
+    .lockup-v {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lockup-v .wm {
+      font-weight: 600;
+      white-space: nowrap;
+      letter-spacing: -0.02em;
+    }
+
+    .lockup-v .wm .slash { color: #D4B84A; }
+    .lockup-v .wm .text-dark { color: #1F1D1D; }
+    .lockup-v .wm .text-light { color: #F5F3EF; }
+
+    /* Comparison grid */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .compare-card {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .compare-card .lockup-preview {
+      min-height: 120px;
+      padding: 40px 32px;
+    }
+
+    .compare-label {
+      padding: 12px 16px;
+      font-size: 0.8rem;
+      color: #666;
+      background: white;
+      text-align: center;
+      border-top: 1px solid #eee;
+    }
+
+    /* Specs box */
+    .specs-box {
+      background: white;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .spec-row {
+      display: flex;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.9rem;
+    }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-label { width: 140px; color: #999; flex-shrink: 0; }
+
+    /* Divider between icon and wordmark */
+    .lockup-divider {
+      width: 2px;
+      align-self: stretch;
+      background: #D4B84A;
+      opacity: 0.4;
+      border-radius: 1px;
+    }
+
+    @media (max-width: 768px) {
+      .compare-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Lockup Review</h1>
+    <p class="subtitle">Icon A: Compact Code + Wordmark: /altered craft (Plus Jakarta Sans)</p>
+
+    <!-- Components -->
+    <section>
+      <h2>Components</h2>
+      <div class="specs-box">
+        <div class="spec-row">
+          <div class="spec-label">Icon</div>
+          <div>A: Compact Code - dark rounded square, colored code bars</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">Wordmark</div>
+          <div><span style="color: #D4B84A; font-weight: 600;">/</span><span style="font-weight: 600;">altered craft</span> - Plus Jakarta Sans, 600 weight</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">Gold</div>
+          <div><span style="display: inline-block; width: 14px; height: 14px; background: #D4B84A; border-radius: 3px; vertical-align: middle; margin-right: 6px;"></span>#D4B84A</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">Near Black</div>
+          <div><span style="display: inline-block; width: 14px; height: 14px; background: #1F1D1D; border-radius: 3px; vertical-align: middle; margin-right: 6px;"></span>#1F1D1D</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">Off White</div>
+          <div><span style="display: inline-block; width: 14px; height: 14px; background: #F5F3EF; border: 1px solid #ddd; border-radius: 3px; vertical-align: middle; margin-right: 6px;"></span>#F5F3EF</div>
+        </div>
+        <div class="spec-row" style="padding-top: 16px; margin-top: 4px; border-top: 2px solid #f0f0f0;">
+          <div class="spec-label" style="color: #666; font-weight: 600;">Code Bars</div>
+          <div></div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">Green</div>
+          <div><span style="display: inline-block; width: 14px; height: 14px; background: #52C77E; border-radius: 3px; vertical-align: middle; margin-right: 6px;"></span>#52C77E</div>
+        </div>
+        <div class="spec-row">
+          <div class="spec-label">Blue</div>
+          <div><span style="display: inline-block; width: 14px; height: 14px; background: #5A94D4; border-radius: 3px; vertical-align: middle; margin-right: 6px;"></span>#5A94D4</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Horizontal Lockups -->
+    <section>
+      <h2>Horizontal Lockups</h2>
+      <p class="description">Icon left, wordmark right - primary brand usage</p>
+
+      <div class="lockup-grid">
+
+        <!-- H1: Standard horizontal -->
+        <div class="lockup-card">
+          <div class="card-header">
+            <h3>H1: Standard Horizontal</h3>
+            <span class="tag primary">Primary</span>
+          </div>
+          <div class="lockup-preview light">
+            <div class="lockup-h" style="gap: 24px;">
+              <img src="./ac-logo-code.svg" width="100" height="100">
+              <span class="wm" style="font-size: 42px;"><span class="slash">/</span><span class="text-dark">altered craft</span></span>
+            </div>
+          </div>
+          <div class="lockup-preview dark">
+            <div class="lockup-h" style="gap: 24px;">
+              <img src="./ac-logo-code-outlined.svg" width="100" height="100">
+              <span class="wm" style="font-size: 42px;"><span class="slash">/</span><span class="text-light">altered craft</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- H2: Compact horizontal -->
+        <div class="lockup-card">
+          <div class="card-header">
+            <h3>H2: Compact Horizontal</h3>
+            <span class="tag alt">Tight</span>
+          </div>
+          <div class="lockup-preview light">
+            <div class="lockup-h" style="gap: 16px;">
+              <img src="./ac-logo-code.svg" width="64" height="64">
+              <span class="wm" style="font-size: 32px;"><span class="slash">/</span><span class="text-dark">altered craft</span></span>
+            </div>
+          </div>
+          <div class="lockup-preview dark">
+            <div class="lockup-h" style="gap: 16px;">
+              <img src="./ac-logo-code-outlined.svg" width="64" height="64">
+              <span class="wm" style="font-size: 32px;"><span class="slash">/</span><span class="text-light">altered craft</span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- H3: With divider -->
+        <div class="lockup-card">
+          <div class="card-header">
+            <h3>H3: With Divider</h3>
+            <span class="tag">Separator line</span>
+          </div>
+          <div class="lockup-preview light">
+            <div class="lockup-h" style="gap: 20px;">
+              <img src="./ac-logo-code.svg" width="100" height="100">
+              <div class="lockup-divider"></div>
+              <span class="wm" style="font-size: 42px;"><span class="slash">/</span><span class="text-dark">altered craft</span></span>
+            </div>
+          </div>
+          <div class="lockup-preview dark">
+            <div class="lockup-h" style="gap: 20px;">
+              <img src="./ac-logo-code-outlined.svg" width="100" height="100">
+              <div class="lockup-divider"></div>
+              <span class="wm" style="font-size: 42px;"><span class="slash">/</span><span class="text-light">altered craft</span></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Stacked Lockups -->
+    <section>
+      <h2>Stacked Lockups</h2>
+      <p class="description">Icon over wordmark - social, square contexts</p>
+
+      <div class="compare-grid">
+
+        <!-- S1: Standard stacked -->
+        <div class="compare-card">
+          <div class="card-header">
+            <h3>S1: Stacked</h3>
+            <span class="tag primary">Primary</span>
+          </div>
+          <div class="lockup-preview light" style="min-height: 240px; padding: 40px;">
+            <div class="lockup-v" style="gap: 20px;">
+              <img src="./ac-logo-code.svg" width="116" height="116">
+              <span class="wm" style="font-size: 38px;"><span class="slash">/</span><span class="text-dark">altered craft</span></span>
+            </div>
+          </div>
+          <div class="compare-label">Light background</div>
+        </div>
+
+        <div class="compare-card">
+          <div class="card-header">
+            <h3>S1: Stacked (Dark)</h3>
+            <span class="tag primary">Primary</span>
+          </div>
+          <div class="lockup-preview dark" style="min-height: 240px; padding: 40px;">
+            <div class="lockup-v" style="gap: 20px;">
+              <img src="./ac-logo-code-outlined.svg" width="116" height="116">
+              <span class="wm" style="font-size: 38px;"><span class="slash">/</span><span class="text-light">altered craft</span></span>
+            </div>
+          </div>
+          <div class="compare-label">Dark background</div>
+        </div>
+
+        <!-- S2: Tight stacked -->
+        <div class="compare-card">
+          <div class="card-header">
+            <h3>S2: Tight Stacked</h3>
+            <span class="tag alt">Compact</span>
+          </div>
+          <div class="lockup-preview light" style="min-height: 200px; padding: 40px;">
+            <div class="lockup-v" style="gap: 14px;">
+              <img src="./ac-logo-code.svg" width="88" height="88">
+              <span class="wm" style="font-size: 30px;"><span class="slash">/</span><span class="text-dark">altered craft</span></span>
+            </div>
+          </div>
+          <div class="compare-label">Light background</div>
+        </div>
+
+        <div class="compare-card">
+          <div class="card-header">
+            <h3>S2: Tight Stacked (Dark)</h3>
+            <span class="tag alt">Compact</span>
+          </div>
+          <div class="lockup-preview dark" style="min-height: 200px; padding: 40px;">
+            <div class="lockup-v" style="gap: 14px;">
+              <img src="./ac-logo-code-outlined.svg" width="88" height="88">
+              <span class="wm" style="font-size: 30px;"><span class="slash">/</span><span class="text-light">altered craft</span></span>
+            </div>
+          </div>
+          <div class="compare-label">Dark background</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Scale test -->
+    <section>
+      <h2>Scale Test - Horizontal</h2>
+      <p class="description">H1 lockup at various sizes to check readability</p>
+
+      <div class="lockup-card">
+        <div class="card-header">
+          <h3>Size Comparison</h3>
+        </div>
+        <div class="lockup-preview light" style="flex-direction: column; gap: 40px; padding: 48px 40px; align-items: flex-start;">
+
+          <!-- Large -->
+          <div>
+            <div style="font-size: 10px; color: #999; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Large (hero, splash)</div>
+            <div class="lockup-h" style="gap: 24px;">
+              <img src="./ac-logo-code.svg" width="100" height="100">
+              <span class="wm" style="font-size: 42px;"><span class="slash">/</span><span class="text-dark">altered craft</span></span>
+            </div>
+          </div>
+
+          <!-- Medium -->
+          <div>
+            <div style="font-size: 10px; color: #999; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Medium (nav, footer)</div>
+            <div class="lockup-h" style="gap: 14px;">
+              <img src="./ac-logo-code.svg" width="48" height="48">
+              <span class="wm" style="font-size: 26px;"><span class="slash">/</span><span class="text-dark">altered craft</span></span>
+            </div>
+          </div>
+
+          <!-- Small -->
+          <div>
+            <div style="font-size: 10px; color: #999; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Small (badge, email sig)</div>
+            <div class="lockup-h" style="gap: 10px;">
+              <img src="./ac-logo-code.svg" width="32" height="32">
+              <span class="wm" style="font-size: 18px;"><span class="slash">/</span><span class="text-dark">altered craft</span></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Context Mockups -->
+    <section>
+      <h2>In-Context Preview</h2>
+      <p class="description">How the lockups feel in realistic placements</p>
+
+      <div class="lockup-grid" style="gap: 32px;">
+
+        <!-- Nav bar mock -->
+        <div class="lockup-card">
+          <div class="card-header">
+            <h3>Website Nav</h3>
+          </div>
+          <div style="padding: 16px 32px; background: #1f1d1d; display: flex; align-items: center; justify-content: space-between;">
+            <div class="lockup-h" style="gap: 12px;">
+              <img src="./ac-logo-code-outlined.svg" width="40" height="40">
+              <span class="wm" style="font-size: 22px;"><span class="slash">/</span><span class="text-light">altered craft</span></span>
+            </div>
+            <div style="display: flex; gap: 24px; font-size: 14px; color: #999;">
+              <span>Services</span>
+              <span>Writing</span>
+              <span>About</span>
+              <span style="color: #D4B84A;">Contact</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Business card mock -->
+        <div class="lockup-card">
+          <div class="card-header">
+            <h3>Business Card</h3>
+          </div>
+          <div style="padding: 40px; background: #fafafa; display: flex; justify-content: center;">
+            <div style="width: 420px; height: 240px; background: #1f1d1d; border-radius: 12px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 8px 24px rgba(0,0,0,0.2);">
+              <div class="lockup-h" style="gap: 12px;">
+                <img src="./ac-logo-code-outlined.svg" width="36" height="36">
+                <span class="wm" style="font-size: 20px;"><span class="slash">/</span><span class="text-light">altered craft</span></span>
+              </div>
+              <div>
+                <div style="color: #F5F3EF; font-size: 16px; font-weight: 600; margin-bottom: 4px;">Sam Keen</div>
+                <div style="color: #999; font-size: 12px;">Software Architecture Consultant</div>
+                <div style="color: #D4B84A; font-size: 12px; margin-top: 8px;">alteredcraft.com</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social avatar mock -->
+        <div class="lockup-card">
+          <div class="card-header">
+            <h3>Social Avatar + Header</h3>
+          </div>
+          <div style="background: #fafafa; padding: 0;">
+            <!-- Header banner -->
+            <div style="height: 100px; background: linear-gradient(135deg, #1f1d1d 0%, #2D2A2A 100%); display: flex; align-items: center; justify-content: center;">
+              <div class="lockup-h" style="gap: 14px;">
+                <img src="./ac-logo-code-outlined.svg" width="48" height="48">
+                <span class="wm" style="font-size: 28px;"><span class="slash">/</span><span class="text-light">altered craft</span></span>
+              </div>
+            </div>
+            <!-- Profile area -->
+            <div style="padding: 16px 24px 24px; display: flex; gap: 16px; align-items: flex-start;">
+              <div style="margin-top: -32px; width: 64px; height: 64px; border-radius: 50%; overflow: hidden; border: 3px solid #fafafa; flex-shrink: 0; background: #1f1d1d; display: flex; align-items: center; justify-content: center;">
+                <img src="./ac-logo-code.svg" style="display: block; width: 46px; height: 46px;">
+              </div>
+              <div style="padding-top: 4px;">
+                <div style="font-weight: 700; font-size: 14px;">Altered Craft</div>
+                <div style="color: #999; font-size: 12px;">Software architecture consulting & technical writing</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
