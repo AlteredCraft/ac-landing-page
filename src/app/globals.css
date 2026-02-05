@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  /* Deep Teal Palette */
-  --color-base: #F7F7F5;
+  /* Deep Teal Palette - Bold v4 */
+  --color-base: #FAFAFA;
   --color-text: #1C1C1C;
   --color-accent: #0D9488;
   --color-accent-hover: #0F766E;
@@ -22,6 +22,7 @@
   --color-surface: var(--color-surface);
   --color-surface-alt: var(--color-surface-alt);
   --font-sans: var(--font-inter);
+  --font-display: var(--font-space-grotesk);
 }
 
 html {

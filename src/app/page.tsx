@@ -1,21 +1,9 @@
 import Image from "next/image";
 import { MobileMenu } from "@/components/MobileMenu";
-import {
-  Mail,
-  BookOpen,
-  Users,
-  Compass,
-  Mic,
-  Check,
-  BookMarked,
-  Building2,
-  TrendingUp,
-  FileText,
-} from "lucide-react";
+import { Check } from "lucide-react";
 
 const NAV_LINKS = [
   { href: "#newsletter", label: "Newsletter" },
-  { href: "#courses", label: "Courses" },
   { href: "#teams", label: "For Teams" },
   { href: "#speaking", label: "Speaking" },
   { href: "#about", label: "About" },
@@ -23,34 +11,29 @@ const NAV_LINKS = [
 
 const OFFERINGS = [
   {
-    id: "newsletter",
+    number: "01",
     title: "Newsletter",
     description: "Weekly applied AI insights for developers",
-    Icon: Mail,
   },
   {
-    id: "courses",
+    number: "02",
     title: "Courses",
     description: "Self-paced learning to go deeper",
-    Icon: BookOpen,
   },
   {
-    id: "teams",
+    number: "03",
     title: "Workshops",
     description: "Live, instructor-led sessions for teams",
-    Icon: Users,
   },
   {
-    id: "advisory",
-    title: "AI Strategy Advisory",
+    number: "04",
+    title: "Advisory",
     description: "Scoped engagements for engineering leadership",
-    Icon: Compass,
   },
   {
-    id: "speaking",
+    number: "05",
     title: "Speaking",
     description: "Conference talks and keynotes",
-    Icon: Mic,
   },
 ];
 
@@ -59,27 +42,6 @@ const CREDIBILITY = [
   { label: "AWS", detail: "Former GenAI Innovation Lab Lead" },
   { label: "Community", detail: "Portland AI Engineers, 1,100+ members" },
   { label: "Track Record", detail: "150+ weekly editions" },
-];
-
-const COURSES = [
-  {
-    title: "Prompt Engineering for Developers",
-    description:
-      "Master the techniques that separate effective AI collaboration from frustrating trial-and-error.",
-    tags: ["Fundamentals", "Hands-on"],
-  },
-  {
-    title: "Building with LLM APIs",
-    description:
-      "From API basics to production patterns—build real applications with language models.",
-    tags: ["Technical", "Production"],
-  },
-  {
-    title: "AI-Assisted Development Workflows",
-    description:
-      "Integrate AI tools into your daily development practice without losing engineering rigor.",
-    tags: ["Workflow", "Practical"],
-  },
 ];
 
 const WORKSHOP_TOPICS = [
@@ -136,6 +98,14 @@ const TALK_TOPICS = [
   },
 ];
 
+const CREDENTIALS = [
+  "Author, Clean Architecture with Python (Packt)",
+  "Former AWS GenAI Innovation Lab Lead",
+  "Co-founder, Portland AI Engineers (1,100+ members)",
+  "150+ editions of weekly applied AI content",
+  "25+ years shipping production software",
+];
+
 const SOCIAL_LINKS = [
   {
     label: "LinkedIn",
@@ -170,103 +140,74 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[var(--color-base)]">
       {/* Navigation */}
-      <header className="sticky top-0 z-50 bg-[var(--color-surface)]/95 backdrop-blur-sm border-b border-[var(--color-border)]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <a href="/" className="flex items-center">
-              <Image
-                src="/AC-logo.svg"
-                alt="AlteredCraft"
-                width={44}
-                height={44}
-                className="h-10 w-10"
-                priority
-              />
-            </a>
-
-            {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-8">
-              {NAV_LINKS.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm font-medium text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </nav>
-
-            <div className="flex items-center gap-4">
-              <a
-                href="#newsletter"
-                className="hidden sm:inline-flex px-4 py-2 bg-[var(--color-accent)] text-white text-sm font-medium rounded-lg hover:bg-[var(--color-accent-hover)] transition-colors"
-              >
-                Subscribe
-              </a>
-              <MobileMenu />
-            </div>
-          </div>
+      <nav className="fixed top-0 left-0 right-0 py-5 px-6 lg:px-12 flex justify-between items-center bg-[var(--color-base)] z-50">
+        <div className="font-[family-name:var(--font-display)] font-bold text-2xl uppercase tracking-tight">
+          AlteredCraft
         </div>
-      </header>
+
+        {/* Desktop Nav */}
+        <ul className="hidden md:flex gap-10">
+          {NAV_LINKS.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className="text-sm font-medium uppercase tracking-widest text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <div className="flex items-center gap-4">
+          <a
+            href="#newsletter"
+            className="hidden sm:inline-flex px-6 py-3 bg-[var(--color-text)] text-[var(--color-base)] text-sm font-semibold hover:bg-[var(--color-accent)] transition-colors"
+          >
+            Subscribe
+          </a>
+          <MobileMenu />
+        </div>
+      </nav>
 
       <main>
         {/* Hero Section */}
-        <section className="pt-12 sm:pt-16 pb-20 sm:pb-28 lg:pb-36">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Brand Wordmark */}
-            <h2 className="text-5xl sm:text-6xl lg:text-8xl font-black text-center mb-12 sm:mb-16 lg:mb-20 text-[var(--color-text)] tracking-tight uppercase">
-              Altered Craft
-            </h2>
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <div>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-text)] leading-[1.1] tracking-tight">
-                  Applied AI guidance for the people who build software.
-                </h1>
-                <p className="mt-6 text-lg sm:text-xl text-[var(--color-muted)] leading-relaxed">
-                  AI is reshaping how software gets built. The tooling moves
-                  fast, the noise is deafening, and nobody got a manual.
-                </p>
-                <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                  <a
-                    href="#newsletter"
-                    className="inline-flex justify-center px-6 py-3 bg-[var(--color-accent)] text-white font-semibold rounded-lg hover:bg-[var(--color-accent-hover)] transition-colors"
-                  >
-                    Subscribe free
-                  </a>
-                  <a
-                    href="#offerings"
-                    className="inline-flex justify-center px-6 py-3 border-2 border-[var(--color-text)] text-[var(--color-text)] font-semibold rounded-lg hover:bg-[var(--color-text)] hover:text-[var(--color-surface)] transition-colors"
-                  >
-                    Explore offerings →
-                  </a>
-                </div>
-              </div>
-              <div className="flex justify-center lg:justify-end">
-                <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden">
-                  <Image
-                    src="/sam-headshot-casual-500x500.png"
-                    alt="Sam Keen"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                </div>
-              </div>
-            </div>
+        <section className="min-h-screen flex flex-col justify-center pt-24 pb-16 px-6 lg:px-12 max-w-[1000px] mx-auto">
+          <h1 className="font-[family-name:var(--font-display)] font-bold text-[clamp(3rem,8vw,5rem)] leading-[1.05] uppercase tracking-tight mb-8">
+            Applied <span className="text-[var(--color-accent)]">AI guidance</span>{" "}
+            for the people who build software.
+          </h1>
+          <p className="text-xl lg:text-[1.375rem] text-[var(--color-muted)] mb-12 max-w-[680px] leading-relaxed">
+            AI is reshaping how software gets built. The tooling moves fast, the
+            noise is deafening, and nobody got a manual. I help you cut through
+            the hype and build with confidence.
+          </p>
+          <div className="flex flex-wrap gap-6">
+            <a
+              href="#newsletter"
+              className="inline-flex items-center gap-2 px-9 py-4 bg-[var(--color-text)] text-[var(--color-base)] font-semibold uppercase tracking-widest text-sm hover:bg-[var(--color-accent)] transition-colors"
+            >
+              Subscribe free
+            </a>
+            <a
+              href="#offerings"
+              className="inline-flex items-center gap-2 px-9 py-4 border-2 border-[var(--color-text)] text-[var(--color-text)] font-semibold uppercase tracking-widest text-sm hover:bg-[var(--color-text)] hover:text-[var(--color-base)] transition-colors"
+            >
+              Explore offerings
+            </a>
           </div>
         </section>
 
         {/* Credibility Strip */}
         <section className="py-12 bg-[var(--color-surface)]">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
               {CREDIBILITY.map((item) => (
-                <div key={item.label} className="text-center lg:text-left">
-                  <div className="text-sm font-semibold text-[var(--color-accent)] uppercase tracking-wide">
+                <div key={item.label} className="text-center">
+                  <div className="text-xs font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-1">
                     {item.label}
                   </div>
-                  <div className="mt-1 text-sm text-[var(--color-muted)]">
+                  <div className="text-sm text-[var(--color-muted)]">
                     {item.detail}
                   </div>
                 </div>
@@ -275,205 +216,160 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Offerings Overview */}
-        <section id="offerings" className="py-20 sm:py-28">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-text)]">
-                From weekly insights to hands-on strategy
-              </h2>
-              <p className="mt-4 text-lg text-[var(--color-muted)] max-w-2xl mx-auto">
-                The format scales to the need—whether you&apos;re an individual
-                developer staying current or a team building with AI.
-              </p>
-            </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {OFFERINGS.map((offering) => (
-                <a
-                  key={offering.id}
-                  href={`#${offering.id === "advisory" ? "teams" : offering.id}`}
-                  className="group p-6 bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)] hover:border-[var(--color-accent)] hover:shadow-lg transition-all"
-                >
-                  <offering.Icon className="w-8 h-8 text-[var(--color-accent)]" />
-                  <h3 className="mt-4 text-lg font-semibold text-[var(--color-text)] group-hover:text-[var(--color-accent)] transition-colors">
-                    {offering.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-[var(--color-muted)]">
-                    {offering.description}
-                  </p>
-                </a>
-              ))}
-            </div>
+        {/* Offerings Section */}
+        <section id="offerings" className="py-24 px-6 lg:px-12 max-w-[1400px] mx-auto">
+          <div className="grid lg:grid-cols-[200px_1fr] gap-8 lg:gap-16 mb-12 items-end">
+            <span className="font-[family-name:var(--font-display)] font-semibold text-sm uppercase tracking-widest text-[var(--color-muted)]">
+              Offerings
+            </span>
+            <h2 className="font-[family-name:var(--font-display)] font-bold text-[clamp(2rem,4vw,3rem)] uppercase leading-tight">
+              From weekly insights to hands-on strategy
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {OFFERINGS.map((offering) => (
+              <div
+                key={offering.number}
+                className="bg-[var(--color-surface)] p-8 flex flex-col min-h-[220px] hover:shadow-lg transition-shadow"
+              >
+                <span className="font-[family-name:var(--font-display)] font-bold text-3xl text-[var(--color-accent)] mb-4">
+                  {offering.number}
+                </span>
+                <h3 className="font-[family-name:var(--font-display)] font-bold text-xl uppercase mb-2">
+                  {offering.title}
+                </h3>
+                <p className="text-sm text-[var(--color-muted)] flex-grow">
+                  {offering.description}
+                </p>
+              </div>
+            ))}
           </div>
         </section>
 
         {/* Newsletter Section */}
-        <section id="newsletter" className="py-20 sm:py-28 bg-[var(--color-surface)]">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-text)]">
-                Stay calibrated
-              </h2>
-              <p className="mt-4 text-lg text-[var(--color-muted)]">
-                Every week, I dig into what&apos;s actually working in the new
-                AI abstraction layer so you can make informed decisions without
-                drowning in hype.
-              </p>
-
-              <div className="mt-10 grid sm:grid-cols-2 gap-6 text-left">
-                <div className="p-6 bg-[var(--color-base)] rounded-xl">
-                  <div className="text-sm font-semibold text-[var(--color-accent)] uppercase tracking-wide">
-                    Free
-                  </div>
-                  <h3 className="mt-2 text-xl font-semibold text-[var(--color-text)]">
-                    Monday AI Review
-                  </h3>
-                  <p className="mt-2 text-[var(--color-muted)]">
-                    Signal filtering—what matters this week in AI for
-                    developers.
-                  </p>
-                </div>
-                <div className="p-6 bg-[var(--color-base)] rounded-xl border-2 border-[var(--color-accent)]">
-                  <div className="text-sm font-semibold text-[var(--color-accent)] uppercase tracking-wide">
-                    Premium · $10/mo
-                  </div>
-                  <h3 className="mt-2 text-xl font-semibold text-[var(--color-text)]">
-                    Thursday Deep Dives
-                  </h3>
-                  <p className="mt-2 text-[var(--color-muted)]">
-                    Tech Explorations & Industry Analysis. Go deeper than the
-                    headlines.
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-10">
-                <h4 className="text-lg font-semibold text-[var(--color-text)] mb-4">
-                  What makes it different
-                </h4>
-                <ul className="space-y-3 text-[var(--color-muted)] text-left max-w-md mx-auto">
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-[var(--color-accent)] mt-0.5 flex-shrink-0" />
-                    Production-informed, not demo magic
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-[var(--color-accent)] mt-0.5 flex-shrink-0" />
-                    Written by someone who ships code
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-[var(--color-accent)] mt-0.5 flex-shrink-0" />
-                    Substance over hype, every edition
-                  </li>
-                </ul>
-              </div>
-
-              {/* Substack Embed Placeholder */}
-              <div className="mt-10 p-8 bg-[var(--color-base)] rounded-xl">
-                <iframe
-                  src="https://writing.alteredcraft.com/embed"
-                  width="100%"
-                  height="150"
-                  style={{ border: "none", background: "transparent" }}
-                  frameBorder="0"
-                  scrolling="no"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Courses Section */}
-        <section id="courses" className="py-20 sm:py-28">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-text)]">
-                Go Deeper
-              </h2>
-              <p className="mt-4 text-lg text-[var(--color-muted)] max-w-2xl mx-auto">
-                Structured, self-paced courses for developers who want to master
-                AI-assisted development.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {COURSES.map((course) => (
-                <div
-                  key={course.title}
-                  className="p-6 bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)]"
-                >
-                  <h3 className="text-lg font-semibold text-[var(--color-text)]">
-                    {course.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-[var(--color-muted)]">
-                    {course.description}
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {course.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2 py-1 text-xs font-medium bg-[var(--color-surface-alt)] text-[var(--color-muted)] rounded"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="mt-4 text-sm font-medium text-[var(--color-accent)]">
-                    Coming soon
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-10 text-center">
-              <div className="inline-flex flex-col sm:flex-row items-center gap-4 p-6 bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)]">
-                <p className="text-[var(--color-muted)]">
-                  Get notified when courses launch
+        <section id="newsletter" className="py-24 px-6 lg:px-12 bg-[var(--color-surface)]">
+          <div className="max-w-[1400px] mx-auto">
+            <div className="grid lg:grid-cols-[200px_1fr] gap-8 lg:gap-16">
+              <span className="font-[family-name:var(--font-display)] font-semibold text-sm uppercase tracking-widest text-[var(--color-muted)]">
+                Newsletter
+              </span>
+              <div>
+                <h2 className="font-[family-name:var(--font-display)] font-bold text-[clamp(2rem,4vw,3rem)] uppercase leading-tight mb-4">
+                  Stay calibrated
+                </h2>
+                <p className="text-[var(--color-muted)] mb-8 max-w-[600px]">
+                  Every week, I dig into what&apos;s actually working in the new
+                  AI abstraction layer so you can make informed decisions without
+                  drowning in hype.
                 </p>
-                <a
-                  href="#newsletter"
-                  className="px-4 py-2 bg-[var(--color-accent)] text-white text-sm font-medium rounded-lg hover:bg-[var(--color-accent-hover)] transition-colors"
-                >
-                  Join the waitlist
-                </a>
+
+                {/* Tier Cards */}
+                <div className="grid md:grid-cols-2 gap-8 mb-12">
+                  <div className="p-8 bg-[var(--color-base)]">
+                    <div className="text-xs font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-2">
+                      Free
+                    </div>
+                    <h3 className="font-[family-name:var(--font-display)] font-bold text-2xl uppercase mb-2">
+                      Monday AI Review
+                    </h3>
+                    <p className="text-[var(--color-muted)]">
+                      Signal filtering—what matters this week in AI for developers.
+                    </p>
+                  </div>
+                  <div className="p-8 bg-[var(--color-base)] border-[3px] border-[var(--color-accent)]">
+                    <div className="text-xs font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-2">
+                      Premium · $10/mo
+                    </div>
+                    <h3 className="font-[family-name:var(--font-display)] font-bold text-2xl uppercase mb-2">
+                      <a
+                        href="https://writing.alteredcraft.com/t/deep-dives-insights"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-[var(--color-accent)] transition-colors"
+                      >
+                        Deep Dives & Insights
+                      </a>
+                    </h3>
+                    <p className="text-[var(--color-muted)]">
+                      Tech Explorations & Industry Analysis. Go deeper than the
+                      headlines.
+                    </p>
+                  </div>
+                </div>
+
+                {/* What makes it different */}
+                <h4 className="font-semibold mb-4">What makes it different</h4>
+                <div className="flex flex-col gap-3 mb-8">
+                  {[
+                    "Production-informed, not demo magic",
+                    "Written by someone who ships code",
+                    "Substance over hype, every edition",
+                  ].map((item) => (
+                    <div
+                      key={item}
+                      className="flex items-center gap-3 text-[var(--color-muted)]"
+                    >
+                      <span className="w-5 h-5 bg-[var(--color-accent)] rounded-full flex items-center justify-center text-white text-xs flex-shrink-0">
+                        <Check className="w-3 h-3" />
+                      </span>
+                      {item}
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA */}
+                <div className="p-8 bg-[var(--color-base)] text-center">
+                  <p className="text-[var(--color-muted)] mb-4">
+                    Subscribe on Substack
+                  </p>
+                  <a
+                    href="https://writing.alteredcraft.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-9 py-4 bg-[var(--color-text)] text-[var(--color-base)] font-semibold uppercase tracking-widest text-sm hover:bg-[var(--color-accent)] transition-colors"
+                  >
+                    Subscribe free →
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         {/* For Teams Section */}
-        <section id="teams" className="py-20 sm:py-28 bg-[var(--color-text)]">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-surface)]">
+        <section id="teams" className="py-24 px-6 lg:px-12 bg-[var(--color-text)] text-[var(--color-surface)]">
+          <div className="max-w-[1400px] mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="font-[family-name:var(--font-display)] font-bold text-[clamp(2rem,4vw,3rem)] uppercase">
                 For Teams
               </h2>
-              <p className="mt-4 text-lg text-[var(--color-muted)] max-w-2xl mx-auto">
-                Your team needs to build with AI, not just talk about it.
-                Focused workshops and strategic guidance grounded in 25 years of
-                shipping production software.
+              <p className="text-[var(--color-muted)] text-lg mt-4 max-w-[700px] mx-auto">
+                Your team needs to build with AI, not just talk about it. Focused
+                workshops and strategic guidance grounded in 25 years of shipping
+                production software.
               </p>
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Workshops */}
-              <div className="p-8 bg-[var(--color-surface)]/10 rounded-2xl border border-[var(--color-surface)]/20">
-                <h3 className="text-2xl font-bold text-[var(--color-surface)]">
+              <div className="p-10 bg-white/5 border border-white/10">
+                <h3 className="font-[family-name:var(--font-display)] font-bold text-[1.75rem] uppercase mb-2">
                   Workshops
                 </h3>
-                <p className="mt-2 text-[var(--color-muted)]">
+                <p className="text-[var(--color-muted)] mb-4">
                   Live, instructor-led sessions (0.5–2 days). On-site or remote.
                 </p>
-                <p className="mt-4 text-sm text-[var(--color-surface)]/80 italic">
+                <p className="italic text-white/70 mb-6 text-[0.9375rem]">
                   &ldquo;I teach the concepts and techniques. You adapt them to
                   your context.&rdquo;
                 </p>
-                <ul className="mt-6 space-y-3">
+                <ul className="space-y-2">
                   {WORKSHOP_TOPICS.map((topic) => (
                     <li
                       key={topic}
-                      className="flex items-center gap-3 text-[var(--color-surface)]/90"
+                      className="flex items-center gap-3 text-white/90 py-2"
                     >
-                      <span className="w-1.5 h-1.5 bg-[var(--color-accent)] rounded-full" />
+                      <span className="w-1.5 h-1.5 bg-[var(--color-accent)] rounded-full flex-shrink-0" />
                       {topic}
                     </li>
                   ))}
@@ -481,38 +377,34 @@ export default function Home() {
               </div>
 
               {/* Advisory */}
-              <div className="p-8 bg-[var(--color-surface)]/10 rounded-2xl border border-[var(--color-surface)]/20">
-                <h3 className="text-2xl font-bold text-[var(--color-surface)]">
+              <div className="p-10 bg-white/5 border border-white/10">
+                <h3 className="font-[family-name:var(--font-display)] font-bold text-[1.75rem] uppercase mb-2">
                   AI Strategy Advisory
                 </h3>
-                <p className="mt-2 text-[var(--color-muted)]">
+                <p className="text-[var(--color-muted)] mb-6">
                   Scoped consulting engagements with defined deliverables.
                 </p>
-                <div className="mt-6 space-y-4">
+                <div className="space-y-4">
                   {ADVISORY_TYPES.map((type) => (
-                    <div key={type.title}>
-                      <h4 className="font-semibold text-[var(--color-surface)]">
-                        {type.title}
-                      </h4>
-                      <p className="text-sm text-[var(--color-surface)]/70">
-                        {type.description}
-                      </p>
+                    <div key={type.title} className="mb-4">
+                      <h4 className="font-semibold mb-1">{type.title}</h4>
+                      <p className="text-white/60 text-sm">{type.description}</p>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
 
-            <div className="mt-12 text-center">
+            <div className="text-center mt-12">
               <a
                 href="https://altered-craft.neetocal.com/meeting-with-sam-keen"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex px-6 py-3 bg-[var(--color-accent)] text-white font-semibold rounded-lg hover:bg-[var(--color-accent-hover)] transition-colors"
+                className="inline-flex items-center gap-2 px-9 py-4 bg-[var(--color-accent)] text-[var(--color-base)] font-semibold uppercase tracking-widest text-sm hover:opacity-90 transition-opacity"
               >
                 Start a conversation
               </a>
-              <p className="mt-4 text-sm text-[var(--color-muted)]">
+              <p className="mt-4 text-[var(--color-muted)] text-sm">
                 Or email{" "}
                 <a
                   href="mailto:sam@alteredcraft.com"
@@ -526,132 +418,105 @@ export default function Home() {
         </section>
 
         {/* Speaking Section */}
-        <section id="speaking" className="py-20 sm:py-28">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-start">
-              <div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-text)]">
-                  Speaking
-                </h2>
-                <p className="mt-4 text-lg text-[var(--color-muted)]">
-                  Applied AI for software teams—not demos, not theory. Talks
-                  grounded in real experiments and production experience.
-                </p>
+        <section id="speaking" className="py-24 px-6 lg:px-12 max-w-[1400px] mx-auto">
+          <div className="grid lg:grid-cols-[200px_1fr_1fr] gap-8 lg:gap-16">
+            <span className="font-[family-name:var(--font-display)] font-semibold text-sm uppercase tracking-widest text-[var(--color-muted)]">
+              Speaking
+            </span>
 
-                <div className="mt-8 space-y-6">
-                  {TALK_TOPICS.map((talk) => (
-                    <div key={talk.title}>
-                      <h3 className="font-semibold text-[var(--color-text)]">
-                        {talk.title}
-                      </h3>
-                      <p className="mt-1 text-sm text-[var(--color-muted)]">
-                        {talk.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+            <div>
+              <h2 className="font-[family-name:var(--font-display)] font-bold text-[clamp(2rem,4vw,3rem)] uppercase leading-tight mb-4">
+                Speaking
+              </h2>
+              <p className="text-[var(--color-muted)] mb-8">
+                Applied AI for software teams—not demos, not theory. Talks
+                grounded in real experiments and production experience.
+              </p>
+              <div className="space-y-6">
+                {TALK_TOPICS.map((talk) => (
+                  <div key={talk.title}>
+                    <h4 className="font-semibold mb-1">{talk.title}</h4>
+                    <p className="text-sm text-[var(--color-muted)]">
+                      {talk.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <a
+                href="mailto:sam@alteredcraft.com?subject=Speaking%20Inquiry"
+                className="inline-flex items-center gap-2 mt-8 px-9 py-4 bg-[var(--color-text)] text-[var(--color-base)] font-semibold uppercase tracking-widest text-sm hover:bg-[var(--color-accent)] transition-colors"
+              >
+                Book Sam for your event
+              </a>
+            </div>
 
-                <div className="mt-8">
-                  <a
-                    href="mailto:sam@alteredcraft.com?subject=Speaking%20Inquiry"
-                    className="inline-flex px-6 py-3 bg-[var(--color-accent)] text-white font-semibold rounded-lg hover:bg-[var(--color-accent-hover)] transition-colors"
-                  >
-                    Book Sam for your event
-                  </a>
-                </div>
+            <div className="space-y-6">
+              {/* Speaker Photo Placeholder */}
+              <div className="aspect-[4/3] bg-gradient-to-br from-[var(--color-muted)] to-[var(--color-text)] rounded-lg relative overflow-hidden">
+                <Image
+                  src="/speaker.png"
+                  alt="Sam Keen speaking"
+                  fill
+                  className="object-cover"
+                />
               </div>
 
-              <div className="space-y-6">
-                {/* Speaker Photo */}
-                <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
-                  <Image
-                    src="/speaker.png"
-                    alt="Sam Keen speaking"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-
-                {/* Credibility for speakers */}
-                <div className="p-6 bg-[var(--color-surface)] rounded-xl border border-[var(--color-border)]">
-                  <h4 className="font-semibold text-[var(--color-text)] mb-4">
-                    Credentials
-                  </h4>
-                  <ul className="space-y-2 text-sm text-[var(--color-muted)]">
-                    <li className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-[var(--color-accent)] mt-0.5 flex-shrink-0" />
-                      Author, Clean Architecture with Python (Packt)
+              {/* Credentials */}
+              <div className="p-6 bg-[var(--color-surface)] border border-[var(--color-border)]">
+                <h4 className="font-semibold mb-4">Credentials</h4>
+                <ul className="space-y-2">
+                  {CREDENTIALS.map((cred) => (
+                    <li
+                      key={cred}
+                      className="flex items-start gap-2 text-sm text-[var(--color-muted)]"
+                    >
+                      <span className="text-[var(--color-accent)] flex-shrink-0">
+                        <Check className="w-4 h-4" />
+                      </span>
+                      {cred}
                     </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-[var(--color-accent)] mt-0.5 flex-shrink-0" />
-                      Former AWS GenAI Innovation Lab Lead
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-[var(--color-accent)] mt-0.5 flex-shrink-0" />
-                      Co-founder, Portland AI Engineers (1,100+ members)
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-[var(--color-accent)] mt-0.5 flex-shrink-0" />
-                      150+ editions of weekly applied AI content
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-[var(--color-accent)] mt-0.5 flex-shrink-0" />
-                      25+ years shipping production software
-                    </li>
-                  </ul>
-                </div>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
         </section>
 
         {/* About Section */}
-        <section id="about" className="py-20 sm:py-28 bg-[var(--color-surface)]">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-3 gap-12 items-start">
-              <div className="lg:col-span-1">
-                {/* Photo */}
-                <div className="relative aspect-square rounded-2xl overflow-hidden">
-                  <Image
-                    src="/Sam_Keen_400x400.jpg"
-                    alt="Sam Keen"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+        <section id="about" className="py-24 px-6 lg:px-12 bg-[var(--color-surface)]">
+          <div className="max-w-[1400px] mx-auto">
+            <div className="grid lg:grid-cols-[200px_300px_1fr] gap-8 lg:gap-16">
+              <span className="font-[family-name:var(--font-display)] font-semibold text-sm uppercase tracking-widest text-[var(--color-muted)]">
+                About
+              </span>
 
-                <div className="mt-6 flex gap-4 justify-center lg:justify-start">
-                  {SOCIAL_LINKS.map((link) => (
-                    <a
-                      key={link.label}
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors"
-                      aria-label={link.label}
-                    >
-                      {link.icon}
-                    </a>
-                  ))}
-                </div>
+              {/* Photo */}
+              <div className="aspect-square bg-gradient-to-br from-[var(--color-muted)] to-[var(--color-text)] rounded-lg relative overflow-hidden">
+                <Image
+                  src="/Sam_Keen_400x400.jpg"
+                  alt="Sam Keen"
+                  fill
+                  className="object-cover"
+                />
               </div>
 
-              <div className="lg:col-span-2">
-                <h2 className="text-3xl sm:text-4xl font-bold text-[var(--color-text)]">
-                  About Sam Keen
+              {/* Bio */}
+              <div>
+                <h2 className="font-[family-name:var(--font-display)] font-bold text-3xl uppercase mb-6">
+                  Sam Keen
                 </h2>
-                <div className="mt-6 space-y-4 text-[var(--color-muted)] leading-relaxed">
+                <div className="space-y-4 text-[var(--color-muted)]">
                   <p>
-                    I&apos;ve spent 25+ years building software at companies
-                    like Nike, Lululemon, AWS, and a handful of startups. I led
-                    the GenAI Innovation Lab at AWS, where I helped teams figure
-                    out what&apos;s real and what&apos;s noise in the AI space.
+                    I&apos;ve spent 25+ years building software at companies like
+                    Nike, Lululemon, AWS, and a handful of startups. I led the
+                    GenAI Innovation Lab at AWS, where I helped teams figure out
+                    what&apos;s real and what&apos;s noise in the AI space.
                   </p>
                   <p>
-                    In 2025, I went full-time on applied AI research. Not
-                    building AI—building <em>with</em> AI. Understanding how
-                    these tools actually change the way we write software, lead
-                    teams, and ship products.
+                    In 2025, I went full-time on applied AI research. Not building
+                    AI—building <em>with</em> AI. Understanding how these tools
+                    actually change the way we write software, lead teams, and
+                    ship products.
                   </p>
                   <p>
                     AlteredCraft is where I share what I learn. Through the
@@ -673,6 +538,20 @@ export default function Home() {
                     together.
                   </p>
                 </div>
+                <div className="flex gap-4 mt-8">
+                  {SOCIAL_LINKS.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors"
+                      aria-label={link.label}
+                    >
+                      {link.icon}
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -680,45 +559,33 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="py-12 bg-[var(--color-text)]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="md:col-span-2">
-              <a href="/" className="flex items-center">
-                <Image
-                  src="/AC-logo.svg"
-                  alt="AlteredCraft"
-                  width={160}
-                  height={32}
-                  className="h-8 w-auto brightness-0 invert"
-                />
-              </a>
-              <p className="mt-4 text-sm text-[var(--color-muted)] max-w-md">
+      <footer className="py-16 px-6 lg:px-12 bg-[var(--color-text)] text-[var(--color-surface)]">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="grid md:grid-cols-[2fr_1fr_1fr] gap-16">
+            <div>
+              <div className="font-[family-name:var(--font-display)] font-bold text-2xl uppercase tracking-tight">
+                AlteredCraft
+              </div>
+              <p className="text-[var(--color-muted)] text-sm max-w-[400px] mt-4">
                 Applied AI guidance for the people who build software. Weekly
                 insights, workshops, and strategic advisory.
               </p>
-
-              {/* Footer newsletter CTA */}
-              <div className="mt-6">
-                <a
-                  href="#newsletter"
-                  className="inline-flex px-4 py-2 bg-[var(--color-accent)] text-white text-sm font-medium rounded-lg hover:bg-[var(--color-accent-hover)] transition-colors"
-                >
-                  Subscribe to the newsletter
-                </a>
-              </div>
+              <a
+                href="#newsletter"
+                className="inline-flex items-center gap-2 mt-6 px-9 py-4 bg-[var(--color-accent)] text-[var(--color-base)] font-semibold uppercase tracking-widest text-sm hover:opacity-90 transition-opacity"
+              >
+                Subscribe to the newsletter
+              </a>
             </div>
 
             <div>
-              <h4 className="font-semibold text-[var(--color-surface)] mb-4">
-                Navigate
-              </h4>
-              <ul className="space-y-2 text-sm">
+              <h4 className="font-semibold mb-4">Navigate</h4>
+              <ul className="space-y-2">
                 {NAV_LINKS.map((link) => (
                   <li key={link.href}>
                     <a
                       href={link.href}
-                      className="text-[var(--color-muted)] hover:text-[var(--color-surface)] transition-colors"
+                      className="text-[var(--color-muted)] text-sm hover:text-[var(--color-surface)] transition-colors"
                     >
                       {link.label}
                     </a>
@@ -728,9 +595,7 @@ export default function Home() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-[var(--color-surface)] mb-4">
-                Connect
-              </h4>
+              <h4 className="font-semibold mb-4">Connect</h4>
               <ul className="space-y-2 text-sm">
                 <li>
                   <a
@@ -774,7 +639,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-[var(--color-surface)]/10 text-center text-sm text-[var(--color-muted)]">
+          <div className="mt-12 pt-8 border-t border-white/10 text-center text-[var(--color-muted)] text-sm">
             © {new Date().getFullYear()} AlteredCraft. All rights reserved.
           </div>
         </div>
