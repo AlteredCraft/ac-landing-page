@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { MobileMenu } from "@/components/MobileMenu";
 import { Check } from "lucide-react";
+import speakerImg from "../../public/speaker.png";
+import samImg from "../../public/Sam_Keen_400x400.jpg";
 
 const NAV_LINKS = [
   { href: "#newsletter", label: "Newsletter" },
@@ -454,7 +456,7 @@ export default function Home() {
               {/* Speaker Photo Placeholder */}
               <div className="aspect-[4/3] bg-gradient-to-br from-[var(--color-muted)] to-[var(--color-text)] rounded-lg relative overflow-hidden">
                 <Image
-                  src="/speaker.png"
+                  src={speakerImg}
                   alt="Sam Keen speaking"
                   fill
                   className="object-cover"
@@ -493,7 +495,7 @@ export default function Home() {
               {/* Photo */}
               <div className="aspect-square bg-gradient-to-br from-[var(--color-muted)] to-[var(--color-text)] rounded-lg relative overflow-hidden">
                 <Image
-                  src="/Sam_Keen_400x400.jpg"
+                  src={samImg}
                   alt="Sam Keen"
                   fill
                   className="object-cover"

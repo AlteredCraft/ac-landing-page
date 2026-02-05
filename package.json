@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "preview": "npm run build && mkdir -p .preview/ac-landing-page && cp -r out/* .preview/ac-landing-page/ && npx serve .preview",
     "lint": "eslint"
   },
   "dependencies": {

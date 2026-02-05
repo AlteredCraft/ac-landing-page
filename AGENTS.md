@@ -1,98 +1,104 @@
-# AGENTS.md
+# AlteredCraft Landing Page
 
-This file provides guidance to agents (i.e., ADAL) when working with code in this repository.
+Single-scroll marketing landing page for AlteredCraft - Applied AI guidance for software teams.
 
-## Quick Reference
+## Tech Stack
 
-### Commands
-```bash
-npm run dev        # Dev server at localhost:3000 (add -p <port> if 3000 busy)
-npm run build      # Static export to /out directory
-npm run lint       # ESLint
-```
-
-### Key Files
-| File | Purpose |
-|------|---------|
-| `src/app/page.tsx` | Main landing page (all sections) |
-| `src/app/layout.tsx` | Root layout, fonts, SEO metadata |
-| `src/app/globals.css` | Color palette via CSS variables |
-| `src/components/MobileMenu.tsx` | Only client component |
-| `next.config.ts` | Static export config |
-
-## Critical Gotchas
-
-1. **Static Export**: This is NOT a server-rendered Next.js app. Uses `output: 'export'` for GitHub Pages deployment.
-   - No API routes, no server components with dynamic data
-   - Images must use `unoptimized: true`
-
-2. **No Emojis**: Use Lucide React icons exclusively. Never add emojis anywhere.
-
-3. **Colors**: Always use CSS variables from `globals.css`, never hardcode colors:
-   ```tsx
-   // ✓ Correct
-   className="text-[var(--color-accent)]"
-   
-   // ✗ Wrong
-   className="text-teal-600"
-   ```
-
-4. **Client Components**: Keep minimal. Only `MobileMenu.tsx` is a client component. Prefer server components.
+- **Framework**: Next.js 16 with App Router
+- **Styling**: Tailwind CSS 4 with CSS custom properties
+- **Language**: TypeScript
+- **Icons**: Lucide React (no emojis anywhere on the site)
+- **Font**: Inter from Google Fonts
+- **Deployment**: Static export for GitHub Pages (`output: 'export'`)
 
 ## Design System
 
-### Color Variables (defined in globals.css)
-- `--color-base` (#F7F7F5) - Page background
-- `--color-text` (#1C1C1C) - Primary text
-- `--color-accent` (#0D9488) - CTAs, links, highlights
-- `--color-accent-hover` (#0F766E) - Hover states
-- `--color-muted` (#71717A) - Secondary text
-- `--color-border` (#E4E4E7) - Borders
-- `--color-surface` (#FFFFFF) - Cards
-- `--color-surface-alt` (#F4F4F5) - Alternate surfaces
+### Color Palette (Deep Teal)
+
+Defined in `src/app/globals.css`:
+
+| Variable | Value | Usage |
+|----------|-------|-------|
+| `--color-base` | #F7F7F5 | Page background |
+| `--color-text` | #1C1C1C | Primary text |
+| `--color-accent` | #0D9488 | CTAs, links, highlights |
+| `--color-accent-hover` | #0F766E | Hover states |
+| `--color-muted` | #71717A | Secondary text |
+| `--color-border` | #E4E4E7 | Borders |
+| `--color-surface` | #FFFFFF | Cards, sections |
+| `--color-surface-alt` | #F4F4F5 | Alternate surfaces |
+
+### Visual Style
+
+- Clean, professional, light aesthetic
+- Simple yet bold
+- No emojis - use Lucide React icons exclusively
+- Minimal client-side JavaScript (only MobileMenu is a client component)
 
 ### Brand Wordmark
-- Font: Inter, font-black (900), uppercase
-- Sizing: text-5xl → sm:text-6xl → lg:text-8xl
 
-## Architecture
+Large centered wordmark above hero content:
+- Font: Inter
+- Weight: font-black (900)
+- Style: Uppercase
+- Color: `--color-text` (black)
+- Sizing: text-5xl / sm:text-6xl / lg:text-8xl
 
-### Page Structure (Single Scroll)
-`page.tsx` contains all sections in order:
-1. Navigation (sticky header)
-2. Hero (wordmark, headline, CTAs, headshot)
-3. Credibility Strip
-4. Offerings Overview (card grid)
-5. Newsletter (Substack embed)
-6. Courses (coming soon)
-7. For Teams (dark section - workshops/advisory)
-8. Speaking
-9. About
-10. Footer
+## Project Structure
 
-### External Services
-| Service | URL |
-|---------|-----|
-| Newsletter | writing.alteredcraft.com (Substack) |
-| Booking | altered-craft.neetocal.com/meeting-with-sam-keen |
-| Email | sam@alteredcraft.com |
-
-### Static Assets
-All in `/public`:
-- `AC-logo.svg` - Logo
-- `sam-headshot-casual-500x500.png` - Hero section
-- `Sam_Keen_400x400.jpg` - About section
-- `speaker.png` - Speaking section
-
-## Tech Stack Summary
-- Next.js 16 (App Router, static export)
-- Tailwind CSS 4 + CSS custom properties
-- TypeScript
-- Lucide React (icons)
-- Inter font (Google Fonts)
-
-## Path Alias
-`@/*` maps to `./src/*` - use for imports:
-```tsx
-import { MobileMenu } from '@/components/MobileMenu'
 ```
+src/
+├── app/
+│   ├── page.tsx        # Main landing page (all sections)
+│   ├── layout.tsx      # Root layout, fonts, SEO metadata
+│   └── globals.css     # Color palette, theme config
+└── components/
+    └── MobileMenu.tsx  # Client component for mobile nav
+public/
+├── AC-logo.svg
+├── sam-headshot-casual-500x500.png  # Hero section
+├── Sam_Keen_400x400.jpg             # About section
+└── speaker.png
+```
+
+## Page Sections
+
+1. **Navigation** - Sticky header with logo and nav links
+2. **Hero** - Brand wordmark, headline, CTAs, headshot
+3. **Credibility Strip** - Key credentials
+4. **Offerings Overview** - Card grid linking to sections
+5. **Newsletter** - Free/Premium tiers, Substack embed
+6. **Courses** - Coming soon course cards with waitlist
+7. **For Teams** - Workshops and Advisory (dark section)
+8. **Speaking** - Talk topics and credentials
+9. **About** - Bio and social links
+10. **Footer** - Navigation, social, newsletter CTA
+
+## External Integrations
+
+- **Newsletter**: Substack at `writing.alteredcraft.com`
+- **Booking**: NeetoCal at `altered-craft.neetocal.com/meeting-with-sam-keen`
+- **Email**: sam@alteredcraft.com
+
+## Social Links
+
+- LinkedIn: linkedin.com/in/samkeen
+- Substack: writing.alteredcraft.com
+- X/Twitter: x.com/samkeen
+
+## Development
+
+```bash
+npm run dev        # Start dev server (default port 3000)
+npm run build      # Generate static export to /out
+```
+
+Note: If port 3000 is in use, run with `-p <port>` flag.
+
+## Guidelines for Future Work
+
+1. **Icons**: Always use Lucide React, never emojis
+2. **Colors**: Use CSS variables, not hardcoded values
+3. **Components**: Keep client components minimal; prefer server components
+4. **Images**: Use next/image with unoptimized mode (required for static export)
+5. **Styling**: Use Tailwind utilities with CSS variable references like `text-[var(--color-accent)]`

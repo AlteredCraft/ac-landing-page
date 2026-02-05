@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AlteredCraft Landing Page
 
-## Getting Started
+Single-scroll marketing page for [AlteredCraft](https://alteredcraft.com). Built with Next.js 16, Tailwind CSS 4, and TypeScript. Deployed as a static export to GitHub Pages.
 
-First, run the development server:
+## Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Opens at `http://localhost:3000`. Hot-reloads on file changes.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Testing the Production Build Locally
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To preview exactly what GitHub Pages serves (static export with `basePath`):
 
-## Learn More
+```bash
+npm run preview
+```
 
-To learn more about Next.js, take a look at the following resources:
+Then open `http://localhost:3000/ac-landing-page/`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This builds the static export and stages it under `.preview/ac-landing-page/` so the `basePath` resolves correctly, matching the GitHub Pages URL structure.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+> `basePath` is set to `/ac-landing-page` in production so assets resolve correctly on `alteredcraft.github.io/ac-landing-page/`. This will be removed when the custom domain (`alteredcraft.com`) is configured.
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Pushes to `main` trigger the GitHub Actions workflow (`.github/workflows/deploy.yml`), which builds and deploys to GitHub Pages automatically.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Live at: https://alteredcraft.github.io/ac-landing-page/
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── page.tsx          # All page sections
+│   ├── layout.tsx        # Root layout, fonts, SEO metadata
+│   └── globals.css       # Color palette (CSS custom properties)
+└── components/
+    └── MobileMenu.tsx    # Client component (mobile nav toggle)
+public/                   # Static assets (images, logo)
+```
+
+## Key Conventions
+
+- **Icons**: Lucide React only, no emojis
+- **Colors**: CSS variables defined in `globals.css`, referenced via `var(--color-*)`
+- **Components**: Server components by default; client components only when needed
+- **Images**: `next/image` with `unoptimized: true` (required for static export)
