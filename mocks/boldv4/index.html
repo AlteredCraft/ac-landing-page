@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AlteredCraft - Design 1: Bold Statement v2</title>
+  <title>AlteredCraft - Bold v4 (No Wordmark, No Hero Image)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --color-base: #FAFAFA;
@@ -46,10 +46,11 @@
     }
 
     .nav-logo {
-      font-family: 'Anton', sans-serif;
-      font-size: 1.25rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.02em;
     }
 
     .nav-links {
@@ -86,40 +87,26 @@
       background: var(--color-accent);
     }
 
-    /* Hero */
+    /* Hero - Full width, no image */
     .hero {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 8rem 3rem 4rem;
-      max-width: 1400px;
+      padding: 6rem 3rem 4rem;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
-    .hero-wordmark {
-      font-family: 'Anton', sans-serif;
-      font-size: clamp(3rem, 10vw, 8rem);
+    .hero-statement {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(3rem, 8vw, 5rem);
+      line-height: 1.05;
       text-transform: uppercase;
       letter-spacing: -0.02em;
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .hero-content {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .hero-statement {
-      font-family: 'Anton', sans-serif;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      line-height: 1.1;
-      text-transform: uppercase;
-      letter-spacing: -0.01em;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
+      max-width: 900px;
     }
 
     .hero-statement .accent {
@@ -127,15 +114,17 @@
     }
 
     .hero-sub {
-      font-size: 1.125rem;
+      font-size: 1.375rem;
       color: var(--color-muted);
-      margin-bottom: 2rem;
-      max-width: 500px;
+      margin-bottom: 3rem;
+      max-width: 680px;
+      line-height: 1.6;
     }
 
     .hero-actions {
       display: flex;
-      gap: 1rem;
+      gap: 1.5rem;
+      align-items: center;
     }
 
     .btn-primary {
@@ -144,7 +133,7 @@
       gap: 0.5rem;
       background: var(--color-text);
       color: var(--color-base);
-      padding: 1rem 2rem;
+      padding: 1.125rem 2.25rem;
       text-decoration: none;
       font-weight: 600;
       text-transform: uppercase;
@@ -163,7 +152,7 @@
       gap: 0.5rem;
       background: transparent;
       color: var(--color-text);
-      padding: 1rem 2rem;
+      padding: 1.125rem 2.25rem;
       text-decoration: none;
       font-weight: 600;
       text-transform: uppercase;
@@ -176,13 +165,6 @@
     .btn-secondary:hover {
       background: var(--color-text);
       color: var(--color-base);
-    }
-
-    .hero-image {
-      width: 100%;
-      aspect-ratio: 1;
-      background: linear-gradient(135deg, var(--color-muted) 0%, var(--color-text) 100%);
-      border-radius: 8px;
     }
 
     /* Credibility */
@@ -227,7 +209,8 @@
     }
 
     .section-label {
-      font-family: 'Anton', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
       font-size: 0.875rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -235,7 +218,8 @@
     }
 
     .section-title {
-      font-family: 'Anton', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
       font-size: clamp(2rem, 4vw, 3rem);
       text-transform: uppercase;
       line-height: 1.1;
@@ -268,14 +252,16 @@
     }
 
     .offering-number {
-      font-family: 'Anton', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
       font-size: 2rem;
       color: var(--color-accent);
       margin-bottom: 1rem;
     }
 
     .offering-card h3 {
-      font-family: 'Anton', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
       font-size: 1.25rem;
       text-transform: uppercase;
       margin-bottom: 0.5rem;
@@ -330,7 +316,8 @@
     }
 
     .tier-card h3 {
-      font-family: 'Anton', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
       font-size: 1.5rem;
       text-transform: uppercase;
       margin-bottom: 0.5rem;
@@ -414,7 +401,8 @@
     }
 
     .team-card h3 {
-      font-family: 'Anton', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
       font-size: 1.75rem;
       text-transform: uppercase;
       margin-bottom: 0.5rem;
@@ -473,10 +461,12 @@
 
     .teams-cta .btn-primary {
       background: var(--color-accent);
+      color: var(--color-base);
     }
 
     .teams-cta .btn-primary:hover {
-      background: var(--color-accent-hover);
+      background: var(--color-accent);
+      color: var(--color-base);
     }
 
     .teams-cta p {
@@ -587,7 +577,8 @@
     }
 
     .about-bio h2 {
-      font-family: 'Anton', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
       font-size: 2rem;
       text-transform: uppercase;
       margin-bottom: 1.5rem;
@@ -692,21 +683,15 @@
   </nav>
 
   <section class="hero">
-    <div class="hero-wordmark">Altered Craft</div>
-    <div class="hero-content">
-      <div>
-        <h1 class="hero-statement">
-          Applied <span class="accent">AI guidance</span> for the people who build software.
-        </h1>
-        <p class="hero-sub">
-          AI is reshaping how software gets built. The tooling moves fast, the noise is deafening, and nobody got a manual.
-        </p>
-        <div class="hero-actions">
-          <a href="#newsletter" class="btn-primary">Subscribe free</a>
-          <a href="#offerings" class="btn-secondary">Explore offerings</a>
-        </div>
-      </div>
-      <div class="hero-image"></div>
+    <h1 class="hero-statement">
+      <span class="accent">AI guidance</span> for the people who build software.
+    </h1>
+    <p class="hero-sub">
+      AI is reshaping how software gets built. I help developers and engineering teams make sense of the shift — from weekly analysis to hands-on workshops to strategic guidance, all grounded in 25 years of shipping production software.
+    </p>
+    <div class="hero-actions">
+      <a href="#newsletter" class="btn-primary">Subscribe free</a>
+      <a href="#offerings" class="btn-secondary">Explore offerings</a>
     </div>
   </section>
 
@@ -783,7 +768,7 @@
             </div>
             <div class="tier-card premium">
               <div class="tier-label">Premium · $10/mo</div>
-              <h3>Thursday Deep Dives</h3>
+              <h3><a href="https://alteredcraft.com/t/deep-dives-insights" target="_blank" style="color: inherit; text-decoration: none;">Deep Dives & Insights</a></h3>
               <p>Tech Explorations & Industry Analysis. Go deeper than the headlines.</p>
             </div>
           </div>
@@ -937,7 +922,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="nav-logo" style="color: var(--color-surface);">AlteredCraft</div>
-        <p>Applied AI guidance for the people who build software. Weekly insights, workshops, and strategic advisory.</p>
+        <p>AI guidance for the people who build software. Weekly insights, workshops, and strategic advisory.</p>
         <a href="#newsletter" class="btn-primary" style="margin-top: 1.5rem; display: inline-flex; background: var(--color-accent);">Subscribe to the newsletter</a>
       </div>
       <div class="footer-nav">
