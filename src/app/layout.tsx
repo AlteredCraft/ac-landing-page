@@ -21,9 +21,9 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "AlteredCraft | Applied AI Guidance for Software Teams",
+  title: "AlteredCraft | AI Guidance for Software Teams",
   description:
-    "Applied AI guidance for the people who build software. Weekly insights, workshops, and strategic advisory from Sam Keen.",
+    "Practical AI guidance for the people who build software. Weekly insights, workshops, and strategic advisory from Sam Keen.",
   keywords: [
     "AI",
     "software development",
@@ -34,18 +34,18 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Sam Keen" }],
   openGraph: {
-    title: "AlteredCraft | Applied AI Guidance for Software Teams",
+    title: "AlteredCraft | AI Guidance for Software Teams",
     description:
-      "Applied AI guidance for the people who build software. Weekly insights, workshops, and strategic advisory.",
+      "Practical AI guidance for the people who build software. Weekly insights, workshops, and strategic advisory.",
     url: "https://alteredcraft.com",
     siteName: "AlteredCraft",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AlteredCraft | Applied AI Guidance for Software Teams",
+    title: "AlteredCraft | AI Guidance for Software Teams",
     description:
-      "Applied AI guidance for the people who build software. Weekly insights, workshops, and strategic advisory.",
+      "Practical AI guidance for the people who build software. Weekly insights, workshops, and strategic advisory.",
   },
 };
 

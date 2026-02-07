@@ -13,7 +13,7 @@ const NAV_LINKS = [
 ];
 
 const OFFERINGS = [
-  { number: "01", title: "Newsletter", description: "Weekly applied AI insights for developers" },
+  { number: "01", title: "Newsletter", description: "Weekly AI insights for developers" },
   { number: "02", title: "Courses", description: "Self-paced learning to go deeper" },
   { number: "03", title: "Workshops", description: "Live, instructor-led sessions for teams" },
   { number: "04", title: "Advisory", description: "Scoped engagements for engineering leadership" },
@@ -53,7 +53,7 @@ const CREDENTIALS = [
   "Author, Clean Architecture with Python (Packt)",
   "Former AWS GenAI Innovation Lab Lead",
   "Co-founder, Portland AI Engineers (1,100+ members)",
-  "150+ editions of weekly applied AI content",
+  "150+ editions of weekly AI analysis",
   "25+ years shipping production software",
 ];
 
@@ -131,13 +131,14 @@ export default function Home() {
         <section className="min-h-screen flex flex-col justify-center pt-24 pb-16 px-6 lg:px-12 max-w-[1000px] mx-auto">
           <h1 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(3rem,8vw,5rem)] leading-[1.05] tracking-tight mb-8">
             <span className="text-[var(--color-accent)]">AI guidance</span>{" "}
-            for the people who build software.
+            for the people who build software
           </h1>
           <p className="text-xl lg:text-[1.375rem] text-[var(--color-muted)] mb-12 max-w-[680px] leading-relaxed">
-            AI is reshaping how software gets built. I help developers and
-            engineering teams make sense of the shift — from weekly analysis to
-            hands-on workshops to strategic guidance, all grounded in 25 years
-            of shipping production software.
+            AI is changing how software gets built — and most teams are
+            figuring it out alone. I help developers and engineering leaders
+            adopt AI with confidence, from weekly analysis to hands-on workshops
+            to strategic guidance, grounded in 25 years of shipping production
+            software.
           </p>
           <div className="flex flex-wrap gap-6">
             <a
@@ -180,7 +181,7 @@ export default function Home() {
               Offerings
             </span>
             <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(2rem,4vw,3rem)] leading-tight">
-              From weekly insights to hands-on strategy
+              From signal to strategy
             </h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -261,7 +262,7 @@ export default function Home() {
                   {[
                     "Production-informed, not demo magic",
                     "Written by someone who ships code",
-                    "Substance over hype, every edition",
+                    "Opinionated, with receipts",
                   ].map((item) => (
                     <div
                       key={item}
@@ -392,7 +393,7 @@ export default function Home() {
                 Speaking
               </h2>
               <p className="text-[var(--color-muted)] mb-8">
-                Applied AI for software teams—not demos, not theory. Talks
+                Practical AI for software teams—not demos, not theory. Talks
                 grounded in real experiments and production experience.
               </p>
               <div className="space-y-6">
@@ -476,7 +477,7 @@ export default function Home() {
                     what&apos;s real and what&apos;s noise in the AI space.
                   </p>
                   <p>
-                    In 2025, I went full-time on applied AI research. Not building
+                    In 2025, I went full-time on researching how teams build with AI. Not building
                     AI—building <em>with</em> AI. Understanding how these tools
                     actually change the way we write software, lead teams, and
                     ship products.
@@ -497,7 +498,7 @@ export default function Home() {
                     >
                       Portland AI Engineers
                     </a>
-                    , a community of 1,100+ practitioners exploring applied AI
+                    , a community of 1,100+ practitioners exploring practical AI
                     together.
                   </p>
                 </div>
@@ -528,7 +529,7 @@ export default function Home() {
             <div>
               <BrandLockup variant="horizontal" size="sm" theme="dark" />
               <p className="text-[var(--color-muted)] text-sm max-w-[400px] mt-4">
-                Applied AI guidance for the people who build software. Weekly
+                Practical AI guidance for the people who build software. Weekly
                 insights, workshops, and strategic advisory.
               </p>
               <a
