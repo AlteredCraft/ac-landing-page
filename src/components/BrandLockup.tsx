@@ -1,4 +1,6 @@
 import Image from "next/image";
+import logoFilled from "../../public/ac-logo-code.svg";
+import logoOutlined from "../../public/ac-logo-code-outlined.svg";
 
 type BrandLockupProps = {
   variant?: "horizontal" | "stacked";
@@ -18,10 +20,7 @@ export function BrandLockup({
   theme = "light",
 }: BrandLockupProps) {
   const config = sizeConfig[size];
-  const logoSrc =
-    theme === "dark"
-      ? "/ac-logo-code-outlined.svg"
-      : "/ac-logo-code.svg";
+  const logoSrc = theme === "dark" ? logoOutlined : logoFilled;
   const textColor = theme === "dark" ? "text-white" : "text-[#1F1D1D]";
 
   if (variant === "stacked") {

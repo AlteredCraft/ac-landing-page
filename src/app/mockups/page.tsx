@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import logoImg from "../../../public/ac-logo-code.svg";
 
 const MOCKUPS = [
   {
@@ -65,7 +66,7 @@ export default function MockupsIndex() {
         </div>
         <div className="flex items-center gap-4 mb-4">
           <Image
-            src="/ac-logo-code.svg"
+            src={logoImg}
             alt="AlteredCraft logo"
             width={48}
             height={48}
