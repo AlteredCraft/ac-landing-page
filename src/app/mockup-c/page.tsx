@@ -173,7 +173,7 @@ export default function MockupC() {
                   <div className="text-sm font-semibold tracking-wide text-[var(--color-accent)] mb-1">
                     {item.label}
                   </div>
-                  <div className="text-base text-white/70">
+                  <div className="text-[1rem] text-white/70">
                     {item.detail}
                   </div>
                 </div>
