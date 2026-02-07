@@ -153,18 +153,16 @@ export default function Home() {
               Explore offerings
             </a>
           </div>
-        </section>
 
-        {/* Credibility Strip */}
-        <section className="py-12 bg-[var(--color-text)]">
-          <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+          {/* Credibility Strip */}
+          <div className="mt-16 pt-12 border-t border-[var(--color-border)]">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
               {CREDIBILITY.map((item) => (
                 <div key={item.label} className="text-center">
                   <div className="text-sm font-semibold tracking-wide text-[var(--color-accent)] mb-1">
                     {item.label}
                   </div>
-                  <div className="text-base text-white/70">
+                  <div className="text-[1rem] text-[var(--color-muted)]">
                     {item.detail}
                   </div>
                 </div>
