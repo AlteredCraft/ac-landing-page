@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  /* Deep Teal Palette - Bold v4 */
-  --color-base: #FAFAFA;
-  --color-text: #1C1C1C;
-  --color-accent: #0D9488;
-  --color-accent-hover: #0F766E;
-  --color-muted: #71717A;
-  --color-border: #E4E4E7;
-  --color-surface: #FFFFFF;
-  --color-surface-alt: #F4F4F5;
+  /* Warm Gold Palette - Rebrand */
+  --color-base: #F5F3EF;
+  --color-text: #1F1D1D;
+  --color-accent: #D4B84A;
+  --color-accent-hover: #C4A83A;
+  --color-muted: #8A877E;
+  --color-border: #E0DDD6;
+  --color-surface: #FDFCF9;
+  --color-surface-alt: #EFECE5;
 }
 
 @theme inline {
@@ -22,7 +22,7 @@
   --color-surface: var(--color-surface);
   --color-surface-alt: var(--color-surface-alt);
   --font-sans: var(--font-inter);
-  --font-display: var(--font-space-grotesk);
+  --font-display: var(--font-plus-jakarta);
 }
 
 html {
