@@ -137,8 +137,8 @@ export default function Home() {
             AI is changing how software gets built — and most teams are
             figuring it out alone. I help developers and engineering leaders
             adopt AI with confidence, from weekly analysis to hands-on workshops
-            to strategic guidance, grounded in 25 years of shipping production
-            software.
+            to strategic guidance, grounded in 25 years of production
+            software experience.
           </p>
           <div className="flex flex-wrap gap-6">
             <a
@@ -174,10 +174,7 @@ export default function Home() {
 
         {/* Offerings Section */}
         <section id="offerings" className="py-24 px-6 lg:px-12 max-w-[1400px] mx-auto">
-          <div className="grid lg:grid-cols-[200px_1fr] gap-8 lg:gap-16 mb-12 items-end">
-            <span className="font-[family-name:var(--font-plus-jakarta)] font-semibold text-sm tracking-wide text-[var(--color-muted)]">
-              Offerings
-            </span>
+          <div className="mb-12">
             <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(2rem,4vw,3rem)] leading-tight">
               From signal to strategy
             </h2>
@@ -206,10 +203,7 @@ export default function Home() {
         {/* Newsletter Section */}
         <section id="newsletter" className="py-24 px-6 lg:px-12 bg-[var(--color-surface)]">
           <div className="max-w-[1400px] mx-auto">
-            <div className="grid lg:grid-cols-[200px_1fr] gap-8 lg:gap-16">
-              <span className="font-[family-name:var(--font-plus-jakarta)] font-semibold text-sm tracking-wide text-[var(--color-muted)]">
-                Newsletter
-              </span>
+            <div>
               <div>
                 <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(2rem,4vw,3rem)] leading-tight mb-4">
                   Stay calibrated
@@ -259,8 +253,8 @@ export default function Home() {
                 <div className="flex flex-col gap-3 mb-8">
                   {[
                     "Production-informed, not demo magic",
-                    "Written by someone who ships code",
-                    "Opinionated, with receipts",
+                    "Written by someone who shipped code for 25+ years (ex AWS | Lululemon | Nike)",
+                    "No hype — grounded in hands-on research and experimentation",
                   ].map((item) => (
                     <div
                       key={item}
@@ -296,17 +290,14 @@ export default function Home() {
         {/* For Teams Section */}
         <section id="teams" className="py-24 px-6 lg:px-12 bg-[var(--color-text)] text-[var(--color-surface)]">
           <div className="max-w-[1400px] mx-auto">
-            <div className="grid lg:grid-cols-[200px_1fr] gap-8 lg:gap-16 mb-16">
-              <span className="font-[family-name:var(--font-plus-jakarta)] font-semibold text-sm tracking-wide text-[var(--color-muted)]">
-                For Teams
-              </span>
+            <div className="mb-16">
               <div>
                 <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(2rem,4vw,3rem)]">
                   For Teams
                 </h2>
                 <p className="text-[var(--color-muted)] text-lg mt-4 max-w-[700px]">
                   Your team needs to build with AI, not just talk about it. Focused
-                  workshops and strategic guidance grounded in 25 years of shipping
+                  workshops and strategic guidance backed by 25 years of shipping
                   production software.
                 </p>
               </div>
@@ -381,11 +372,7 @@ export default function Home() {
 
         {/* Speaking Section */}
         <section id="speaking" className="py-24 px-6 lg:px-12 max-w-[1400px] mx-auto">
-          <div className="grid lg:grid-cols-[200px_1fr_1fr] gap-8 lg:gap-16">
-            <span className="font-[family-name:var(--font-plus-jakarta)] font-semibold text-sm tracking-wide text-[var(--color-muted)]">
-              Speaking
-            </span>
-
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
             <div>
               <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(2rem,4vw,3rem)] leading-tight mb-4">
                 Speaking
@@ -447,11 +434,7 @@ export default function Home() {
         {/* About Section */}
         <section id="about" className="py-24 px-6 lg:px-12 bg-[var(--color-surface)]">
           <div className="max-w-[1400px] mx-auto">
-            <div className="grid lg:grid-cols-[200px_300px_1fr] gap-8 lg:gap-16">
-              <span className="font-[family-name:var(--font-plus-jakarta)] font-semibold text-sm tracking-wide text-[var(--color-muted)]">
-                About
-              </span>
-
+            <div className="grid lg:grid-cols-[300px_1fr] gap-8 lg:gap-16">
               {/* Photo */}
               <div className="aspect-square bg-gradient-to-br from-[var(--color-muted)] to-[var(--color-text)] rounded-lg relative overflow-hidden">
                 <Image
