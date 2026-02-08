@@ -7,17 +7,16 @@ import samImg from "../../public/Sam_Keen_400x400.jpg";
 
 const NAV_LINKS = [
   { href: "#newsletter", label: "Newsletter" },
-  { href: "#teams", label: "For Teams" },
-  { href: "#speaking", label: "Speaking" },
+  { href: "#workshops", label: "Workshops" },
+  { href: "#advisory", label: "Advisory" },
   { href: "#about", label: "About" },
 ];
 
 const OFFERINGS = [
   { number: "01", title: "Newsletter", description: "Weekly AI insights for developers" },
   { number: "02", title: "Courses", description: "Self-paced learning to go deeper" },
-  { number: "03", title: "Workshops", description: "Live, instructor-led sessions for teams" },
+  { number: "03", title: "Workshops", description: "Live, instructor-led sessions" },
   { number: "04", title: "Advisory", description: "Scoped engagements for engineering leadership" },
-  { number: "05", title: "Speaking", description: "Conference talks and keynotes" },
 ];
 
 const CREDIBILITY = [
@@ -42,20 +41,6 @@ const ADVISORY_TYPES = [
   { title: "Architecture Review", description: "Technical review of AI integration patterns and production considerations." },
 ];
 
-const TALK_TOPICS = [
-  { title: "The New Abstraction Layer", description: "How AI is changing the developer\u2019s relationship with code\u2014and what to do about it." },
-  { title: "Beyond the Demo", description: "What actually works when you move AI from prototype to production." },
-  { title: "Evaluating AI Tools Without the Hype", description: "A practical framework for cutting through marketing to find real value." },
-  { title: "Building AI-Native Development Teams", description: "Organizational patterns for teams that ship with AI, not just talk about it." },
-];
-
-const CREDENTIALS = [
-  "Author, Clean Architecture with Python (Packt)",
-  "Former AWS GenAI Innovation Lab Lead",
-  "Co-founder, Portland AI Engineers (1,100+ members)",
-  "150+ editions of weekly AI analysis",
-  "25+ years shipping production software",
-];
 
 const SOCIAL_LINKS = [
   {
@@ -87,7 +72,7 @@ const SOCIAL_LINKS = [
   },
 ];
 
-const barColors = ["#D4B84A", "#52C77E", "#5A94D4", "#D4B84A", "#52C77E"];
+const barColors = ["#D4B84A", "#52C77E", "#5A94D4", "#D4B84A"];
 
 export default function Home() {
   return (
@@ -179,7 +164,7 @@ export default function Home() {
               From signal to strategy
             </h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {OFFERINGS.map((offering, i) => (
               <div
                 key={offering.number}
@@ -217,9 +202,6 @@ export default function Home() {
                 {/* Tier Cards */}
                 <div className="grid md:grid-cols-2 gap-8 mb-12">
                   <div className="p-8 bg-[var(--color-base)] rounded-lg">
-                    <div className="text-xs font-semibold tracking-wide text-[var(--color-accent)] mb-2">
-                      Free
-                    </div>
                     <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-2xl mb-2">
                       Monday AI Review
                     </h3>
@@ -228,9 +210,6 @@ export default function Home() {
                     </p>
                   </div>
                   <div className="p-8 bg-[var(--color-base)] border-[3px] border-[var(--color-accent)] rounded-lg">
-                    <div className="text-xs font-semibold tracking-wide text-[var(--color-accent)] mb-2">
-                      Premium · $10/mo
-                    </div>
                     <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-2xl mb-2">
                       <a
                         href="https://writing.alteredcraft.com/t/deep-dives-insights"
@@ -288,17 +267,16 @@ export default function Home() {
         </section>
 
         {/* For Teams Section */}
-        <section id="teams" className="py-24 px-6 lg:px-12 bg-[var(--color-text)] text-[var(--color-surface)]">
+        <section id="workshops" className="py-24 px-6 lg:px-12 bg-[var(--color-text)] text-[var(--color-surface)]">
           <div className="max-w-[1400px] mx-auto">
             <div className="mb-16">
               <div>
                 <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(2rem,4vw,3rem)]">
-                  For Teams
+                  Workshops
                 </h2>
                 <p className="text-[var(--color-muted)] text-lg mt-4 max-w-[700px]">
-                  Your team needs to build with AI, not just talk about it. Focused
-                  workshops and strategic guidance backed by 25 years of shipping
-                  production software.
+                  Build with AI, not just talk about it. Focused workshops that
+                  build practical, hands-on skills.
                 </p>
               </div>
             </div>
@@ -306,9 +284,6 @@ export default function Home() {
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Workshops */}
               <div className="p-10 bg-white/5 border border-white/10 rounded-lg">
-                <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[1.75rem] mb-2">
-                  Workshops
-                </h3>
                 <p className="text-[var(--color-muted)] mb-4">
                   Live, instructor-led sessions (0.5–2 days). On-site or remote.
                 </p>
@@ -329,22 +304,14 @@ export default function Home() {
                 </ul>
               </div>
 
-              {/* Advisory */}
-              <div className="p-10 bg-white/5 border border-white/10 rounded-lg">
-                <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[1.75rem] mb-2">
-                  AI Strategy Advisory
-                </h3>
-                <p className="text-[var(--color-muted)] mb-6">
-                  Scoped consulting engagements with defined deliverables.
-                </p>
-                <div className="space-y-4">
-                  {ADVISORY_TYPES.map((type) => (
-                    <div key={type.title} className="mb-4">
-                      <h4 className="font-semibold mb-1">{type.title}</h4>
-                      <p className="text-white/60 text-sm">{type.description}</p>
-                    </div>
-                  ))}
-                </div>
+              {/* Speaker Image */}
+              <div className="rounded-lg relative overflow-hidden min-h-[400px]">
+                <Image
+                  src={speakerImg}
+                  alt="Sam Keen speaking at a conference"
+                  fill
+                  className="object-cover rounded-lg"
+                />
               </div>
             </div>
 
@@ -370,63 +337,70 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Speaking Section */}
-        <section id="speaking" className="py-24 px-6 lg:px-12 max-w-[1400px] mx-auto">
+        {/* Advisory Section */}
+        <section id="advisory" className="py-24 px-6 lg:px-12 max-w-[1400px] mx-auto">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
             <div>
               <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(2rem,4vw,3rem)] leading-tight mb-4">
-                Speaking
+                AI Strategy Advisory
               </h2>
               <p className="text-[var(--color-muted)] mb-8">
-                Practical AI for software teams—not demos, not theory. Talks
-                grounded in real experiments and production experience.
+                Scoped consulting engagements with defined deliverables. I help
+                engineering leaders make confident AI decisions backed by real
+                production experience.
               </p>
               <div className="space-y-6">
-                {TALK_TOPICS.map((talk) => (
-                  <div key={talk.title}>
-                    <h4 className="font-semibold mb-1">{talk.title}</h4>
+                {ADVISORY_TYPES.map((type) => (
+                  <div key={type.title}>
+                    <h4 className="font-semibold mb-1">{type.title}</h4>
                     <p className="text-sm text-[var(--color-muted)]">
-                      {talk.description}
+                      {type.description}
                     </p>
                   </div>
                 ))}
               </div>
-              <a
-                href="mailto:sam@alteredcraft.com?subject=Speaking%20Inquiry"
-                className="inline-flex items-center gap-2 mt-8 px-9 py-4 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg"
-              >
-                Book Sam for your event
-              </a>
             </div>
 
             <div className="space-y-6">
-              {/* Speaker Photo */}
-              <div className="aspect-[4/3] bg-gradient-to-br from-[var(--color-muted)] to-[var(--color-text)] rounded-lg relative overflow-hidden">
-                <Image
-                  src={speakerImg}
-                  alt="Sam Keen speaking"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-
-              {/* Credentials */}
               <div className="p-6 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg">
-                <h4 className="font-semibold mb-4">Credentials</h4>
-                <ul className="space-y-2">
-                  {CREDENTIALS.map((cred) => (
+                <h4 className="font-semibold mb-4">How it works</h4>
+                <ul className="space-y-3">
+                  {[
+                    "Discovery call to understand your context",
+                    "Scoped engagement with clear deliverables",
+                    "Hands-on analysis, not slide decks",
+                    "Actionable recommendations your team can execute",
+                  ].map((item) => (
                     <li
-                      key={cred}
+                      key={item}
                       className="flex items-start gap-2 text-sm text-[var(--color-muted)]"
                     >
                       <span className="text-[var(--color-accent)] flex-shrink-0">
                         <Check className="w-4 h-4" />
                       </span>
-                      {cred}
+                      {item}
                     </li>
                   ))}
                 </ul>
               </div>
+              <a
+                href="https://altered-craft.neetocal.com/meeting-with-sam-keen"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-9 py-4 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg"
+              >
+                Schedule a strategy call
+              </a>
+              <p className="text-[var(--color-muted)] text-sm">
+                Or email{" "}
+                <a
+                  href="mailto:sam@alteredcraft.com"
+                  className="text-[var(--color-accent)] hover:underline"
+                >
+                  sam@alteredcraft.com
+                </a>{" "}
+                to start a conversation.
+              </p>
             </div>
           </div>
         </section>
