@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[[redirects]]
+  from = "/p/*"
+  to = "https://writing.alteredcraft.com/p/:splat"
+  status = 301
+  force = true
