@@ -78,7 +78,7 @@ const LOGO_ASSETS = [
   },
   {
     name: "Wordmark",
-    description: "Text-only wordmark",
+    description: "Text-only wordmark, horizontal layout",
     variants: [
       {
         label: "Light background",
@@ -96,6 +96,27 @@ const LOGO_ASSETS = [
       },
     ],
     fullWidth: true,
+  },
+  {
+    name: "Stacked Wordmark",
+    description: "Text-only wordmark, stacked layout",
+    variants: [
+      {
+        label: "Light background",
+        preview: "/press-kit/ac-wm-stacked-light-bg.png",
+        bg: "bg-[#F5F3EF]",
+        svg: "/press-kit/ac-wm-stacked-light-bg.svg",
+        png: "/press-kit/ac-wm-stacked-light-bg.png",
+      },
+      {
+        label: "Dark background",
+        preview: "/press-kit/ac-wm-stacked-dark-bg.png",
+        bg: "bg-[#1F1D1D]",
+        svg: "/press-kit/ac-wm-stacked-dark-bg.svg",
+        png: "/press-kit/ac-wm-stacked-dark-bg.png",
+      },
+    ],
+    fullWidth: false,
   },
 ];
 
