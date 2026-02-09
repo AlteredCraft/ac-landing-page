@@ -3,7 +3,7 @@ import { BrandLockup } from "@/components/BrandLockup";
 import { MobileMenu } from "@/components/MobileMenu";
 import { Check } from "lucide-react";
 import speakerImg from "../../public/speaker.png";
-import samImg from "../../public/Sam_Keen_400x400.jpg";
+import samImg from "../../public/press-kit/sam-keen-headshot-editorial.jpg";
 
 const NAV_LINKS = [
   { href: "#newsletter", label: "Newsletter" },
@@ -519,6 +519,14 @@ export default function Home() {
                     </a>
                   </li>
                 ))}
+                <li>
+                  <a
+                    href="/press-kit"
+                    className="text-[var(--color-muted)] text-sm hover:text-[var(--color-surface)] transition-colors"
+                  >
+                    Press Kit
+                  </a>
+                </li>
               </ul>
             </div>
 

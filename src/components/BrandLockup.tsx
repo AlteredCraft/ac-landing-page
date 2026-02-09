@@ -1,6 +1,6 @@
 import Image from "next/image";
-import logoFilled from "../../public/ac-logo-code.svg";
-import logoOutlined from "../../public/ac-logo-code-outlined.svg";
+import logoFilled from "../../public/press-kit/ac-logo-light-bg.svg";
+import logoOutlined from "../../public/press-kit/ac-logo-dark-bg.svg";
 
 type BrandLockupProps = {
   variant?: "horizontal" | "stacked";
