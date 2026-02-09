@@ -7,3 +7,9 @@
   to = "https://writing.alteredcraft.com/p/:splat"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/i/*"
+  to = "https://writing.alteredcraft.com/i/:splat"
+  status = 301
+  force = true
