@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { BrandLockup } from "@/components/BrandLockup";
-import { CodeBarDivider } from "@/components/CodeBarDivider";
 import { Download, ArrowLeft } from "lucide-react";
-import headshotCasual from "../../../public/sam-headshot-casual-500x500.png";
-import headshotEditorial from "../../../public/Sam_Keen_400x400.jpg";
+import headshotCasual from "../../../public/press-kit/sam-keen-headshot-casual.png";
+import headshotEditorial from "../../../public/press-kit/sam-keen-headshot-editorial.jpg";
 
 export const metadata: Metadata = {
   title: "Press Kit | AlteredCraft",
@@ -143,7 +142,6 @@ export default function PressKitPage() {
           <p className="mt-4 text-lg text-[var(--color-muted)] max-w-[600px]">
             Brand assets, guidelines, and resources for media and partners.
           </p>
-          <CodeBarDivider className="max-w-[300px]" />
         </section>
 
         {/* Logo Assets */}

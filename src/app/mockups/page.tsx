@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import logoImg from "../../../public/ac-logo-code.svg";
+import logoImg from "../../../public/press-kit/ac-logo-light-bg.svg";
 
 const MOCKUPS = [
   {

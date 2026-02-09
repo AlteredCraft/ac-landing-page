@@ -3,7 +3,7 @@ import { BrandLockup } from "@/components/BrandLockup";
 import { MobileMenu } from "@/components/MobileMenu";
 import { Check } from "lucide-react";
 import speakerImg from "../../public/speaker.png";
-import samImg from "../../public/Sam_Keen_400x400.jpg";
+import samImg from "../../public/press-kit/sam-keen-headshot-editorial.jpg";
 
 const NAV_LINKS = [
   { href: "#newsletter", label: "Newsletter" },
