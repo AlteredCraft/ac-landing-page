@@ -16,7 +16,7 @@ export function MobileMenu() {
     <div className="md:hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="p-2 text-[var(--color-text)]"
+        className="p-2 text-white"
         aria-label="Toggle menu"
         aria-expanded={isOpen}
       >

@@ -62,6 +62,15 @@ const SOCIAL_LINKS = [
     ),
   },
   {
+    label: "Threads",
+    href: "https://www.threads.net/@sam.keen",
+    icon: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.96-.065-1.18.408-2.26 1.332-3.04.88-.744 2.107-1.17 3.555-1.234 1.07-.047 2.064.078 2.967.367.026-.78.013-1.526-.038-2.207-.166-2.205-1.021-3.148-3.067-3.186h-.09c-1.233.014-2.275.397-2.939 1.078l-1.434-1.435C8.063 3.46 9.618 2.846 11.567 2.82h.108c1.263.015 2.402.261 3.388.733 1.073.513 1.903 1.283 2.468 2.289.528.94.83 2.09.898 3.42.033.646.04 1.327.022 2.038.47.27.897.577 1.278.92 1.192 1.073 1.876 2.534 1.975 4.222.107 1.842-.413 3.541-1.505 4.918-1.813 2.286-4.534 3.489-8.087 3.575l-.064.001zm-.12-10.863c-1.073.047-1.93.344-2.477.86-.494.466-.706 1.056-.633 1.752.073.695.386 1.195.931 1.488.587.316 1.378.443 2.168.396 1.11-.06 1.96-.462 2.53-1.194.442-.57.755-1.322.934-2.248-.925-.383-1.948-.582-3.044-.582-.134 0-.272.004-.41.012v-.484z" />
+      </svg>
+    ),
+  },
+  {
     label: "X",
     href: "https://x.com/samkeen",
     icon: (
@@ -253,7 +262,7 @@ export default function Home() {
                     Subscribe on Substack
                   </p>
                   <a
-                    href="https://writing.alteredcraft.com"
+                    href="https://writing.alteredcraft.com/subscribe"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-9 py-4 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg"
@@ -438,7 +447,7 @@ export default function Home() {
                     ship products.
                   </p>
                   <p>
-                    AlteredCraft is where I share what I learn. Through the
+                    Altered Craft is where I share what I learn. Through the
                     newsletter, workshops, and advisory work, I help developers
                     and engineering leaders cut through the hype and build with
                     confidence.
@@ -488,7 +497,9 @@ export default function Home() {
                 insights, workshops, and strategic advisory.
               </p>
               <a
-                href="#newsletter"
+                href="https://writing.alteredcraft.com/subscribe"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 mt-6 px-9 py-4 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:opacity-90 transition-opacity rounded-lg"
               >
                 Subscribe to the newsletter
@@ -536,6 +547,16 @@ export default function Home() {
                 </li>
                 <li>
                   <a
+                    href="https://www.threads.net/@sam.keen"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[var(--color-muted)] hover:text-[var(--color-surface)] transition-colors"
+                  >
+                    Threads
+                  </a>
+                </li>
+                <li>
+                  <a
                     href="https://x.com/samkeen"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -557,7 +578,7 @@ export default function Home() {
           </div>
 
           <div className="mt-12 pt-8 border-t border-white/10 text-center text-[var(--color-muted)] text-sm">
-            © {new Date().getFullYear()} AlteredCraft. All rights reserved.
+            © {new Date().getFullYear()} Altered Craft, LLC. All rights reserved.
           </div>
         </div>
       </footer>
