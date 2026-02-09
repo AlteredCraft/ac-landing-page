@@ -519,6 +519,14 @@ export default function Home() {
                     </a>
                   </li>
                 ))}
+                <li>
+                  <a
+                    href="/press-kit"
+                    className="text-[var(--color-muted)] text-sm hover:text-[var(--color-surface)] transition-colors"
+                  >
+                    Press Kit
+                  </a>
+                </li>
               </ul>
             </div>
 
