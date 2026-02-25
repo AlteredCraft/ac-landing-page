@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { BrandLockup } from "@/components/BrandLockup";
 import { MobileMenu } from "@/components/MobileMenu";
-import { Check, ArrowUpRight } from "lucide-react";
+import { Check } from "lucide-react";
 import speakerImg from "../../public/speaker.png";
 import samImg from "../../public/press-kit/sam-keen-headshot-editorial.jpg";
-import { getLatestPosts } from "@/lib/substack";
+import { LatestPosts } from "@/components/LatestPosts";
 
 const NAV_LINKS = [
   { href: "#newsletter", label: "Newsletter" },
@@ -84,8 +84,7 @@ const SOCIAL_LINKS = [
 
 const barColors = ["#D4B84A", "#52C77E", "#5A94D4", "#D4B84A"];
 
-export default async function Home() {
-  const latestPosts = await getLatestPosts(3);
+export default function Home() {
   return (
     <div className="min-h-screen bg-[var(--color-base)]">
       {/* Navigation - Dark nav bar */}
@@ -238,33 +237,8 @@ export default async function Home() {
                   </div>
                 </div>
 
-                {/* Latest Posts */}
-                {latestPosts.length > 0 && (
-                  <div className="mb-12">
-                    <h4 className="font-semibold mb-4">Latest posts</h4>
-                    <div className="grid md:grid-cols-3 gap-4">
-                      {latestPosts.map((post) => (
-                        <a
-                          key={post.url}
-                          href={post.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group p-4 bg-[var(--color-base)] rounded-lg hover:shadow-md transition-shadow"
-                        >
-                          <h5 className="font-medium text-sm leading-snug mb-1 group-hover:text-[var(--color-accent)] transition-colors flex items-start gap-1">
-                            <span>{post.title}</span>
-                            <ArrowUpRight className="w-3.5 h-3.5 flex-shrink-0 mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity text-[var(--color-accent)]" />
-                          </h5>
-                          {post.subtitle && (
-                            <p className="text-xs text-[var(--color-muted)] line-clamp-2">
-                              {post.subtitle}
-                            </p>
-                          )}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                {/* Latest Posts - loaded client-side on page view */}
+                <LatestPosts />
 
                 {/* What makes it different */}
                 <h4 className="font-semibold mb-4">What makes it different</h4>
