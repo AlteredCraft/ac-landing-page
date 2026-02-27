@@ -137,7 +137,7 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap items-center gap-4 lg:gap-6">
             <a
-              href="https://writing.alteredcraft.com/subscribe"
+              href="https://open.substack.com/pub/alteredcraft0"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2.5 w-full lg:w-auto px-9 py-4 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg"
@@ -279,7 +279,7 @@ export default function Home() {
                     Subscribe on Substack
                   </p>
                   <a
-                    href="https://writing.alteredcraft.com/subscribe"
+                    href="https://open.substack.com/pub/alteredcraft0"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-9 py-4 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg"
@@ -514,7 +514,7 @@ export default function Home() {
                 insights, workshops, and strategic advisory.
               </p>
               <a
-                href="https://writing.alteredcraft.com/subscribe"
+                href="https://open.substack.com/pub/alteredcraft0"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 mt-6 px-9 py-4 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:opacity-90 transition-opacity rounded-lg"
