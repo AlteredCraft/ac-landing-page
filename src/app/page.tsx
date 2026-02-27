@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { BrandLockup } from "@/components/BrandLockup";
 import { MobileMenu } from "@/components/MobileMenu";
-import { Check } from "lucide-react";
+import { Check, Mail, Linkedin, ChevronDown } from "lucide-react";
 import speakerImg from "../../public/speaker.png";
 import samImg from "../../public/press-kit/sam-keen-headshot-editorial.jpg";
 import { LatestPosts } from "@/components/LatestPosts";
@@ -123,42 +123,55 @@ export default function Home() {
 
       <main>
         {/* Hero Section */}
-        <section className="min-h-screen flex flex-col justify-center pt-24 pb-16 px-6 lg:px-12 max-w-[1000px] mx-auto">
-          <h1 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(3rem,8vw,5rem)] leading-[1.05] tracking-tight mb-8">
+        <section className="lg:min-h-screen flex flex-col lg:justify-center pt-20 lg:pt-24 pb-12 lg:pb-16 px-6 lg:px-12 max-w-[1000px] mx-auto">
+          <h1 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(3rem,8vw,5rem)] leading-[1.05] tracking-tight mb-6 lg:mb-8">
             <span className="text-[var(--color-accent)]">AI guidance</span>{" "}
             for the people who build software
           </h1>
-          <p className="text-xl lg:text-[1.375rem] text-[var(--color-muted)] mb-12 max-w-[680px] leading-relaxed">
+          <p className="text-xl lg:text-[1.375rem] text-[var(--color-muted)] mb-6 lg:mb-12 max-w-[680px] leading-relaxed">
             AI is changing how software gets built — and most teams are
             figuring it out alone. I help developers and engineering leaders
             adopt AI with confidence, from weekly analysis to hands-on workshops
             to strategic guidance, grounded in 25 years of production
             software experience.
           </p>
-          <div className="flex flex-wrap gap-6">
+          <div className="flex flex-wrap items-center gap-4 lg:gap-6">
             <a
-              href="#newsletter"
-              className="inline-flex items-center gap-2 px-9 py-4 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg"
+              href="https://writing.alteredcraft.com/subscribe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2.5 w-full lg:w-auto px-9 py-4 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg"
             >
-              Subscribe free
+              <Mail className="w-4 h-4" />
+              Subscribe to stay informed
+            </a>
+            <a
+              href="https://www.linkedin.com/in/samkeen"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-3 border border-[var(--color-border)] text-[var(--color-text)] font-medium text-sm hover:border-[var(--color-text)] transition-colors rounded-lg"
+            >
+              <Linkedin className="w-4 h-4" />
+              Follow on LinkedIn
             </a>
             <a
               href="#offerings"
-              className="inline-flex items-center gap-2 px-9 py-4 border-2 border-[var(--color-text)] text-[var(--color-text)] font-semibold tracking-wide text-sm hover:bg-[var(--color-text)] hover:text-[var(--color-base)] transition-colors rounded-lg"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors"
             >
-              Explore offerings
+              Learn more
+              <ChevronDown className="w-4 h-4" />
             </a>
           </div>
 
           {/* Credibility Strip */}
-          <div className="mt-16 pt-12 border-t border-[var(--color-border)]">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="mt-4 lg:mt-16 pt-3 lg:pt-12 border-t border-[var(--color-border)]">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-2 lg:gap-8">
               {CREDIBILITY.map((item) => (
-                <div key={item.label} className="text-center">
-                  <div className="text-sm font-semibold tracking-wide text-[var(--color-accent)] mb-1">
+                <div key={item.label} className="lg:text-center">
+                  <div className="text-[11px] lg:text-sm font-semibold tracking-wide text-[var(--color-accent)] mb-0.5 lg:mb-1">
                     {item.label}
                   </div>
-                  <div className="text-[1rem] text-[var(--color-muted)]">
+                  <div className="text-xs lg:text-[1rem] text-[var(--color-muted)] leading-snug">
                     {item.detail}
                   </div>
                 </div>
