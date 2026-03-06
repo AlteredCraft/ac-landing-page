@@ -77,7 +77,7 @@ public/
 ## External Integrations
 
 - **Newsletter**: Substack at `writing.alteredcraft.com`
-- **Booking**: NeetoCal at `altered-craft.neetocal.com/meeting-with-sam-keen`
+- **Booking**: Fantastical at `fantastical.app/samkeen/meet-with-sam-keen`
 - **Email**: sam@alteredcraft.com
 
 ## Social Links
