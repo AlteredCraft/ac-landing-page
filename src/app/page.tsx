@@ -343,7 +343,7 @@ export default function Home() {
 
             <div className="text-center mt-12">
               <a
-                href="https://altered-craft.neetocal.com/meeting-with-sam-keen"
+                href="https://fantastical.app/samkeen/meet-with-sam-keen"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-9 py-4 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:opacity-90 transition-opacity rounded-lg"
@@ -410,7 +410,7 @@ export default function Home() {
                 </ul>
               </div>
               <a
-                href="https://altered-craft.neetocal.com/meeting-with-sam-keen"
+                href="https://fantastical.app/samkeen/meet-with-sam-keen"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-9 py-4 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg"
