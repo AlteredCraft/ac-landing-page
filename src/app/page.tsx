@@ -1,23 +1,25 @@
 import Image from "next/image";
 import { BrandLockup } from "@/components/BrandLockup";
 import { MobileMenu } from "@/components/MobileMenu";
-import { Check, Mail, Linkedin, ChevronDown } from "lucide-react";
-import speakerImg from "../../public/speaker.png";
+import { Check, Mail, ChevronDown, Video, ExternalLink, Users } from "lucide-react";
+import ragWorkshopImg from "../../public/speaker.png";
+import hackathonImg from "../../public/hackathon-podium.png";
+import oaiaThumb from "../../public/oaia-thumb.png";
 import samImg from "../../public/press-kit/sam-keen-headshot-editorial.jpg";
 import { LatestPosts } from "@/components/LatestPosts";
 
 const NAV_LINKS = [
   { href: "#newsletter", label: "Newsletter" },
-  { href: "#workshops", label: "Workshops" },
   { href: "#advisory", label: "Advisory" },
+  { href: "#in-action", label: "In Action" },
   { href: "#about", label: "About" },
 ];
 
 const OFFERINGS = [
   { number: "01", title: "Newsletter", description: "Weekly AI insights for developers" },
-  { number: "02", title: "Courses", description: "Self-paced learning to go deeper" },
-  { number: "03", title: "Workshops", description: "Live, instructor-led sessions" },
-  { number: "04", title: "Advisory", description: "Scoped engagements for engineering leadership" },
+  { number: "02", title: "Workshops", description: "Live, instructor-led sessions" },
+  { number: "03", title: "Advisory", description: "Scoped engagements for engineering leadership" },
+  { number: "04", title: "In Action", description: "Talks, courses, and events" },
 ];
 
 const CREDIBILITY = [
@@ -25,14 +27,6 @@ const CREDIBILITY = [
   { label: "AWS", detail: "Former GenAI Innovation Lab Lead" },
   { label: "Community", detail: "Portland AI Engineers, 1,100+ members" },
   { label: "Track Record", detail: "150+ weekly editions" },
-];
-
-const WORKSHOP_TOPICS = [
-  "Prompt Engineering Fundamentals",
-  "Building Production LLM Applications",
-  "AI-Assisted Development for Teams",
-  "Evaluating AI Tools & Platforms",
-  "Custom workshops for your context",
 ];
 
 const ADVISORY_TYPES = [
@@ -151,7 +145,9 @@ export default function Home() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-3 border border-[var(--color-border)] text-[var(--color-text)] font-medium text-sm hover:border-[var(--color-text)] transition-colors rounded-lg"
             >
-              <Linkedin className="w-4 h-4" />
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
               Follow on LinkedIn
             </a>
             <a
@@ -292,77 +288,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* For Teams Section */}
-        <section id="workshops" className="py-24 px-6 lg:px-12 bg-[var(--color-text)] text-[var(--color-surface)]">
-          <div className="max-w-[1400px] mx-auto">
-            <div className="mb-16">
-              <div>
-                <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(2rem,4vw,3rem)]">
-                  Workshops
-                </h2>
-                <p className="text-[var(--color-muted)] text-lg mt-4 max-w-[700px]">
-                  Build with AI, not just talk about it. Focused workshops that
-                  build practical, hands-on skills.
-                </p>
-              </div>
-            </div>
-
-            <div className="grid lg:grid-cols-2 gap-8">
-              {/* Workshops */}
-              <div className="p-10 bg-white/5 border border-white/10 rounded-lg">
-                <p className="text-[var(--color-muted)] mb-4">
-                  Live, instructor-led sessions (0.5–2 days). On-site or remote.
-                </p>
-                <p className="italic text-white/70 mb-6 text-[0.9375rem]">
-                  &ldquo;I teach the concepts and techniques. You adapt them to
-                  your context.&rdquo;
-                </p>
-                <ul className="space-y-2">
-                  {WORKSHOP_TOPICS.map((topic) => (
-                    <li
-                      key={topic}
-                      className="flex items-center gap-3 text-white/90 py-2"
-                    >
-                      <span className="w-1.5 h-1.5 bg-[var(--color-accent)] rounded-full flex-shrink-0" />
-                      {topic}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Speaker Image */}
-              <div className="rounded-lg relative overflow-hidden min-h-[400px]">
-                <Image
-                  src={speakerImg}
-                  alt="Sam Keen speaking at a conference"
-                  fill
-                  className="object-cover rounded-lg"
-                />
-              </div>
-            </div>
-
-            <div className="text-center mt-12">
-              <a
-                href="https://fantastical.app/samkeen/meet-with-sam-keen"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-9 py-4 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:opacity-90 transition-opacity rounded-lg"
-              >
-                Start a conversation
-              </a>
-              <p className="mt-4 text-[var(--color-muted)] text-sm">
-                Or email{" "}
-                <a
-                  href="mailto:sam@alteredcraft.com"
-                  className="text-[var(--color-accent)] hover:underline"
-                >
-                  sam@alteredcraft.com
-                </a>
-              </p>
-            </div>
-          </div>
-        </section>
-
         {/* Advisory Section */}
         <section id="advisory" className="py-24 px-6 lg:px-12 max-w-[1400px] mx-auto">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
@@ -426,6 +351,146 @@ export default function Home() {
                   sam@alteredcraft.com
                 </a>{" "}
                 to start a conversation.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* In Action Section */}
+        <section id="in-action" className="py-24 px-6 lg:px-12 bg-[var(--color-text)] text-[var(--color-surface)]">
+          <div className="max-w-[1400px] mx-auto">
+            <div className="mb-12">
+              <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(2rem,4vw,3rem)]">
+                In Action
+              </h2>
+              <p className="text-[var(--color-muted)] text-lg mt-4 max-w-[700px]">
+                Talks, workshops, and events — see the work.
+              </p>
+            </div>
+
+            {/* Featured: GOTO Conference Interview */}
+            <div className="bg-white/5 border border-white/10 rounded-lg overflow-hidden mb-8 max-w-3xl">
+              <div className="aspect-video">
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/AeA7PShEkD8"
+                  title="Clean Architecture with Python — GOTO Conference"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl mb-1">
+                  &ldquo;Clean Architecture with Python&rdquo;
+                </h3>
+                <p className="text-[var(--color-muted)] text-sm">
+                  Interview on the GOTO Conferences channel about the book and building maintainable software systems.
+                </p>
+              </div>
+            </div>
+
+            {/* Three cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Oregon AI Accelerator */}
+              <div className="bg-white/5 border border-white/10 rounded-lg overflow-hidden flex flex-col">
+                <div className="relative h-48">
+                  <Image
+                    src={oaiaThumb}
+                    alt="Observability in AI — slide showing the antipattern of unmonitored LLM calls"
+                    fill
+                    className="object-cover object-top"
+                  />
+                </div>
+                <div className="p-6 flex-grow flex flex-col">
+                  <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-lg mb-1">
+                    Observability in AI
+                  </h3>
+                  <p className="text-sm text-[var(--color-muted)] mb-1">
+                    Oregon AI Accelerator
+                  </p>
+                  <p className="text-sm text-white/70 mb-4 flex-grow">
+                    Screencast presentation on observability patterns for AI systems in production.
+                  </p>
+                  <a
+                    href="https://www.youtube.com/watch?v=DPqnZzD2glU"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors"
+                  >
+                    Watch on YouTube
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+
+              {/* RAG Workshop */}
+              <div className="bg-white/5 border border-white/10 rounded-lg overflow-hidden flex flex-col">
+                <div className="relative h-48">
+                  <Image
+                    src={ragWorkshopImg}
+                    alt="Sam Keen teaching a RAG workshop to a room of developers"
+                    fill
+                    className="object-cover object-top"
+                  />
+                </div>
+                <div className="p-6 flex-grow">
+                  <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-lg mb-1">
+                    Building RAG Applications
+                  </h3>
+                  <p className="text-sm text-white/70">
+                    Hands-on workshop teaching retrieval-augmented generation patterns with real-world datasets.
+                  </p>
+                </div>
+              </div>
+
+              {/* Claude Code Hackathon */}
+              <div className="bg-white/5 border border-white/10 rounded-lg overflow-hidden flex flex-col">
+                <div className="relative h-48">
+                  <Image
+                    src={hackathonImg}
+                    alt="Sam Keen presenting at the Claude Code Hackathon"
+                    fill
+                    className="object-cover object-top"
+                  />
+                </div>
+                <div className="p-6 flex-grow flex flex-col">
+                  <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-lg mb-1">
+                    Claude Code Hackathon
+                  </h3>
+                  <p className="text-sm text-white/70 mb-4 flex-grow">
+                    Community hackathon bringing developers together to build with Claude Code.
+                  </p>
+                  <a
+                    href="https://photos.app.goo.gl/j3tAtbxr3uUBCUb96"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors"
+                  >
+                    View photos
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="text-center mt-12">
+              <a
+                href="https://fantastical.app/samkeen/meet-with-sam-keen"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-9 py-4 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:opacity-90 transition-opacity rounded-lg"
+              >
+                Book a workshop or talk
+              </a>
+              <p className="mt-4 text-[var(--color-muted)] text-sm">
+                Or email{" "}
+                <a
+                  href="mailto:sam@alteredcraft.com"
+                  className="text-[var(--color-accent)] hover:underline"
+                >
+                  sam@alteredcraft.com
+                </a>
               </p>
             </div>
           </div>
