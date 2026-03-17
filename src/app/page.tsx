@@ -23,10 +23,10 @@ const OFFERINGS = [
 ];
 
 const CREDIBILITY = [
-  { label: "Published Author", detail: "Clean Architecture with Python" },
+  { label: "Published Author", detail: "Clean Architecture with Python", href: "https://www.amazon.com/Clean-Architecture-Python-maintainable-architectural/dp/183664289X" },
   { label: "AWS", detail: "Former GenAI Innovation Lab Lead" },
-  { label: "Community", detail: "Portland AI Engineers, 1,100+ members" },
-  { label: "Track Record", detail: "150+ weekly editions" },
+  { label: "Community", detail: "Portland AI Engineers, 1,200+ members", href: "https://www.meetup.com/portland-ai-engineers/" },
+  { label: "Track Record", detail: "180+ weekly editions" },
 ];
 
 const ADVISORY_TYPES = [
@@ -168,7 +168,13 @@ export default function Home() {
                     {item.label}
                   </div>
                   <div className="text-xs lg:text-[1rem] text-[var(--color-muted)] leading-snug">
-                    {item.detail}
+                    {item.href ? (
+                      <a href={item.href} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-accent)] transition-colors">
+                        {item.detail}
+                      </a>
+                    ) : (
+                      item.detail
+                    )}
                   </div>
                 </div>
               ))}
@@ -544,7 +550,7 @@ export default function Home() {
                     >
                       Portland AI Engineers
                     </a>
-                    , a community of 1,100+ practitioners exploring practical AI
+                    , a community of 1,200+ practitioners exploring practical AI
                     together.
                   </p>
                 </div>
