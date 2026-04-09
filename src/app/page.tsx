@@ -91,21 +91,22 @@ export default function Home() {
         {/* Hero Section */}
         <section className="lg:min-h-screen flex flex-col lg:justify-center pt-20 lg:pt-24 pb-12 lg:pb-16 px-6 lg:px-12 max-w-[1000px] mx-auto">
           <h1 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(3rem,8vw,5rem)] leading-[1.05] tracking-tight mb-6 lg:mb-8">
-            25 years building software.{" "}
-            <span className="text-[var(--color-accent)]">Now I write and teach</span>{" "}
-            about building with AI.
+            I write and teach about{" "}
+            <span className="text-[var(--color-accent)]">building software with AI.</span>
           </h1>
           <p className="text-xl lg:text-[1.375rem] text-[var(--color-muted)] mb-4 lg:mb-6 max-w-[680px] leading-relaxed">
-            I&apos;m Sam Keen — author of{" "}
-            <a href="https://www.amazon.com/Clean-Architecture-Python-maintainable-architectural/dp/183664289X" target="_blank" rel="noopener noreferrer" className="text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors"><em>Clean Architecture with Python</em></a>,
-            former generative AI architect at AWS. I publish a weekly
-            newsletter on what&apos;s actually working in AI-assisted
-            development, and I teach hands-on workshops where developers
-            leverage AI tools to produce real, compounding value.
+            I&apos;m Sam Keen. Every week I dig into what&apos;s actually
+            working in AI-assisted development and share it in a
+            newsletter. I teach hands-on workshops where
+            developers build real systems with AI tools. I
+            wrote{" "}
+            <a href="https://www.amazon.com/Clean-Architecture-Python-maintainable-architectural/dp/183664289X" target="_blank" rel="noopener noreferrer" className="text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors"><em>Clean Architecture with Python</em></a>{" "}
+            and was formerly a generative AI architect at AWS.
           </p>
 
           {/* Formerly at + Community */}
           <div className="mb-6 lg:mb-12 space-y-3">
+            <p className="text-sm text-[var(--color-muted)]">25+ years building software.</p>
             <div className="flex items-center gap-6 lg:gap-10">
               <span className="text-xs text-[var(--color-muted)] uppercase tracking-widest flex-shrink-0">Formerly at</span>
               <div className="flex items-center gap-8 lg:gap-12 opacity-60">

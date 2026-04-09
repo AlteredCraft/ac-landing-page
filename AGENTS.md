@@ -1,82 +1,81 @@
-# AlteredCraft Landing Page
+# CLAUDE.md
 
-Single-scroll marketing landing page for AlteredCraft - Applied AI guidance for software teams.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Tech Stack
+## What This Is
 
-- **Framework**: Next.js 16 with App Router
-- **Styling**: Tailwind CSS 4 with CSS custom properties
-- **Language**: TypeScript
-- **Icons**: Lucide React (no emojis anywhere on the site)
-- **Font**: Inter from Google Fonts
-- **Deployment**: Static export for GitHub Pages (`output: 'export'`)
+Single-scroll marketing landing page for AlteredCraft — writing and teaching on AI-assisted development. Built with Next.js 16 (App Router), Tailwind CSS 4, and TypeScript.
+
+## Commands
+
+```bash
+npm run dev        # Dev server (localhost:3000, use -p <port> if taken)
+npm run build      # Production build
+npm run preview    # Build + serve static export locally
+npm run lint       # ESLint (flat config, eslint.config.mjs)
+```
+
+## Architecture
+
+Almost entirely server-rendered. The main page (`src/app/page.tsx`) contains all sections inline — no per-section component files. Client components are limited to:
+
+- `MobileMenu` — mobile nav toggle
+- `LatestPosts` — fetches recent Substack posts client-side via `/api/posts`
+
+The Substack RSS integration works as: `src/lib/substack.ts` parses the RSS feed -> `src/app/api/posts/route.ts` exposes it as JSON -> `LatestPosts` component fetches on mount.
+
+### Pages
+
+- `/` — main landing page (all sections: hero, writing, teaching, engagements, about)
+- `/press-kit` — brand assets, logos, colors, typography guidelines
+- `/mockups` — design mockup comparisons (internal)
+- Custom `not-found.tsx` with terminal-style 404
+
+### Key Components
+
+- `BrandLockup` — reusable brand mark (icon + "/altered craft" wordmark), supports horizontal/stacked variants and light/dark themes
+- `CodeBarDivider` — decorative colored bar divider element
 
 ## Design System
 
-### Color Palette (Deep Teal)
+### Color Palette (Warm Gold)
 
-Defined in `src/app/globals.css`:
+Defined in `src/app/globals.css` as CSS custom properties:
 
 | Variable | Value | Usage |
 |----------|-------|-------|
-| `--color-base` | #F7F7F5 | Page background |
-| `--color-text` | #1C1C1C | Primary text |
-| `--color-accent` | #0D9488 | CTAs, links, highlights |
-| `--color-accent-hover` | #0F766E | Hover states |
-| `--color-muted` | #71717A | Secondary text |
-| `--color-border` | #E4E4E7 | Borders |
-| `--color-surface` | #FFFFFF | Cards, sections |
-| `--color-surface-alt` | #F4F4F5 | Alternate surfaces |
+| `--color-base` | #F5F3EF | Page background |
+| `--color-text` | #1F1D1D | Primary text, dark sections |
+| `--color-accent` | #D4B84A | CTAs, links, gold slash mark |
+| `--color-accent-hover` | #C4A83A | Hover states |
+| `--color-muted` | #8A877E | Secondary text |
+| `--color-border` | #E0DDD6 | Borders |
+| `--color-surface` | #FDFCF9 | Cards, sections |
+| `--color-surface-alt` | #EFECE5 | Alternate surfaces |
+
+Tailwind 4 `@theme inline` block maps these to theme tokens so both `var(--color-accent)` and `bg-accent` work.
+
+### Typography
+
+Three Google Fonts loaded in `layout.tsx`:
+
+- **Inter** (`--font-sans`) — body text
+- **Plus Jakarta Sans** (`--font-display`) — headings, wordmark, section titles
+- **Space Grotesk** (`--font-space-grotesk`) — available but not primary
+
+Headings use `font-[family-name:var(--font-plus-jakarta)]` with `font-bold` or `font-semibold`.
 
 ### Visual Style
 
-- Clean, professional, light aesthetic
-- Simple yet bold
-- No emojis - use Lucide React icons exclusively
-- Minimal client-side JavaScript (only MobileMenu is a client component)
-
-### Brand Wordmark
-
-Large centered wordmark above hero content:
-- Font: Inter
-- Weight: font-black (900)
-- Style: Uppercase
-- Color: `--color-text` (black)
-- Sizing: text-5xl / sm:text-6xl / lg:text-8xl
-
-## Project Structure
-
-```
-src/
-├── app/
-│   ├── page.tsx        # Main landing page (all sections)
-│   ├── layout.tsx      # Root layout, fonts, SEO metadata
-│   └── globals.css     # Color palette, theme config
-└── components/
-    └── MobileMenu.tsx  # Client component for mobile nav
-public/
-├── AC-logo.svg
-├── sam-headshot-casual-500x500.png  # Hero section
-├── Sam_Keen_400x400.jpg             # About section
-└── speaker.png
-```
-
-## Page Sections
-
-1. **Navigation** - Sticky header with logo and nav links
-2. **Hero** - Brand wordmark, headline, CTAs, headshot
-3. **Credibility Strip** - Key credentials
-4. **Offerings Overview** - Card grid linking to sections
-5. **Newsletter** - Free/Premium tiers, Substack embed
-6. **Courses** - Coming soon course cards with waitlist
-7. **For Teams** - Workshops and Advisory (dark section)
-8. **Speaking** - Talk topics and credentials
-9. **About** - Bio and social links
-10. **Footer** - Navigation, social, newsletter CTA
+- Clean, professional, warm aesthetic
+- No emojis anywhere — use Lucide React icons exclusively
+- Dark nav bar and footer (`bg-[#1F1D1D]`), light content sections
+- Brand wordmark format: gold `/` followed by `altered craft` in Plus Jakarta Sans
 
 ## External Integrations
 
 - **Newsletter**: Substack at `writing.alteredcraft.com`
+- **Workshops**: Maven at `maven.com/altered-craft-learning`
 - **Booking**: Fantastical at `fantastical.app/samkeen/meet-with-sam-keen`
 - **Email**: sam@alteredcraft.com
 
@@ -84,21 +83,14 @@ public/
 
 - LinkedIn: linkedin.com/in/samkeen
 - Substack: writing.alteredcraft.com
+- Threads: threads.net/@sam.keen
 - X/Twitter: x.com/samkeen
 
-## Development
-
-```bash
-npm run dev        # Start dev server (default port 3000)
-npm run build      # Generate static export to /out
-```
-
-Note: If port 3000 is in use, run with `-p <port>` flag.
-
-## Guidelines for Future Work
+## Guidelines
 
 1. **Icons**: Always use Lucide React, never emojis
-2. **Colors**: Use CSS variables, not hardcoded values
+2. **Colors**: Use CSS variables, not hardcoded values (exception: dark sections use `#1F1D1D` directly)
 3. **Components**: Keep client components minimal; prefer server components
-4. **Images**: Use next/image with unoptimized mode (required for static export)
-5. **Styling**: Use Tailwind utilities with CSS variable references like `text-[var(--color-accent)]`
+4. **Images**: Use `next/image` with `unoptimized` prop (required for static export)
+5. **Styling**: Use Tailwind utilities with CSS variable references like `text-[var(--color-accent)]` or theme tokens like `bg-accent`
+6. **Headings**: Use Plus Jakarta Sans via `font-[family-name:var(--font-plus-jakarta)]`
