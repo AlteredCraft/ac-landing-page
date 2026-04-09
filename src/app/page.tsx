@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { BrandLockup } from "@/components/BrandLockup";
 import { MobileMenu } from "@/components/MobileMenu";
-import { Check, Mail, ChevronDown, Video, ExternalLink, Users } from "lucide-react";
+import { Check, Mail, ExternalLink, ArrowRight } from "lucide-react";
 import ragWorkshopImg from "../../public/speaker.png";
 import hackathonImg from "../../public/hackathon-podium.png";
 import oaiaThumb from "../../public/oaia-thumb.png";
@@ -9,32 +9,13 @@ import samImg from "../../public/press-kit/sam-keen-headshot-editorial.jpg";
 import { LatestPosts } from "@/components/LatestPosts";
 
 const NAV_LINKS = [
-  { href: "#newsletter", label: "Newsletter" },
-  { href: "#advisory", label: "Advisory" },
-  { href: "#in-action", label: "In Action" },
+  { href: "#writing", label: "Writing" },
+  { href: "#teaching", label: "Teaching" },
+  { href: "#engagements", label: "Recent Engagements" },
   { href: "#about", label: "About" },
 ];
 
-const OFFERINGS = [
-  { number: "01", title: "Newsletter", description: "Weekly AI insights for developers" },
-  { number: "02", title: "Workshops", description: "Live, instructor-led sessions" },
-  { number: "03", title: "Advisory", description: "Scoped engagements for engineering leadership" },
-  { number: "04", title: "In Action", description: "Talks, courses, and events" },
-];
 
-const CREDIBILITY = [
-  { label: "Published Author", detail: "Clean Architecture with Python", href: "https://www.amazon.com/Clean-Architecture-Python-maintainable-architectural/dp/183664289X" },
-  { label: "AWS", detail: "Former GenAI Innovation Lab Lead" },
-  { label: "Community", detail: "Portland AI Engineers, 1,200+ members", href: "https://www.meetup.com/portland-ai-engineers/" },
-  { label: "Track Record", detail: "180+ weekly editions" },
-];
-
-const ADVISORY_TYPES = [
-  { title: "AI Readiness Assessment", description: "Evaluate your team's current state and identify high-impact opportunities." },
-  { title: "Tool & Platform Selection", description: "Navigate the vendor landscape with structured evaluation criteria." },
-  { title: "Adoption Roadmap", description: "Practical, phased plan for integrating AI into your development workflow." },
-  { title: "Architecture Review", description: "Technical review of AI integration patterns and production considerations." },
-];
 
 
 const SOCIAL_LINKS = [
@@ -76,7 +57,6 @@ const SOCIAL_LINKS = [
   },
 ];
 
-const barColors = ["#D4B84A", "#52C77E", "#5A94D4", "#D4B84A"];
 
 export default function Home() {
   return (
@@ -104,40 +84,66 @@ export default function Home() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-4">
-          <a
-            href="#newsletter"
-            className="hidden sm:inline-flex px-6 py-3 bg-[var(--color-accent)] text-[#1F1D1D] text-sm font-semibold hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg"
-          >
-            Subscribe
-          </a>
-          <MobileMenu />
-        </div>
+        <MobileMenu />
       </nav>
 
       <main>
         {/* Hero Section */}
         <section className="lg:min-h-screen flex flex-col lg:justify-center pt-20 lg:pt-24 pb-12 lg:pb-16 px-6 lg:px-12 max-w-[1000px] mx-auto">
           <h1 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(3rem,8vw,5rem)] leading-[1.05] tracking-tight mb-6 lg:mb-8">
-            <span className="text-[var(--color-accent)]">AI guidance</span>{" "}
-            for the people who build software
+            25 years building software.{" "}
+            <span className="text-[var(--color-accent)]">Now I write and teach</span>{" "}
+            about building with AI.
           </h1>
-          <p className="text-xl lg:text-[1.375rem] text-[var(--color-muted)] mb-6 lg:mb-12 max-w-[680px] leading-relaxed">
-            AI is changing how software gets built — and most teams are
-            figuring it out alone. I help developers and engineering leaders
-            adopt AI with confidence, from weekly analysis to hands-on workshops
-            to strategic guidance, grounded in 25 years of production
-            software experience.
+          <p className="text-xl lg:text-[1.375rem] text-[var(--color-muted)] mb-4 lg:mb-6 max-w-[680px] leading-relaxed">
+            I&apos;m Sam Keen — author of{" "}
+            <a href="https://www.amazon.com/Clean-Architecture-Python-maintainable-architectural/dp/183664289X" target="_blank" rel="noopener noreferrer" className="text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors"><em>Clean Architecture with Python</em></a>,
+            former generative AI architect at AWS. I publish a weekly
+            newsletter on what&apos;s actually working in AI-assisted
+            development, and I teach hands-on workshops where developers
+            leverage AI tools to produce real, compounding value.
           </p>
+
+          {/* Formerly at + Community */}
+          <div className="mb-6 lg:mb-12 space-y-3">
+            <div className="flex items-center gap-6 lg:gap-10">
+              <span className="text-xs text-[var(--color-muted)] uppercase tracking-widest flex-shrink-0">Formerly at</span>
+              <div className="flex items-center gap-8 lg:gap-12 opacity-60">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/logos/aws.svg" alt="Amazon Web Services" className="h-6 lg:h-8 w-auto" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/logos/lululemon.svg" alt="lululemon athletica" className="h-4 lg:h-5 w-auto" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/logos/nike.svg" alt="Nike" className="h-5 lg:h-7 w-auto" />
+              </div>
+            </div>
+            <p className="text-sm text-[var(--color-muted)]">
+              Co-founder,{" "}
+              <a
+                href="https://www.meetup.com/portland-ai-engineers/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[var(--color-accent)] hover:underline"
+              >
+                Portland AI Engineers
+              </a>
+              {" "}— 1,200+ members
+            </p>
+          </div>
+
           <div className="flex flex-wrap items-center gap-4 lg:gap-6">
             <a
-              href="https://writing.alteredcraft.com/subscribe"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#writing"
               className="flex items-center justify-center gap-2.5 w-full lg:w-auto px-9 py-4 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg"
             >
               <Mail className="w-4 h-4" />
-              Subscribe to stay informed
+              Read the newsletter
+            </a>
+            <a
+              href="#teaching"
+              className="inline-flex items-center gap-2 px-5 py-3 border border-[var(--color-border)] text-[var(--color-text)] font-medium text-sm hover:border-[var(--color-text)] transition-colors rounded-lg"
+            >
+              Upcoming workshops
             </a>
             <a
               href="https://www.linkedin.com/in/samkeen"
@@ -148,75 +154,19 @@ export default function Home() {
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
               </svg>
-              Follow on LinkedIn
-            </a>
-            <a
-              href="#offerings"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors"
-            >
-              Learn more
-              <ChevronDown className="w-4 h-4" />
+              Connect
             </a>
           </div>
 
-          {/* Credibility Strip */}
-          <div className="mt-4 lg:mt-16 pt-3 lg:pt-12 border-t border-[var(--color-border)]">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-2 lg:gap-8">
-              {CREDIBILITY.map((item) => (
-                <div key={item.label} className="lg:text-center">
-                  <div className="text-[11px] lg:text-sm font-semibold tracking-wide text-[var(--color-accent)] mb-0.5 lg:mb-1">
-                    {item.label}
-                  </div>
-                  <div className="text-xs lg:text-[1rem] text-[var(--color-muted)] leading-snug">
-                    {item.href ? (
-                      <a href={item.href} target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-accent)] transition-colors">
-                        {item.detail}
-                      </a>
-                    ) : (
-                      item.detail
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Offerings Section */}
-        <section id="offerings" className="py-24 px-6 lg:px-12 max-w-[1400px] mx-auto">
-          <div className="mb-12">
-            <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(2rem,4vw,3rem)] leading-tight">
-              From signal to strategy
-            </h2>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {OFFERINGS.map((offering, i) => (
-              <div
-                key={offering.number}
-                className="bg-[var(--color-surface)] p-8 flex flex-col min-h-[220px] hover:shadow-lg transition-shadow rounded-lg"
-                style={{ borderLeft: `4px solid ${barColors[i]}` }}
-              >
-                <span className="font-[family-name:var(--font-plus-jakarta)] font-bold text-3xl text-[var(--color-accent)] mb-4">
-                  {offering.number}
-                </span>
-                <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl mb-2">
-                  {offering.title}
-                </h3>
-                <p className="text-sm text-[var(--color-muted)] flex-grow">
-                  {offering.description}
-                </p>
-              </div>
-            ))}
-          </div>
         </section>
 
         {/* Newsletter Section */}
-        <section id="newsletter" className="py-24 px-6 lg:px-12 bg-[var(--color-surface)]">
+        <section id="writing" className="py-24 px-6 lg:px-12 bg-[var(--color-surface)]">
           <div className="max-w-[1400px] mx-auto">
             <div>
               <div>
                 <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(2rem,4vw,3rem)] leading-tight mb-4">
-                  Stay calibrated
+                  The newsletter
                 </h2>
                 <p className="text-[var(--color-muted)] mb-8 max-w-[600px]">
                   Every week, I dig into what&apos;s actually working in the new
@@ -294,80 +244,95 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Advisory Section */}
-        <section id="advisory" className="py-24 px-6 lg:px-12 max-w-[1400px] mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
-            <div>
-              <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(2rem,4vw,3rem)] leading-tight mb-4">
-                AI Strategy Advisory
-              </h2>
-              <p className="text-[var(--color-muted)] mb-8">
-                Scoped consulting engagements with defined deliverables. I help
-                engineering leaders make confident AI decisions backed by real
-                production experience.
-              </p>
-              <div className="space-y-6">
-                {ADVISORY_TYPES.map((type) => (
-                  <div key={type.title}>
-                    <h4 className="font-semibold mb-1">{type.title}</h4>
-                    <p className="text-sm text-[var(--color-muted)]">
-                      {type.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
+        {/* Teaching Section — Maven offerings */}
+        {/* NOTE: Update dates and links when offerings change */}
+        <section id="teaching" className="py-24 px-6 lg:px-12 max-w-[1400px] mx-auto">
+          <div className="mb-12">
+            <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(2rem,4vw,3rem)] leading-tight mb-4">
+              Upcoming workshops
+            </h2>
+            <p className="text-[var(--color-muted)] max-w-[700px]">
+              Live, hands-on sessions on Maven. You won&apos;t just hear about
+              AI tools — you&apos;ll use them in real time, building artifacts
+              you take back to work.
+            </p>
+          </div>
 
-            <div className="space-y-6">
-              <div className="p-6 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg">
-                <h4 className="font-semibold mb-4">How it works</h4>
-                <ul className="space-y-3">
-                  {[
-                    "Discovery call to understand your context",
-                    "Scoped engagement with clear deliverables",
-                    "Hands-on analysis, not slide decks",
-                    "Actionable recommendations your team can execute",
-                  ].map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-2 text-sm text-[var(--color-muted)]"
-                    >
-                      <span className="text-[var(--color-accent)] flex-shrink-0">
-                        <Check className="w-4 h-4" />
-                      </span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+            {/* Free Lightning Lesson */}
+            <div className="p-8 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg flex flex-col">
+              <span className="inline-flex self-start px-3 py-1 bg-[var(--color-accent)]/15 text-[var(--color-accent)] text-xs font-semibold tracking-wide rounded-full mb-4">
+                Free
+              </span>
+              <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl mb-1">
+                Build the CLAUDE.md Your Project Needs
+              </h3>
+              <p className="text-sm text-[var(--color-muted)] mb-4">
+                April 23, 2026 — 10:00 AM PT
+              </p>
+              <p className="text-[var(--color-muted)] mb-6 flex-grow">
+                A 30-minute lightning lesson. Learn the framework for structuring
+                the project context file that makes Claude Code actually
+                understand your codebase.
+              </p>
               <a
-                href="https://fantastical.app/samkeen/meet-with-sam-keen"
+                href="https://maven.com/p/6a115a/build-the-claude-md-your-project-needs"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-9 py-4 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg self-start"
               >
-                Schedule a strategy call
+                Register free on Maven
+                <ArrowRight className="w-4 h-4" />
               </a>
-              <p className="text-[var(--color-muted)] text-sm">
-                Or email{" "}
-                <a
-                  href="mailto:sam@alteredcraft.com"
-                  className="text-[var(--color-accent)] hover:underline"
-                >
-                  sam@alteredcraft.com
-                </a>{" "}
-                to start a conversation.
-              </p>
             </div>
+
+            {/* Paid Workshop — featured */}
+            <div className="p-8 bg-[var(--color-surface)] border-[3px] border-[var(--color-accent)] rounded-lg flex flex-col">
+              <span className="inline-flex self-start px-3 py-1 bg-[var(--color-accent)]/15 text-[var(--color-accent)] text-xs font-semibold tracking-wide rounded-full mb-4">
+                $299 — Founding Price
+              </span>
+              <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl mb-1">
+                Context Engineering for Claude Code
+              </h3>
+              <p className="text-sm text-[var(--color-muted)] mb-4">
+                May 12, 2026 — 9:30 AM PT (3 hours)
+              </p>
+              <p className="text-[var(--color-muted)] mb-6 flex-grow">
+                Build the context layer that turns Claude Code from a suggestion
+                engine into a development partner. CLAUDE.md, skills, hooks, and
+                the maturity ladder — all hands-on.
+              </p>
+              <a
+                href="https://maven.com/altered-craft-learning/context-engineering-for-claude-code"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg self-start"
+              >
+                Enroll on Maven
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <a
+              href="https://maven.com/altered-craft-learning"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-accent)] hover:underline"
+            >
+              Browse all offerings on Maven
+              <ExternalLink className="w-4 h-4" />
+            </a>
           </div>
         </section>
 
-        {/* In Action Section */}
-        <section id="in-action" className="py-24 px-6 lg:px-12 bg-[var(--color-text)] text-[var(--color-surface)]">
+        {/* Recent Engagements Section */}
+        <section id="engagements" className="py-24 px-6 lg:px-12 bg-[var(--color-text)] text-[var(--color-surface)]">
           <div className="max-w-[1400px] mx-auto">
             <div className="mb-12">
               <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(2rem,4vw,3rem)]">
-                In Action
+                Recent Engagements
               </h2>
               <p className="text-[var(--color-muted)] text-lg mt-4 max-w-[700px]">
                 Talks, workshops, and events — see the work.
@@ -479,25 +444,17 @@ export default function Home() {
               </div>
             </div>
 
-            {/* CTA */}
+            {/* Link back to platforms */}
             <div className="text-center mt-12">
               <a
-                href="https://fantastical.app/samkeen/meet-with-sam-keen"
+                href="https://maven.com/altered-craft-learning"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-9 py-4 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:opacity-90 transition-opacity rounded-lg"
+                className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors"
               >
-                Book a workshop or talk
+                See upcoming workshops on Maven
+                <ExternalLink className="w-4 h-4" />
               </a>
-              <p className="mt-4 text-[var(--color-muted)] text-sm">
-                Or email{" "}
-                <a
-                  href="mailto:sam@alteredcraft.com"
-                  className="text-[var(--color-accent)] hover:underline"
-                >
-                  sam@alteredcraft.com
-                </a>
-              </p>
             </div>
           </div>
         </section>
@@ -525,20 +482,31 @@ export default function Home() {
                   <p>
                     I&apos;ve spent 25+ years building software at companies like
                     Nike, Lululemon, AWS, and a handful of startups. I led the
-                    GenAI Innovation Lab at AWS, where I helped teams figure out
-                    what&apos;s real and what&apos;s noise in the AI space.
+                    GenAI Innovation Lab at AWS, where I helped teams separate
+                    signal from noise in AI adoption.
                   </p>
                   <p>
-                    In 2025, I went full-time on researching how teams build with AI. Not building
-                    AI—building <em>with</em> AI. Understanding how these tools
-                    actually change the way we write software, lead teams, and
-                    ship products.
-                  </p>
-                  <p>
-                    Altered Craft is where I share what I learn. Through the
-                    newsletter, workshops, and advisory work, I help developers
-                    and engineering leaders cut through the hype and build with
-                    confidence.
+                    Now I write and teach full-time about how developers build
+                    with AI. Not building AI — building <em>with</em> AI. My{" "}
+                    <a
+                      href="https://writing.alteredcraft.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[var(--color-accent)] hover:underline"
+                    >
+                      newsletter
+                    </a>{" "}
+                    reaches developers every week, and my{" "}
+                    <a
+                      href="https://maven.com/altered-craft-learning"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[var(--color-accent)] hover:underline"
+                    >
+                      workshops on Maven
+                    </a>{" "}
+                    give teams hands-on systems for working with tools like
+                    Claude Code.
                   </p>
                   <p>
                     I also co-founded{" "}
@@ -552,6 +520,19 @@ export default function Home() {
                     </a>
                     , a community of 1,200+ practitioners exploring practical AI
                     together.
+                  </p>
+                  <p>
+                    I occasionally take on select consulting engagements for
+                    engineering teams navigating AI adoption.{" "}
+                    <a
+                      href="https://fantastical.app/samkeen/meet-with-sam-keen"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[var(--color-accent)] hover:underline"
+                    >
+                      Let&apos;s talk
+                    </a>{" "}
+                    if that&apos;s of interest.
                   </p>
                 </div>
                 <div className="flex gap-4 mt-8">
@@ -581,8 +562,9 @@ export default function Home() {
             <div>
               <BrandLockup variant="horizontal" size="sm" theme="dark" />
               <p className="text-[var(--color-muted)] text-sm max-w-[400px] mt-4">
-                Practical AI guidance for the people who build software. Weekly
-                insights, workshops, and strategic advisory.
+                Writing and teaching about AI-assisted software development.
+                Weekly newsletter and live workshops for developers building
+                with AI.
               </p>
               <a
                 href="https://writing.alteredcraft.com/subscribe"
@@ -629,6 +611,16 @@ export default function Home() {
                     className="text-[var(--color-muted)] hover:text-[var(--color-surface)] transition-colors"
                   >
                     Substack
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://maven.com/altered-craft-learning"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[var(--color-muted)] hover:text-[var(--color-surface)] transition-colors"
+                  >
+                    Maven
                   </a>
                 </li>
                 <li>

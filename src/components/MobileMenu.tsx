@@ -3,9 +3,9 @@
 import { useState } from "react";
 
 const navLinks = [
-  { href: "#newsletter", label: "Newsletter" },
-  { href: "#workshops", label: "Workshops" },
-  { href: "#advisory", label: "Advisory" },
+  { href: "#writing", label: "Writing" },
+  { href: "#teaching", label: "Teaching" },
+  { href: "#engagements", label: "Recent Engagements" },
   { href: "#about", label: "About" },
 ];
 
@@ -59,18 +59,11 @@ export function MobileMenu() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="px-4 py-3 text-sm font-medium uppercase tracking-widest text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors"
+                className="px-4 py-3 text-sm font-medium uppercase tracking-widest text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors rounded-lg"
               >
                 {link.label}
               </a>
             ))}
-            <a
-              href="#newsletter"
-              onClick={() => setIsOpen(false)}
-              className="mt-4 px-6 py-3 bg-[var(--color-text)] text-[var(--color-base)] text-sm font-semibold uppercase tracking-widest text-center hover:bg-[var(--color-accent)] transition-colors"
-            >
-              Subscribe
-            </a>
           </nav>
         </div>
       )}

@@ -21,31 +21,33 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "AlteredCraft | AI Guidance for Software Teams",
+  title: "AlteredCraft | Writing & Teaching on AI-Assisted Development",
   description:
-    "Practical AI guidance for the people who build software. Weekly insights, workshops, and strategic advisory from Sam Keen.",
+    "Sam Keen writes and teaches about AI-assisted software development. Weekly newsletter on Substack and hands-on workshops on Maven for developers building with AI.",
   keywords: [
-    "AI",
-    "software development",
-    "engineering leadership",
+    "AI-assisted development",
+    "Claude Code",
+    "context engineering",
+    "AI developer newsletter",
     "AI workshops",
-    "AI strategy",
-    "developer newsletter",
+    "Maven workshops",
+    "software development",
+    "Sam Keen",
   ],
   authors: [{ name: "Sam Keen" }],
   openGraph: {
-    title: "AlteredCraft | AI Guidance for Software Teams",
+    title: "AlteredCraft | Writing & Teaching on AI-Assisted Development",
     description:
-      "Practical AI guidance for the people who build software. Weekly insights, workshops, and strategic advisory.",
+      "Sam Keen writes and teaches about AI-assisted software development. Newsletter and live workshops for developers building with AI.",
     url: "https://alteredcraft.com",
     siteName: "AlteredCraft",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AlteredCraft | AI Guidance for Software Teams",
+    title: "AlteredCraft | Writing & Teaching on AI-Assisted Development",
     description:
-      "Practical AI guidance for the people who build software. Weekly insights, workshops, and strategic advisory.",
+      "Sam Keen writes and teaches about AI-assisted software development. Newsletter and live workshops for developers building with AI.",
   },
 };
 
