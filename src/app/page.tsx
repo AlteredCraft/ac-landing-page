@@ -5,6 +5,7 @@ import { Check, Mail, ExternalLink, ArrowRight } from "lucide-react";
 import ragWorkshopImg from "../../public/speaker.png";
 import hackathonImg from "../../public/hackathon-podium.png";
 import oaiaThumb from "../../public/oaia-thumb.png";
+import lightningLessonImg from "../../public/lightning-lesson-01.png";
 import samImg from "../../public/press-kit/sam-keen-headshot-editorial.jpg";
 import { LatestPosts } from "@/components/LatestPosts";
 
@@ -282,7 +283,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg self-start"
               >
-                Register free on Maven
+                Watch free on Maven
                 <ArrowRight className="w-4 h-4" />
               </a>
             </div>
@@ -340,24 +341,63 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Featured: GOTO Conference Interview */}
-            <div className="bg-white/5 border border-white/10 rounded-lg overflow-hidden mb-8 max-w-3xl">
-              <div className="aspect-video">
-                <iframe
-                  src="https://www.youtube-nocookie.com/embed/AeA7PShEkD8"
-                  title="Clean Architecture with Python — GOTO Conference"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                />
+            {/* Featured row: Maven Lightning Lesson + GOTO Conference Interview */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8 max-w-[1264px]">
+              {/* Maven Lightning Lesson */}
+              <div className="bg-white/5 border border-white/10 rounded-lg overflow-hidden max-w-[614px] w-full">
+                <a
+                  href="https://maven.com/p/6a115a/build-the-claude-md-your-project-needs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <div className="relative aspect-video">
+                    <Image
+                      src={lightningLessonImg}
+                      alt="Maven Lightning Lesson title slide: Building the CLAUDE.md your project needs"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </a>
+                <div className="p-6">
+                  <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl mb-1">
+                    &ldquo;Building the CLAUDE.md Your Project Needs&rdquo;
+                  </h3>
+                  <p className="text-[var(--color-muted)] text-sm mb-3">
+                    Maven Lightning Lesson on writing project memory files that actually steer Claude Code.
+                  </p>
+                  <a
+                    href="https://maven.com/p/6a115a/build-the-claude-md-your-project-needs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors"
+                  >
+                    Watch on Maven
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
               </div>
-              <div className="p-6">
-                <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl mb-1">
-                  &ldquo;Clean Architecture with Python&rdquo;
-                </h3>
-                <p className="text-[var(--color-muted)] text-sm">
-                  Interview on the GOTO Conferences channel about the book and building maintainable software systems.
-                </p>
+
+              {/* GOTO Conference Interview */}
+              <div className="bg-white/5 border border-white/10 rounded-lg overflow-hidden max-w-[614px] w-full">
+                <div className="aspect-video">
+                  <iframe
+                    src="https://www.youtube-nocookie.com/embed/AeA7PShEkD8"
+                    title="Clean Architecture with Python — GOTO Conference"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl mb-1">
+                    &ldquo;Clean Architecture with Python&rdquo;
+                  </h3>
+                  <p className="text-[var(--color-muted)] text-sm">
+                    Interview on the GOTO Conferences channel about the book and building maintainable software systems.
+                  </p>
+                </div>
               </div>
             </div>
 
