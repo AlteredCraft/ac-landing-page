@@ -91,73 +91,83 @@ export default function Home() {
       <main>
         {/* Hero Section */}
         <section className="lg:min-h-screen flex flex-col lg:justify-center pt-20 lg:pt-24 pb-12 lg:pb-16 px-6 lg:px-12 max-w-[1000px] mx-auto">
-          <h1 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(3rem,8vw,5rem)] leading-[1.05] tracking-tight mb-6 lg:mb-8">
-            I write and teach about{" "}
-            <span className="text-[var(--color-accent)]">building software with AI.</span>
-          </h1>
-          <p className="text-xl lg:text-[1.375rem] text-[var(--color-muted)] mb-4 lg:mb-6 max-w-[680px] leading-relaxed">
-            I&apos;m Sam Keen. Every week I dig into what&apos;s actually
-            working in AI-assisted development and share it in a
-            newsletter. I teach hands-on workshops where
-            developers build real systems with AI tools. I
-            wrote{" "}
-            <a href="https://www.amazon.com/Clean-Architecture-Python-maintainable-architectural/dp/183664289X" target="_blank" rel="noopener noreferrer" className="text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors"><em>Clean Architecture with Python</em></a>{" "}
-            and was formerly a generative AI architect at AWS.
-          </p>
-
-          {/* Formerly at + Community */}
-          <div className="mb-6 lg:mb-12 space-y-3">
-            <p className="text-sm text-[var(--color-muted)]">25+ years building software.</p>
-            <div className="flex items-center gap-6 lg:gap-10">
-              <span className="text-xs text-[var(--color-muted)] uppercase tracking-widest flex-shrink-0">Formerly at</span>
-              <div className="flex items-center gap-8 lg:gap-12 opacity-60">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/logos/aws.svg" alt="Amazon Web Services" className="h-6 lg:h-8 w-auto" />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/logos/lululemon.svg" alt="lululemon athletica" className="h-4 lg:h-5 w-auto" />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/logos/nike.svg" alt="Nike" className="h-5 lg:h-7 w-auto" />
-              </div>
+          <div>
+            <h1 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(3rem,8vw,5rem)] leading-[1.05] tracking-tight mb-6 lg:mb-8">
+              I write and teach about{" "}
+              <span className="text-[var(--color-accent)]">building software with AI.</span>
+            </h1>
+            <div className="float-right ml-5 lg:ml-8 mb-3 lg:mb-4 w-28 sm:w-36 lg:w-56 aspect-square rounded-2xl overflow-hidden shadow-md relative">
+              <Image
+                src={samImg}
+                alt="Sam Keen"
+                fill
+                sizes="(min-width: 1024px) 224px, (min-width: 640px) 144px, 112px"
+                className="object-cover"
+              />
             </div>
-            <p className="text-sm text-[var(--color-muted)]">
-              Co-founder,{" "}
+            <p className="text-xl lg:text-[1.375rem] text-[var(--color-muted)] mb-4 lg:mb-6 max-w-[680px] leading-relaxed">
+              I&apos;m Sam Keen. I write a weekly newsletter on what&apos;s
+              actually working in AI-assisted development and teach
+              hands-on workshops where developers build real systems.
+              Author of{" "}
+              <a href="https://www.amazon.com/Clean-Architecture-Python-maintainable-architectural/dp/183664289X" target="_blank" rel="noopener noreferrer" className="text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors"><em>Clean Architecture with Python</em></a>;
+              formerly a generative AI architect at AWS.
+            </p>
+
+            {/* Formerly at + Community */}
+            <div className="mb-6 lg:mb-12 space-y-3">
+              <p className="text-sm text-[var(--color-muted)]">25+ years building software.</p>
+              <div className="flex items-center gap-6 lg:gap-10">
+                <span className="text-xs text-[var(--color-muted)] uppercase tracking-widest flex-shrink-0">Formerly at</span>
+                <div className="flex items-center gap-8 lg:gap-12 opacity-60">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/logos/aws.svg" alt="Amazon Web Services" className="h-6 lg:h-8 w-auto" />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/logos/lululemon.svg" alt="lululemon athletica" className="h-4 lg:h-5 w-auto" />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/logos/nike.svg" alt="Nike" className="h-5 lg:h-7 w-auto" />
+                </div>
+              </div>
+              <p className="text-sm text-[var(--color-muted)]">
+                Co-founder,{" "}
+                <a
+                  href="https://www.meetup.com/portland-ai-engineers/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[var(--color-accent)] hover:underline"
+                >
+                  Portland AI Engineers
+                </a>
+                {" "}— 1,200+ members
+              </p>
+            </div>
+
+            <div className="clear-both flex flex-wrap items-center gap-4 lg:gap-6">
               <a
-                href="https://www.meetup.com/portland-ai-engineers/"
+                href="#writing"
+                className="flex items-center justify-center gap-2.5 w-full lg:w-auto px-9 py-4 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg"
+              >
+                <Mail className="w-4 h-4" />
+                Read the newsletter
+              </a>
+              <a
+                href="#teaching"
+                className="inline-flex items-center gap-2 px-5 py-3 border border-[var(--color-border)] text-[var(--color-text)] font-medium text-sm hover:border-[var(--color-text)] transition-colors rounded-lg"
+              >
+                Upcoming workshops
+              </a>
+              <a
+                href="https://www.linkedin.com/in/samkeen"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[var(--color-accent)] hover:underline"
+                className="inline-flex items-center gap-2 px-5 py-3 border border-[var(--color-border)] text-[var(--color-text)] font-medium text-sm hover:border-[var(--color-text)] transition-colors rounded-lg"
               >
-                Portland AI Engineers
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+                Connect
               </a>
-              {" "}— 1,200+ members
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-4 lg:gap-6">
-            <a
-              href="#writing"
-              className="flex items-center justify-center gap-2.5 w-full lg:w-auto px-9 py-4 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg"
-            >
-              <Mail className="w-4 h-4" />
-              Read the newsletter
-            </a>
-            <a
-              href="#teaching"
-              className="inline-flex items-center gap-2 px-5 py-3 border border-[var(--color-border)] text-[var(--color-text)] font-medium text-sm hover:border-[var(--color-text)] transition-colors rounded-lg"
-            >
-              Upcoming workshops
-            </a>
-            <a
-              href="https://www.linkedin.com/in/samkeen"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 border border-[var(--color-border)] text-[var(--color-text)] font-medium text-sm hover:border-[var(--color-text)] transition-colors rounded-lg"
-            >
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-              </svg>
-              Connect
-            </a>
+            </div>
           </div>
 
         </section>
