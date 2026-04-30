@@ -7,6 +7,7 @@ import hackathonImg from "../../public/hackathon-podium.png";
 import oaiaThumb from "../../public/oaia-thumb.png";
 import lightningLessonImg from "../../public/lightning-lesson-01.png";
 import samImg from "../../public/press-kit/sam-keen-headshot-editorial.jpg";
+import samCasualImg from "../../public/press-kit/sam-keen-headshot-casual.png";
 import { LatestPosts } from "@/components/LatestPosts";
 
 const NAV_LINKS = [
@@ -138,7 +139,7 @@ export default function Home() {
                 >
                   Portland AI Engineers
                 </a>
-                {" "}— 1,200+ members
+                {" "}— 1,300+ members
               </p>
             </div>
 
@@ -517,7 +518,7 @@ export default function Home() {
               {/* Photo */}
               <div className="aspect-square bg-gradient-to-br from-[var(--color-muted)] to-[var(--color-text)] rounded-lg relative overflow-hidden">
                 <Image
-                  src={samImg}
+                  src={samCasualImg}
                   alt="Sam Keen"
                   fill
                   className="object-cover"
@@ -569,7 +570,7 @@ export default function Home() {
                     >
                       Portland AI Engineers
                     </a>
-                    , a community of 1,200+ practitioners exploring practical AI
+                    , a community of 1,300+ practitioners exploring practical AI
                     together.
                   </p>
                   <p>

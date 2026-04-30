@@ -28,7 +28,6 @@ The Substack RSS integration works as: `src/lib/substack.ts` parses the RSS feed
 
 - `/` — main landing page (all sections: hero, writing, teaching, engagements, about)
 - `/press-kit` — brand assets, logos, colors, typography guidelines
-- `/mockups` — design mockup comparisons (internal)
 - Custom `not-found.tsx` with terminal-style 404
 
 ### Key Components
