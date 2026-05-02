@@ -1,13 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
-const navLinks = [
-  { href: "#writing", label: "Writing" },
-  { href: "#teaching", label: "Teaching" },
-  { href: "#engagements", label: "Recent Engagements" },
-  { href: "#about", label: "About" },
-];
+import { NAV_LINKS } from "@/lib/nav";
 
 export function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +48,7 @@ export function MobileMenu() {
       {isOpen && (
         <div className="absolute top-full left-0 right-0 bg-[var(--color-base)] border-b border-[var(--color-border)] shadow-lg">
           <nav className="flex flex-col p-4 gap-1">
-            {navLinks.map((link) => (
+            {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}

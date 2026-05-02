@@ -1,21 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 import { BrandLockup } from "@/components/BrandLockup";
 import { MobileMenu } from "@/components/MobileMenu";
 import { Check, Mail, ExternalLink, ArrowRight } from "lucide-react";
-import ragWorkshopImg from "../../public/speaker.png";
-import hackathonImg from "../../public/hackathon-podium.png";
-import oaiaThumb from "../../public/oaia-thumb.png";
-import lightningLessonImg from "../../public/lightning-lesson-01.png";
 import samImg from "../../public/press-kit/sam-keen-headshot-editorial.jpg";
 import samCasualImg from "../../public/press-kit/sam-keen-headshot-casual.png";
 import { LatestPosts } from "@/components/LatestPosts";
-
-const NAV_LINKS = [
-  { href: "#writing", label: "Writing" },
-  { href: "#teaching", label: "Teaching" },
-  { href: "#engagements", label: "Recent Engagements" },
-  { href: "#about", label: "About" },
-];
+import { NAV_LINKS } from "@/lib/nav";
 
 
 
@@ -65,23 +56,23 @@ export default function Home() {
     <div className="min-h-screen bg-[var(--color-base)]">
       {/* Navigation - Dark nav bar */}
       <nav className="fixed top-0 left-0 right-0 py-5 px-6 lg:px-12 flex justify-between items-center bg-[#1F1D1D] z-50">
-        <a href="#" className="sm:hidden">
+        <Link href="/" className="sm:hidden">
           <BrandLockup variant="horizontal" size="sm" theme="dark" />
-        </a>
-        <a href="#" className="hidden sm:block">
+        </Link>
+        <Link href="/" className="hidden sm:block">
           <BrandLockup variant="horizontal" size="md" theme="dark" />
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex gap-10">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
-              <a
+              <Link
                 href={link.href}
                 className="text-sm font-medium tracking-wide text-white hover:text-[var(--color-accent)] transition-colors"
               >
                 {link.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -155,7 +146,7 @@ export default function Home() {
                 href="#teaching"
                 className="inline-flex items-center gap-2 px-5 py-3 border border-[var(--color-border)] text-[var(--color-text)] font-medium text-sm hover:border-[var(--color-text)] transition-colors rounded-lg"
               >
-                Upcoming workshops
+                Workshops
               </a>
               <a
                 href="https://www.linkedin.com/in/samkeen"
@@ -191,7 +182,14 @@ export default function Home() {
                 <div className="grid md:grid-cols-2 gap-8 mb-12">
                   <div className="p-8 bg-[var(--color-base)] rounded-lg">
                     <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-2xl mb-2">
-                      Monday AI Review
+                      <a
+                        href="https://writing.alteredcraft.com/t/weekly-ai-review"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-[var(--color-accent)] transition-colors"
+                      >
+                        Monday AI Review
+                      </a>
                     </h3>
                     <p className="text-[var(--color-muted)]">
                       Signal filtering—what matters this week in AI for developers.
@@ -327,7 +325,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="text-center">
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-center">
             <a
               href="https://maven.com/altered-craft-learning"
               target="_blank"
@@ -337,177 +335,13 @@ export default function Home() {
               Browse all offerings on Maven
               <ExternalLink className="w-4 h-4" />
             </a>
-          </div>
-        </section>
-
-        {/* Recent Engagements Section */}
-        <section id="engagements" className="py-24 px-6 lg:px-12 bg-[var(--color-text)] text-[var(--color-surface)]">
-          <div className="max-w-[1400px] mx-auto">
-            <div className="mb-12">
-              <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(2rem,4vw,3rem)]">
-                Recent Engagements
-              </h2>
-              <p className="text-[var(--color-muted)] text-lg mt-4 max-w-[700px]">
-                Talks, workshops, and events — see the work.
-              </p>
-            </div>
-
-            {/* Featured row: Maven Lightning Lesson + GOTO Conference Interview */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8 max-w-[1264px]">
-              {/* Maven Lightning Lesson */}
-              <div className="bg-white/5 border border-white/10 rounded-lg overflow-hidden max-w-[614px] w-full">
-                <a
-                  href="https://maven.com/p/6a115a/build-the-claude-md-your-project-needs"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block"
-                >
-                  <div className="relative aspect-video">
-                    <Image
-                      src={lightningLessonImg}
-                      alt="Maven Lightning Lesson title slide: Building the CLAUDE.md your project needs"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </a>
-                <div className="p-6">
-                  <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl mb-1">
-                    &ldquo;Building the CLAUDE.md Your Project Needs&rdquo;
-                  </h3>
-                  <p className="text-[var(--color-muted)] text-sm mb-3">
-                    Maven Lightning Lesson on writing project memory files that actually steer Claude Code.
-                  </p>
-                  <a
-                    href="https://maven.com/p/6a115a/build-the-claude-md-your-project-needs"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors"
-                  >
-                    Watch on Maven
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                </div>
-              </div>
-
-              {/* GOTO Conference Interview */}
-              <div className="bg-white/5 border border-white/10 rounded-lg overflow-hidden max-w-[614px] w-full">
-                <div className="aspect-video">
-                  <iframe
-                    src="https://www.youtube-nocookie.com/embed/AeA7PShEkD8"
-                    title="Clean Architecture with Python — GOTO Conference"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="w-full h-full"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl mb-1">
-                    &ldquo;Clean Architecture with Python&rdquo;
-                  </h3>
-                  <p className="text-[var(--color-muted)] text-sm">
-                    Interview on the GOTO Conferences channel about the book and building maintainable software systems.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Three cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Oregon AI Accelerator */}
-              <div className="bg-white/5 border border-white/10 rounded-lg overflow-hidden flex flex-col">
-                <div className="relative h-48">
-                  <Image
-                    src={oaiaThumb}
-                    alt="Observability in AI — slide showing the antipattern of unmonitored LLM calls"
-                    fill
-                    className="object-cover object-top"
-                  />
-                </div>
-                <div className="p-6 flex-grow flex flex-col">
-                  <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-lg mb-1">
-                    Observability in AI
-                  </h3>
-                  <p className="text-sm text-[var(--color-muted)] mb-1">
-                    Oregon AI Accelerator
-                  </p>
-                  <p className="text-sm text-white/70 mb-4 flex-grow">
-                    Screencast presentation on observability patterns for AI systems in production.
-                  </p>
-                  <a
-                    href="https://www.youtube.com/watch?v=DPqnZzD2glU"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors"
-                  >
-                    Watch on YouTube
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                </div>
-              </div>
-
-              {/* RAG Workshop */}
-              <div className="bg-white/5 border border-white/10 rounded-lg overflow-hidden flex flex-col">
-                <div className="relative h-48">
-                  <Image
-                    src={ragWorkshopImg}
-                    alt="Sam Keen teaching a RAG workshop to a room of developers"
-                    fill
-                    className="object-cover object-top"
-                  />
-                </div>
-                <div className="p-6 flex-grow">
-                  <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-lg mb-1">
-                    Building RAG Applications
-                  </h3>
-                  <p className="text-sm text-white/70">
-                    Hands-on workshop teaching retrieval-augmented generation patterns with real-world datasets.
-                  </p>
-                </div>
-              </div>
-
-              {/* Claude Code Hackathon */}
-              <div className="bg-white/5 border border-white/10 rounded-lg overflow-hidden flex flex-col">
-                <div className="relative h-48">
-                  <Image
-                    src={hackathonImg}
-                    alt="Sam Keen presenting at the Claude Code Hackathon"
-                    fill
-                    className="object-cover object-top"
-                  />
-                </div>
-                <div className="p-6 flex-grow flex flex-col">
-                  <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-lg mb-1">
-                    Claude Code Hackathon
-                  </h3>
-                  <p className="text-sm text-white/70 mb-4 flex-grow">
-                    Community hackathon bringing developers together to build with Claude Code.
-                  </p>
-                  <a
-                    href="https://photos.app.goo.gl/j3tAtbxr3uUBCUb96"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors"
-                  >
-                    View photos
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Link back to platforms */}
-            <div className="text-center mt-12">
-              <a
-                href="https://maven.com/altered-craft-learning"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors"
-              >
-                See upcoming workshops on Maven
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            </div>
+            <Link
+              href="/previous-workshops"
+              className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-accent)] hover:underline"
+            >
+              See previous workshops
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </section>
 
@@ -633,21 +467,21 @@ export default function Home() {
               <ul className="space-y-2">
                 {NAV_LINKS.map((link) => (
                   <li key={link.href}>
-                    <a
+                    <Link
                       href={link.href}
                       className="text-[var(--color-muted)] text-sm hover:text-[var(--color-surface)] transition-colors"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
                 <li>
-                  <a
+                  <Link
                     href="/press-kit"
                     className="text-[var(--color-muted)] text-sm hover:text-[var(--color-surface)] transition-colors"
                   >
                     Press Kit
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
