@@ -7,7 +7,6 @@ import { ExternalLink, ArrowRight } from "lucide-react";
 import { NAV_LINKS } from "@/lib/nav";
 import ragWorkshopImg from "../../../public/speaker.png";
 import hackathonImg from "../../../public/hackathon-podium.png";
-import oaiaThumb from "../../../public/oaia-thumb.png";
 import lightningLessonImg from "../../../public/lightning-lesson-01.png";
 
 export const metadata: Metadata = {
@@ -65,112 +64,51 @@ export default function PreviousWorkshopsPage() {
           </p>
         </section>
 
-        {/* Featured row: Maven Lightning Lesson + GOTO Conference Interview */}
+        {/* Featured: Maven Lightning Lesson */}
         <section className="pb-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Maven Lightning Lesson */}
-            <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg overflow-hidden flex flex-col">
+          <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg overflow-hidden grid grid-cols-1 lg:grid-cols-2">
+            <a
+              href="https://maven.com/p/6a115a/build-the-claude-md-your-project-needs"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <div className="relative aspect-video lg:h-full">
+                <Image
+                  src={lightningLessonImg}
+                  alt="Maven Lightning Lesson title slide: Building the CLAUDE.md your project needs"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </a>
+            <div className="p-6 sm:p-8 flex flex-col justify-center">
+              <span className="inline-flex self-start px-2.5 py-1 bg-[var(--color-accent)]/15 text-[var(--color-accent)] text-xs font-semibold tracking-wide rounded-full mb-3">
+                Maven · Lightning Lesson
+              </span>
+              <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-2xl text-[var(--color-text)] mb-3">
+                &ldquo;Building the CLAUDE.md Your Project Needs&rdquo;
+              </h2>
+              <p className="text-[var(--color-muted)] mb-5">
+                Maven Lightning Lesson on writing project memory files that
+                actually steer Claude Code.
+              </p>
               <a
                 href="https://maven.com/p/6a115a/build-the-claude-md-your-project-needs"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors self-start"
               >
-                <div className="relative aspect-video">
-                  <Image
-                    src={lightningLessonImg}
-                    alt="Maven Lightning Lesson title slide: Building the CLAUDE.md your project needs"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+                Watch on Maven
+                <ExternalLink className="w-3.5 h-3.5" />
               </a>
-              <div className="p-6 flex flex-col flex-grow">
-                <span className="inline-flex self-start px-2.5 py-1 bg-[var(--color-accent)]/15 text-[var(--color-accent)] text-xs font-semibold tracking-wide rounded-full mb-3">
-                  Maven · Lightning Lesson
-                </span>
-                <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl text-[var(--color-text)] mb-2">
-                  &ldquo;Building the CLAUDE.md Your Project Needs&rdquo;
-                </h2>
-                <p className="text-[var(--color-muted)] text-sm mb-4 flex-grow">
-                  Maven Lightning Lesson on writing project memory files that
-                  actually steer Claude Code.
-                </p>
-                <a
-                  href="https://maven.com/p/6a115a/build-the-claude-md-your-project-needs"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors self-start"
-                >
-                  Watch on Maven
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-              </div>
-            </div>
-
-            {/* GOTO Conference Interview */}
-            <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg overflow-hidden flex flex-col">
-              <div className="aspect-video">
-                <iframe
-                  src="https://www.youtube-nocookie.com/embed/AeA7PShEkD8"
-                  title="Clean Architecture with Python — GOTO Conference"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                />
-              </div>
-              <div className="p-6 flex flex-col flex-grow">
-                <span className="inline-flex self-start px-2.5 py-1 bg-[var(--color-accent)]/15 text-[var(--color-accent)] text-xs font-semibold tracking-wide rounded-full mb-3">
-                  GOTO Conferences · Interview
-                </span>
-                <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl text-[var(--color-text)] mb-2">
-                  &ldquo;Clean Architecture with Python&rdquo;
-                </h2>
-                <p className="text-[var(--color-muted)] text-sm">
-                  Interview on the GOTO Conferences channel about the book and
-                  building maintainable software systems.
-                </p>
-              </div>
             </div>
           </div>
         </section>
 
-        {/* Three cards: Oregon AI, RAG Workshop, Hackathon */}
+        {/* Two cards: RAG Workshop, Hackathon */}
         <section className="pb-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Oregon AI Accelerator */}
-            <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg overflow-hidden flex flex-col">
-              <div className="relative h-48">
-                <Image
-                  src={oaiaThumb}
-                  alt="Observability in AI — slide showing the antipattern of unmonitored LLM calls"
-                  fill
-                  className="object-cover object-top"
-                />
-              </div>
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-lg text-[var(--color-text)] mb-1">
-                  Observability in AI
-                </h3>
-                <p className="text-sm text-[var(--color-muted)] mb-2">
-                  Oregon AI Accelerator
-                </p>
-                <p className="text-sm text-[var(--color-muted)] mb-4 flex-grow">
-                  Screencast presentation on observability patterns for AI
-                  systems in production.
-                </p>
-                <a
-                  href="https://www.youtube.com/watch?v=DPqnZzD2glU"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors self-start"
-                >
-                  Watch on YouTube
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-              </div>
-            </div>
-
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* RAG Workshop */}
             <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg overflow-hidden flex flex-col">
               <div className="relative h-48">
