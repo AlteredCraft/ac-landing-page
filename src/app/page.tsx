@@ -269,34 +269,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 mb-12">
-            {/* Free Lightning Lesson */}
-            <div className="p-8 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg flex flex-col">
-              <span className="inline-flex self-start px-3 py-1 bg-[var(--color-accent)]/15 text-[var(--color-accent)] text-xs font-semibold tracking-wide rounded-full mb-4">
-                Free
-              </span>
-              <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl mb-1">
-                Build the CLAUDE.md Your Project Needs
-              </h3>
-              <p className="text-sm text-[var(--color-muted)] mb-4">
-                April 23, 2026 — 10:00 AM PT
-              </p>
-              <p className="text-[var(--color-muted)] mb-6 flex-grow">
-                A 30-minute lightning lesson. Learn the framework for structuring
-                the project context file that makes Claude Code actually
-                understand your codebase.
-              </p>
-              <a
-                href="https://maven.com/p/6a115a/build-the-claude-md-your-project-needs"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg self-start"
-              >
-                Watch free on Maven
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
-
+          <div className="grid lg:grid-cols-2 gap-8 mb-8">
             {/* Paid Workshop — featured */}
             <div className="p-8 bg-[var(--color-surface)] border-[3px] border-[var(--color-accent)] rounded-lg flex flex-col">
               <span className="inline-flex self-start px-3 py-1 bg-[var(--color-accent)]/15 text-[var(--color-accent)] text-xs font-semibold tracking-wide rounded-full mb-4">
@@ -325,7 +298,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-center">
+          <div className="mb-20">
             <a
               href="https://maven.com/altered-craft-learning"
               target="_blank"
@@ -335,11 +308,53 @@ export default function Home() {
               Browse all offerings on Maven
               <ExternalLink className="w-4 h-4" />
             </a>
+          </div>
+
+          {/* Previous workshops */}
+          <div className="mb-8">
+            <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(2rem,4vw,3rem)] leading-tight mb-4">
+              Previous workshops
+            </h2>
+            <p className="text-[var(--color-muted)] max-w-[700px]">
+              Recordings and recaps from past sessions.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8 mb-8">
+            {/* Past Lightning Lesson — CLAUDE.md */}
+            <div className="p-8 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg flex flex-col">
+              <span className="inline-flex self-start px-3 py-1 bg-[var(--color-accent)]/15 text-[var(--color-accent)] text-xs font-semibold tracking-wide rounded-full mb-4">
+                Recording · Free
+              </span>
+              <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl mb-1">
+                Build the CLAUDE.md Your Project Needs
+              </h3>
+              <p className="text-sm text-[var(--color-muted)] mb-4">
+                Recorded April 23, 2026 · Maven Lightning Lesson
+              </p>
+              <p className="text-[var(--color-muted)] mb-6 flex-grow">
+                A 30-minute lightning lesson on the framework for structuring
+                the project context file that makes Claude Code actually
+                understand your codebase.
+              </p>
+              <a
+                href="https://maven.com/p/6a115a/build-the-claude-md-your-project-needs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg self-start"
+              >
+                Watch free on Maven
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+
+          <div>
             <Link
               href="/previous-workshops"
               className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-accent)] hover:underline"
             >
-              See previous workshops
+              See all previous workshops
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
