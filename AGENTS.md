@@ -26,9 +26,27 @@ The Substack RSS integration works as: `src/lib/substack.ts` parses the RSS feed
 
 ### Pages
 
-- `/` — main landing page (all sections: hero, writing, teaching, engagements, about)
+- `/` — main landing page (all sections: hero, writing, workshops, about). The workshops section uses `id="teaching"` (legacy anchor; nav label is "Workshops").
+- `/speaking` — talks, panels, demos
+- `/previous-workshops` — full archive of past workshops/teaching engagements
 - `/press-kit` — brand assets, logos, colors, typography guidelines
 - Custom `not-found.tsx` with terminal-style 404
+
+### Workshops content model
+
+The "Workshops" section on `/` has three labeled subsections. Place new entries based on what kind of offering it is — not when it happens.
+
+| Subsection | What goes here | Date shown? |
+|------------|----------------|-------------|
+| **Always available** | Evergreen / on-demand offerings (recorded lightning lessons, self-paced courses). Live indefinitely. | No |
+| **Upcoming** | Scheduled future workshops with a specific date. Promote until they happen. | Yes |
+| **Previous** | Past workshops, capped at **2 most recent**. Older items move to `/previous-workshops`. | Optional |
+
+Rules:
+- **Cap "Previous" at 2 cards on `/`**. Additional past items belong on `/previous-workshops` only. There is a `FUTURE-AGENT NOTE` comment in `page.tsx` reinforcing this.
+- **Do not duplicate "Always available" items on `/previous-workshops`.** Evergreen offerings are not "previous" — they are still available.
+- **When an Upcoming workshop happens**, move it: either to "Previous" on `/` (which may displace an older entry down to `/previous-workshops`) or directly to `/previous-workshops`.
+- Update dates and links inline in `src/app/page.tsx` and `src/app/previous-workshops/page.tsx`. There is no data source — these are hand-edited.
 
 ### Key Components
 

@@ -3,11 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { BrandLockup } from "@/components/BrandLockup";
 import { MobileMenu } from "@/components/MobileMenu";
-import { ExternalLink, ArrowRight } from "lucide-react";
+import { ExternalLink, ArrowRight, ArrowLeft } from "lucide-react";
 import { NAV_LINKS } from "@/lib/nav";
 import ragWorkshopImg from "../../../public/speaker.png";
 import hackathonImg from "../../../public/hackathon-podium.png";
-import lightningLessonImg from "../../../public/lightning-lesson-01.png";
+import contextEngineeringImg from "../../../public/maven-ce-ws.png";
 
 export const metadata: Metadata = {
   title: "Previous Workshops | AlteredCraft",
@@ -55,6 +55,13 @@ export default function PreviousWorkshopsPage() {
       <main className="max-w-[1200px] mx-auto px-6 lg:px-12 pt-20 lg:pt-24">
         {/* Hero */}
         <section className="pt-12 pb-12">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors mb-6"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to home
+          </Link>
           <h1 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-4xl sm:text-5xl text-[var(--color-text)]">
             Previous Workshops
           </h1>
@@ -64,51 +71,48 @@ export default function PreviousWorkshopsPage() {
           </p>
         </section>
 
-        {/* Featured: Maven Lightning Lesson */}
-        <section className="pb-8">
-          <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg overflow-hidden grid grid-cols-1 lg:grid-cols-2">
-            <a
-              href="https://maven.com/p/6a115a/build-the-claude-md-your-project-needs"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
-            >
-              <div className="relative aspect-video lg:h-full">
-                <Image
-                  src={lightningLessonImg}
-                  alt="Maven Lightning Lesson title slide: Building the CLAUDE.md your project needs"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </a>
-            <div className="p-6 sm:p-8 flex flex-col justify-center">
-              <span className="inline-flex self-start px-2.5 py-1 bg-[var(--color-accent)]/15 text-[var(--color-accent)] text-xs font-semibold tracking-wide rounded-full mb-3">
-                Maven · Lightning Lesson
-              </span>
-              <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-2xl text-[var(--color-text)] mb-3">
-                &ldquo;Building the CLAUDE.md Your Project Needs&rdquo;
-              </h2>
-              <p className="text-[var(--color-muted)] mb-5">
-                Maven Lightning Lesson on writing project memory files that
-                actually steer Claude Code.
-              </p>
+        {/* Three cards: Context Engineering, RAG Workshop, Hackathon */}
+        <section className="pb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Context Engineering for Claude Code */}
+            <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg overflow-hidden flex flex-col">
               <a
-                href="https://maven.com/p/6a115a/build-the-claude-md-your-project-needs"
+                href="https://maven.com/altered-craft-learning/context-engineering-for-claude-code"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors self-start"
+                className="block relative aspect-[2/1] bg-white"
               >
-                Watch on Maven
-                <ExternalLink className="w-3.5 h-3.5" />
+                <Image
+                  src={contextEngineeringImg}
+                  alt="Maven course card for Context Engineering for Claude Code by Sam Keen"
+                  fill
+                  className="object-contain"
+                />
               </a>
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-lg text-[var(--color-text)] mb-1">
+                  Context Engineering for Claude Code
+                </h3>
+                <p className="text-sm text-[var(--color-muted)] mb-2">
+                  Maven · 3-hour cohort workshop
+                </p>
+                <p className="text-sm text-[var(--color-muted)] mb-4 flex-grow">
+                  Build the context layer that turns Claude Code from a
+                  suggestion engine into a development partner. CLAUDE.md,
+                  skills, hooks, and the maturity ladder — all hands-on.
+                </p>
+                <a
+                  href="https://maven.com/altered-craft-learning/context-engineering-for-claude-code"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors self-start"
+                >
+                  View on Maven
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
             </div>
-          </div>
-        </section>
 
-        {/* Two cards: RAG Workshop, Hackathon */}
-        <section className="pb-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* RAG Workshop */}
             <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg overflow-hidden flex flex-col">
               <div className="relative h-48">
