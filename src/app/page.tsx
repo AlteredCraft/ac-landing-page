@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BrandLockup } from "@/components/BrandLockup";
 import { MobileMenu } from "@/components/MobileMenu";
+import HeroImage from "@/components/HeroImage";
 import { Check, Mail, ExternalLink, ArrowRight } from "lucide-react";
 import samImg from "../../public/press-kit/sam-keen-headshot-editorial.jpg";
 import samCasualImg from "../../public/press-kit/sam-keen-headshot-casual.png";
@@ -91,15 +92,12 @@ export default function Home() {
               I write and teach about{" "}
               <span className="text-[var(--color-accent)]">building software with AI.</span>
             </h1>
-            <div className="float-right ml-5 lg:ml-8 mb-3 lg:mb-4 w-28 sm:w-36 lg:w-56 aspect-square rounded-2xl overflow-hidden shadow-md relative">
-              <Image
-                src={samImg}
-                alt="Sam Keen"
-                fill
-                sizes="(min-width: 1024px) 224px, (min-width: 640px) 144px, 112px"
-                className="object-cover"
-              />
-            </div>
+            <HeroImage
+              portraitSrc={samImg}
+              portraitAlt="Sam Keen"
+              qrSrc="/alteredcraft-qr.png"
+              qrAlt="QR code linking to alteredcraft.com"
+            />
             <p className="text-xl lg:text-[1.375rem] text-[var(--color-muted)] mb-4 lg:mb-6 max-w-[680px] leading-relaxed">
               I&apos;m Sam Keen. I write a weekly newsletter on what&apos;s
               actually working in AI-assisted development and teach
