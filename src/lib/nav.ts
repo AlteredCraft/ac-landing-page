@@ -1,7 +1,6 @@
 export const NAV_LINKS = [
   { href: "/#writing", label: "Writing" },
-  { href: "/#teaching", label: "Teaching" },
+  { href: "/#teaching", label: "Workshops" },
   { href: "/speaking", label: "Speaking" },
-  { href: "/previous-workshops", label: "Previous Workshops" },
   { href: "/#about", label: "About" },
 ];
