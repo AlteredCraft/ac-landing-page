@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BrandLockup } from "@/components/BrandLockup";
 import { MobileMenu } from "@/components/MobileMenu";
-import { ExternalLink, ArrowRight, Mic } from "lucide-react";
+import { ExternalLink, ArrowRight, ArrowLeft, Mic } from "lucide-react";
 import { NAV_LINKS } from "@/lib/nav";
 import oaiaThumb from "../../../public/oaia-thumb.png";
 
@@ -91,6 +91,13 @@ export default function SpeakingPage() {
       <main className="max-w-[1100px] mx-auto px-6 lg:px-12 pt-20 lg:pt-24">
         {/* Hero */}
         <section className="pt-12 pb-10">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1.5 text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors mb-6"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Home
+          </Link>
           <h1 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-4xl sm:text-5xl text-[var(--color-text)]">
             Speaking
           </h1>

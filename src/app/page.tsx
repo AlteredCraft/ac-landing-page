@@ -10,7 +10,9 @@ import packtWorkshopImg from "../../public/packt-ws-00.png";
 import ragWorkshopImg from "../../public/speaker.png";
 import contextEngineeringImg from "../../public/maven-ce-ws.png";
 import { LatestPosts } from "@/components/LatestPosts";
+import { ProjectCard } from "@/components/ProjectCard";
 import { NAV_LINKS } from "@/lib/nav";
+import { PROJECTS } from "@/lib/projects";
 
 
 
@@ -144,7 +146,7 @@ export default function Home() {
                 Read the newsletter
               </a>
               <a
-                href="#teaching"
+                href="#workshops"
                 className="inline-flex items-center gap-2 px-5 py-3 border border-[var(--color-border)] text-[var(--color-text)] font-medium text-sm hover:border-[var(--color-text)] transition-colors rounded-lg"
               >
                 Workshops
@@ -256,9 +258,41 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Teaching Section — Maven offerings */}
+        {/* Projects preview — full list lives on /projects */}
+        <section
+          id="projects"
+          className="py-24 px-6 lg:px-12 max-w-[1400px] mx-auto"
+        >
+          <div className="mb-12">
+            <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(2rem,4vw,3rem)] leading-tight mb-4">
+              Projects
+            </h2>
+            <p className="text-[var(--color-muted)] max-w-[700px]">
+              A few things I&apos;ve built alongside the writing. The newsletter
+              shows how I think; these show what I ship.
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {PROJECTS.slice(0, 3).map((project) => (
+              <ProjectCard key={project.slug} project={project} />
+            ))}
+          </div>
+
+          <div className="mt-10">
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-[var(--color-accent)] hover:gap-3 transition-all"
+            >
+              See all projects
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </section>
+
+        {/* Workshops Section — Maven offerings */}
         {/* NOTE: Update dates and links when offerings change */}
-        <section id="teaching" className="py-24 px-6 lg:px-12 max-w-[1400px] mx-auto">
+        <section id="workshops" className="py-24 px-6 lg:px-12 max-w-[1400px] mx-auto">
           <div className="mb-12">
             <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(2rem,4vw,3rem)] leading-tight mb-4">
               Workshops

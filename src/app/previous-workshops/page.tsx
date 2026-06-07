@@ -56,11 +56,11 @@ export default function PreviousWorkshopsPage() {
         {/* Hero */}
         <section className="pt-12 pb-12">
           <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors mb-6"
+            href="/#workshops"
+            className="inline-flex items-center gap-1.5 text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors mb-6"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to home
+            Workshops
           </Link>
           <h1 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-4xl sm:text-5xl text-[var(--color-text)]">
             Previous Workshops
@@ -193,10 +193,10 @@ export default function PreviousWorkshopsPage() {
                 <ArrowRight className="w-4 h-4" />
               </a>
               <Link
-                href="/#teaching"
+                href="/#workshops"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-[var(--color-border)] text-[var(--color-text)] font-medium text-sm hover:border-[var(--color-text)] transition-colors rounded-lg"
               >
-                Back to home
+                Back to workshops
               </Link>
             </div>
           </div>

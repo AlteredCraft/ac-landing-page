@@ -26,15 +26,26 @@ The Substack RSS integration works as: `src/lib/substack.ts` parses the RSS feed
 
 ### Pages
 
-- `/` — main landing page (all sections: hero, writing, workshops, about). The workshops section uses `id="teaching"` (legacy anchor; nav label is "Workshops").
+- `/` — main landing page. Single-scroll narrative: hero → writing → projects preview → workshops → about, with section ids `#writing`, `#projects`, `#workshops`, `#about`.
+- `/projects` — expanded view of the homepage projects section; full grid of the curated list
+- `/journal` — reverse-chronological stream of short dated notes; `/journal/[slug]` renders each entry
 - `/speaking` — talks, panels, demos
 - `/previous-workshops` — full archive of past workshops/teaching engagements
 - `/press-kit` — brand assets, logos, colors, typography guidelines
 - Custom `not-found.tsx` with terminal-style 404
 
+### Navigation model
+
+`NAV_LINKS` (`src/lib/nav.ts`) drives desktop nav, `MobileMenu`, and the footer. Two link kinds:
+
+- **Section links** scroll to homepage sections: Writing, Projects, Workshops, About (`/#…`).
+- **Subpage links** navigate to standalone pages: Journal, Speaking.
+
+A homepage section that has an expanded/detail page links to it via a "See all →" link (Projects → `/projects`, Workshops → `/previous-workshops`). Every detail/subpage carries a top-left back link (`ArrowLeft` + destination name) to its parent: `/projects` → `/#projects`, `/previous-workshops` → `/#workshops`, `/journal/[slug]` → `/journal`, and `/journal` + `/speaking` → `/` ("Home").
+
 ### Workshops content model
 
-The "Workshops" section on `/` has three labeled subsections. Place new entries based on what kind of offering it is — not when it happens.
+The Workshops section on `/` (`src/app/page.tsx`, `id="workshops"`) has three labeled subsections. Place new entries based on what kind of offering it is — not when it happens.
 
 | Subsection | What goes here | Date shown? |
 |------------|----------------|-------------|
@@ -52,6 +63,23 @@ Rules:
 
 - `BrandLockup` — reusable brand mark (icon + "/altered craft" wordmark), supports horizontal/stacked variants and light/dark themes
 - `CodeBarDivider` — decorative colored bar divider element
+
+### Projects content model
+
+The project cards on `/projects` and the 3-card homepage preview are driven by one array: `PROJECTS` in `src/lib/projects.ts`. `ProjectCard` (`src/components/ProjectCard.tsx`) renders each. The homepage shows `PROJECTS.slice(0, 3)`, so list order matters (lead with the strongest evidence).
+
+- Each project maps to the dev-rel triad via `signals`: `Build`, `Teach`, `Empathy` (rendered as Lucide-icon badges).
+- A link with `href: "#"` is a **placeholder**: `ProjectCard` renders it as a visible "(add link)" marker so a missing URL is caught in review, not shipped. Replace `#` with the real repo/post URL.
+- Set `inProgress: true` for work that isn't public yet (shows an "In progress" badge).
+
+### Journal content model
+
+Entries are markdown files in `content/journal/` (one file per entry, `<date>-<slug>.md`). Publishing flow: write the file, commit, push, it appears.
+
+- `src/lib/journal.ts` reads the directory at build time (`gray-matter` for frontmatter), sorts by `date` desc, and exposes `getJournalEntries()` / `getJournalEntry(slug)` / `formatJournalDate()`.
+- `/journal/[slug]` uses `generateStaticParams`, so new files prerender on build.
+- Bodies render via `<Markdown>` (`src/components/Markdown.tsx`, react-markdown + remark-gfm) with a brand-styled component map (no typography plugin).
+- Frontmatter schema: `title`, `date` (quoted `"YYYY-MM-DD"`), `slug`, `tags: string[]`, `excerpt`.
 
 ## Design System
 
