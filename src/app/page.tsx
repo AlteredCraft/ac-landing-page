@@ -10,7 +10,9 @@ import packtWorkshopImg from "../../public/packt-ws-00.png";
 import ragWorkshopImg from "../../public/speaker.png";
 import contextEngineeringImg from "../../public/maven-ce-ws.png";
 import { LatestPosts } from "@/components/LatestPosts";
+import { ProjectCard } from "@/components/ProjectCard";
 import { NAV_LINKS } from "@/lib/nav";
+import { PROJECTS } from "@/lib/projects";
 
 
 
@@ -89,8 +91,8 @@ export default function Home() {
         <section className="lg:min-h-screen flex flex-col lg:justify-center pt-20 lg:pt-24 pb-12 lg:pb-16 px-6 lg:px-12 max-w-[1000px] mx-auto">
           <div>
             <h1 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(3rem,8vw,5rem)] leading-[1.05] tracking-tight mb-6 lg:mb-8">
-              I write and teach about{" "}
-              <span className="text-[var(--color-accent)]">building software with AI.</span>
+              Building with AI,{" "}
+              <span className="text-[var(--color-accent)]">in the open.</span>
             </h1>
             <HeroImage
               portraitSrc={samImg}
@@ -99,19 +101,18 @@ export default function Home() {
               qrAlt="QR code linking to alteredcraft.com"
             />
             <p className="text-xl lg:text-[1.375rem] text-[var(--color-muted)] mb-4 lg:mb-6 max-w-[680px] leading-relaxed">
-              I&apos;m Sam Keen. I write a weekly newsletter on what&apos;s
-              actually working in AI-assisted development and teach
-              hands-on workshops where developers build real systems.
-              Author of{" "}
-              <a href="https://www.amazon.com/Clean-Architecture-Python-maintainable-architectural/dp/183664289X" target="_blank" rel="noopener noreferrer" className="text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors"><em>Clean Architecture with Python</em></a>;
-              formerly a generative AI architect at AWS.
+              I&apos;m Sam Keen. I work hands-on with AI-assisted development,
+              then write and teach what actually holds up, through a weekly
+              newsletter and live workshops. Author of{" "}
+              <a href="https://www.amazon.com/Clean-Architecture-Python-maintainable-architectural/dp/183664289X" target="_blank" rel="noopener noreferrer" className="text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors"><em>Clean Architecture with Python</em></a>
+              , and formerly a generative AI architect at AWS.
             </p>
 
             {/* Formerly at + Community */}
             <div className="mb-6 lg:mb-12 space-y-3">
-              <p className="text-sm text-[var(--color-muted)]">25+ years building software.</p>
+              <p className="text-[1rem] text-[var(--color-muted)]">25+ years shipping production software.</p>
               <div className="flex items-center gap-6 lg:gap-10">
-                <span className="text-xs text-[var(--color-muted)] uppercase tracking-widest flex-shrink-0">Formerly at</span>
+                <span className="text-sm text-[var(--color-muted)] uppercase tracking-widest flex-shrink-0">Formerly at</span>
                 <div className="flex items-center gap-8 lg:gap-12 opacity-60">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src="/logos/aws.svg" alt="Amazon Web Services" className="h-6 lg:h-8 w-auto" />
@@ -121,8 +122,8 @@ export default function Home() {
                   <img src="/logos/nike.svg" alt="Nike" className="h-5 lg:h-7 w-auto" />
                 </div>
               </div>
-              <p className="text-sm text-[var(--color-muted)]">
-                Co-founder,{" "}
+              <p className="text-[1rem] text-[var(--color-muted)]">
+                Co-founder of{" "}
                 <a
                   href="https://www.meetup.com/portland-ai-engineers/"
                   target="_blank"
@@ -131,7 +132,7 @@ export default function Home() {
                 >
                   Portland AI Engineers
                 </a>
-                {" "}— 1,300+ members
+                {" "}(1,300+ members)
               </p>
             </div>
 
@@ -144,7 +145,7 @@ export default function Home() {
                 Read the newsletter
               </a>
               <a
-                href="#teaching"
+                href="#workshops"
                 className="inline-flex items-center gap-2 px-5 py-3 border border-[var(--color-border)] text-[var(--color-text)] font-medium text-sm hover:border-[var(--color-text)] transition-colors rounded-lg"
               >
                 Workshops
@@ -193,7 +194,7 @@ export default function Home() {
                       </a>
                     </h3>
                     <p className="text-[var(--color-muted)]">
-                      Signal filtering—what matters this week in AI for developers.
+                      Signal filtering: what matters this week in AI for developers.
                     </p>
                   </div>
                   <div className="p-8 bg-[var(--color-base)] border-[3px] border-[var(--color-accent)] rounded-lg">
@@ -223,7 +224,7 @@ export default function Home() {
                   {[
                     "Production-informed, not demo magic",
                     "Written by someone who shipped code for 25+ years (ex AWS | Lululemon | Nike)",
-                    "No hype — grounded in hands-on research and experimentation",
+                    "No hype, grounded in hands-on research and experimentation",
                   ].map((item) => (
                     <div
                       key={item}
@@ -256,16 +257,48 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Teaching Section — Maven offerings */}
+        {/* Projects preview — full list lives on /projects */}
+        <section
+          id="projects"
+          className="py-24 px-6 lg:px-12 max-w-[1400px] mx-auto"
+        >
+          <div className="mb-12">
+            <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(2rem,4vw,3rem)] leading-tight mb-4">
+              Projects
+            </h2>
+            <p className="text-[var(--color-muted)] max-w-[700px]">
+              A few things I&apos;ve built alongside the writing. The newsletter
+              shows how I think; these show what I ship.
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {PROJECTS.slice(0, 3).map((project) => (
+              <ProjectCard key={project.slug} project={project} />
+            ))}
+          </div>
+
+          <div className="mt-10">
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-[var(--color-accent)] hover:gap-3 transition-all"
+            >
+              See all projects
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </section>
+
+        {/* Workshops Section — Maven offerings */}
         {/* NOTE: Update dates and links when offerings change */}
-        <section id="teaching" className="py-24 px-6 lg:px-12 max-w-[1400px] mx-auto">
+        <section id="workshops" className="py-24 px-6 lg:px-12 max-w-[1400px] mx-auto">
           <div className="mb-12">
             <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(2rem,4vw,3rem)] leading-tight mb-4">
               Workshops
             </h2>
             <p className="text-[var(--color-muted)] max-w-[700px]">
               Live, hands-on sessions on Maven. You won&apos;t just hear about
-              AI tools — you&apos;ll use them in real time, building artifacts
+              AI tools. You&apos;ll use them in real time, building artifacts
               you take back to work.
             </p>
           </div>
@@ -316,7 +349,7 @@ export default function Home() {
                 >
                   <Image
                     src={packtWorkshopImg}
-                    alt="Packt × Deep Engineering — Effective Software Engineering with Claude Code, June 20, 2026"
+                    alt="Packt × Deep Engineering: Effective Software Engineering with Claude Code, June 20, 2026"
                     fill
                     className="object-cover"
                   />
@@ -329,12 +362,12 @@ export default function Home() {
                     Effective Software Engineering with Claude Code
                   </h4>
                   <p className="text-sm text-[var(--color-muted)] mb-3">
-                    June 20, 2026 — 10:30 AM EDT (4 hours)
+                    June 20, 2026 · 10:30 AM EDT (4 hours)
                   </p>
                   <p className="text-sm text-[var(--color-muted)] mb-5 flex-grow">
                     From prompts to systems. For senior engineers, tech leads,
                     and architects already using Claude Code who want
-                    repeatable results — CLAUDE.md context layers, reusable
+                    repeatable results: CLAUDE.md context layers, reusable
                     skills, guardrails, and team-level practices.
                   </p>
                   <a
@@ -465,14 +498,16 @@ export default function Home() {
                 </h2>
                 <div className="space-y-4 text-[var(--color-muted)]">
                   <p>
-                    I&apos;ve spent 25+ years building software at companies like
-                    Nike, Lululemon, AWS, and a handful of startups. I led the
+                    I&apos;ve spent 25+ years shipping production software at
+                    companies like Nike, Lululemon, AWS, and a handful of
+                    startups. I led the
                     GenAI Innovation Lab at AWS, where I helped teams separate
                     signal from noise in AI adoption.
                   </p>
                   <p>
-                    Now I write and teach full-time about how developers build
-                    with AI. Not building AI — building <em>with</em> AI. My{" "}
+                    Now my work is AI-assisted development: building in the
+                    open, writing, and teaching. Building <em>with</em> AI, not
+                    building AI. My{" "}
                     <a
                       href="https://writing.alteredcraft.com"
                       target="_blank"

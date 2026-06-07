@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BrandLockup } from "@/components/BrandLockup";
 import { MobileMenu } from "@/components/MobileMenu";
-import { ExternalLink, ArrowRight, Mic } from "lucide-react";
+import { ExternalLink, ArrowRight, ArrowLeft, Mic } from "lucide-react";
 import { NAV_LINKS } from "@/lib/nav";
 import oaiaThumb from "../../../public/oaia-thumb.png";
 
@@ -30,14 +30,27 @@ type Engagement = {
   links: { label: string; href: string }[];
 };
 
-const UPCOMING: Engagement[] = [
+const UPCOMING: Engagement[] = [];
+
+const PAST: Engagement[] = [
+  {
+    date: "MAY 20, 2026",
+    location: "PORTLAND, OR",
+    host: "Maseeh College of Engineering · Portland State University",
+    title: "Panelist: AI Futures",
+    description:
+      "Joined the AI Futures industry panel at the Maseeh Exchange: Events With Impact, alongside PSU faculty exploring how AI is being applied to real-world challenges.",
+    links: [
+      { label: "Event details", href: "https://www.pdx.edu/engineering/exchange" },
+    ],
+  },
   {
     date: "MAY 14, 2026",
     location: "PORTLAND, OR",
     host: "Portland WIP AI Demos Lunch · UpStart Collective",
-    title: "Presenting knobs.cc",
+    title: "Presented knobs.cc",
     description:
-      "A desktop inspector for every knob Claude Code gives you — where it lives, what it’s set to, and which layer wins. Demoing the in-progress build at Portland’s informal show-and-tell for AI builders.",
+      "Demoed the in-progress build at Portland’s informal show-and-tell for AI builders: a desktop inspector for every knob Claude Code gives you, where it lives, what it’s set to, and which layer wins.",
     links: [
       {
         label: "Event details",
@@ -46,18 +59,39 @@ const UPCOMING: Engagement[] = [
       { label: "knobs.cc on GitHub", href: "https://github.com/AlteredCraft/knobs-cc" },
     ],
   },
-  {
-    date: "MAY 20, 2026",
-    location: "PORTLAND, OR",
-    host: "Maseeh College of Engineering · Portland State University",
-    title: "Panelist — AI Futures",
-    description:
-      "Joining the AI Futures industry panel at the Maseeh Exchange: Events With Impact, alongside PSU faculty exploring how AI is being applied to real-world challenges.",
-    links: [
-      { label: "Event details", href: "https://www.pdx.edu/engineering/exchange" },
-    ],
-  },
 ];
+
+function EngagementRow({ event }: { event: Engagement }) {
+  return (
+    <li className="py-8 grid gap-3 sm:grid-cols-[200px_1fr] sm:gap-8">
+      <div className="text-xs font-semibold tracking-widest text-[var(--color-muted)] uppercase">
+        <div>{event.date}</div>
+        <div className="mt-1">{event.location}</div>
+      </div>
+      <div>
+        <p className="text-sm text-[var(--color-muted)] mb-1">{event.host}</p>
+        <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl text-[var(--color-text)] mb-2">
+          {event.title}
+        </h3>
+        <p className="text-[var(--color-muted)] mb-4">{event.description}</p>
+        <div className="flex flex-wrap gap-x-5 gap-y-2">
+          {event.links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors"
+            >
+              {link.label}
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          ))}
+        </div>
+      </div>
+    </li>
+  );
+}
 
 export default function SpeakingPage() {
   return (
@@ -91,6 +125,13 @@ export default function SpeakingPage() {
       <main className="max-w-[1100px] mx-auto px-6 lg:px-12 pt-20 lg:pt-24">
         {/* Hero */}
         <section className="pt-12 pb-10">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1.5 text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors mb-6"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Home
+          </Link>
           <h1 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-4xl sm:text-5xl text-[var(--color-text)]">
             Speaking
           </h1>
@@ -114,44 +155,25 @@ export default function SpeakingPage() {
             Upcoming engagements
           </h2>
 
-          <ul className="divide-y divide-[var(--color-border)]">
-            {UPCOMING.map((event) => (
-              <li
-                key={event.title}
-                className="py-8 grid gap-3 sm:grid-cols-[200px_1fr] sm:gap-8"
+          {UPCOMING.length === 0 ? (
+            <p className="text-[var(--color-muted)] max-w-[680px]">
+              Nothing scheduled right now. If you&apos;re putting together an
+              event, I&apos;d be glad to talk,{" "}
+              <a
+                href="mailto:sam@alteredcraft.com?subject=Speaking%20inquiry"
+                className="text-[var(--color-accent)] hover:underline"
               >
-                <div className="text-xs font-semibold tracking-widest text-[var(--color-muted)] uppercase">
-                  <div>{event.date}</div>
-                  <div className="mt-1">{event.location}</div>
-                </div>
-                <div>
-                  <p className="text-sm text-[var(--color-muted)] mb-1">
-                    {event.host}
-                  </p>
-                  <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl text-[var(--color-text)] mb-2">
-                    {event.title}
-                  </h3>
-                  <p className="text-[var(--color-muted)] mb-4">
-                    {event.description}
-                  </p>
-                  <div className="flex flex-wrap gap-x-5 gap-y-2">
-                    {event.links.map((link) => (
-                      <a
-                        key={link.href}
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors"
-                      >
-                        {link.label}
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
+                reach out
+              </a>
+              .
+            </p>
+          ) : (
+            <ul className="divide-y divide-[var(--color-border)]">
+              {UPCOMING.map((event) => (
+                <EngagementRow key={event.title} event={event} />
+              ))}
+            </ul>
+          )}
         </section>
 
         {/* Past */}
@@ -160,13 +182,24 @@ export default function SpeakingPage() {
             Past engagements
           </h2>
 
+          {PAST.length > 0 && (
+            <ul className="divide-y divide-[var(--color-border)] mb-12">
+              {PAST.map((event) => (
+                <EngagementRow key={event.title} event={event} />
+              ))}
+            </ul>
+          )}
+
+          <h3 className="font-[family-name:var(--font-plus-jakarta)] font-semibold text-xl text-[var(--color-text)] mb-6">
+            Recordings
+          </h3>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* GOTO Conference Interview */}
             <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg overflow-hidden flex flex-col">
               <div className="aspect-video">
                 <iframe
                   src="https://www.youtube-nocookie.com/embed/AeA7PShEkD8"
-                  title="Clean Architecture with Python — GOTO Conference"
+                  title="Clean Architecture with Python, GOTO Conference"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   className="w-full h-full"
@@ -197,7 +230,7 @@ export default function SpeakingPage() {
                 <div className="relative aspect-video">
                   <Image
                     src={oaiaThumb}
-                    alt="Observability in AI — slide showing the antipattern of unmonitored LLM calls"
+                    alt="Observability in AI: slide showing the antipattern of unmonitored LLM calls"
                     fill
                     className="object-cover object-top"
                   />
