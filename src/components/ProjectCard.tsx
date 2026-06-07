@@ -1,18 +1,5 @@
-import {
-  ExternalLink,
-  Hammer,
-  GraduationCap,
-  HeartHandshake,
-  type LucideIcon,
-} from "lucide-react";
-import type { Project, Signal } from "@/lib/projects";
-
-// The dev-rel triad each project signals.
-const SIGNAL_ICON: Record<Signal, LucideIcon> = {
-  Build: Hammer,
-  Teach: GraduationCap,
-  Empathy: HeartHandshake,
-};
+import { ExternalLink } from "lucide-react";
+import type { Project } from "@/lib/projects";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
@@ -21,9 +8,9 @@ export function ProjectCard({ project }: { project: Project }) {
         <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl leading-snug">
           {project.name}
         </h3>
-        {project.inProgress && (
+        {project.status && (
           <span className="flex-shrink-0 px-2.5 py-1 rounded-full text-xs font-medium bg-[var(--color-surface-alt)] text-[var(--color-muted)] whitespace-nowrap">
-            In progress
+            {project.status}
           </span>
         )}
       </div>
@@ -36,23 +23,19 @@ export function ProjectCard({ project }: { project: Project }) {
         {project.description}
       </p>
 
-      {/* Competency signals — the dev-rel triad */}
+      {/* Tags — categorical labels */}
       <div className="flex flex-wrap gap-2 mb-3">
-        {project.signals.map((signal) => {
-          const Icon = SIGNAL_ICON[signal];
-          return (
-            <span
-              key={signal}
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border border-[var(--color-accent)] text-[var(--color-accent)]"
-            >
-              <Icon className="w-3 h-3" />
-              {signal}
-            </span>
-          );
-        })}
+        {project.tags.map((tag) => (
+          <span
+            key={tag}
+            className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium border border-[var(--color-accent)] text-[var(--color-accent)]"
+          >
+            {tag}
+          </span>
+        ))}
       </div>
 
-      {/* Stack */}
+      {/* Sub-tags — tech / tools */}
       <div className="flex flex-wrap gap-2 mb-5">
         {project.stack.map((tech) => (
           <span
@@ -68,7 +51,6 @@ export function ProjectCard({ project }: { project: Project }) {
       <div className="flex flex-wrap gap-x-5 gap-y-2 mt-auto pt-1">
         {project.links.map((link) =>
           link.href === "#" ? (
-            // Placeholder — kept deliberately obvious so a missing URL is caught in review.
             <span
               key={link.label}
               title="Placeholder — add the real URL in src/lib/projects.ts"

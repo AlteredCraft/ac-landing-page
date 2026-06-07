@@ -66,8 +66,8 @@ export default function ProjectsPage() {
           <p className="mt-4 text-lg text-[var(--color-muted)] max-w-[720px]">
             Things I build while writing and teaching about AI-assisted
             development. Each one sits on both sides of the work: shipping the
-            thing and explaining it. The badges flag what a project demonstrates,
-            building, teaching, or developer empathy.
+            thing and explaining it. The tags flag what each project is about;
+            the smaller chips are the tech behind it.
           </p>
         </section>
 

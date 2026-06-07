@@ -99,7 +99,7 @@ export default function PreviousWorkshopsPage() {
                 <p className="text-sm text-[var(--color-muted)] mb-4 flex-grow">
                   Build the context layer that turns Claude Code from a
                   suggestion engine into a development partner. CLAUDE.md,
-                  skills, hooks, and the maturity ladder — all hands-on.
+                  skills, hooks, and the maturity ladder, all hands-on.
                 </p>
                 <a
                   href="https://maven.com/altered-craft-learning/context-engineering-for-claude-code"
