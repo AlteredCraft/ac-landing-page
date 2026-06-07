@@ -2,9 +2,8 @@
 // Each project maps to the dev-rel triad via `signals`: Build (technical depth),
 // Teach (developer education), Empathy (understands developer pain).
 //
-// LINKS: hrefs set to "#" are PLACEHOLDERS. Fill the real repo / post URLs before
-// shipping. ProjectCard renders any "#" link as a visible "(add link)" marker so a
-// missing URL is obvious in review rather than shipped silently.
+// Copy is grounded in each repo's README. All repos verified public. The homepage
+// preview shows the first 3 (PROJECTS.slice(0, 3)), so order matters.
 
 export type Signal = "Build" | "Teach" | "Empathy";
 
@@ -21,76 +20,67 @@ export type Project = {
   stack: string[];
   signals: Signal[];
   links: ProjectLink[];
-  // Optional flag for work that isn't public yet (shows an "In progress" badge).
+  // Optional flag for work that isn't fully released yet (shows an "In progress" badge).
   inProgress?: boolean;
 };
 
-// Ordering: lead with the strongest dev-rel evidence (public repo + post) first.
 export const PROJECTS: Project[] = [
   {
-    slug: "rusty-learn",
-    name: "rusty-learn",
+    slug: "tilth",
+    name: "Tilth",
     oneLiner:
-      "Learning a systems language in public: tooling that embodies 'AI as tutor, not typist.'",
+      "A harness for long-running agents that work autonomously, then let you replay the whole run.",
     description:
-      "A ratatui terminal-UI tracker built to teach myself Rust while documenting the journey. Uses a custom tutor output style that forces explanation over autocomplete.",
-    stack: ["Rust", "ratatui"],
+      "A minimal harness for autonomous coding agents against any OpenAI-compatible endpoint. It carries the machinery a watched pair-programming agent can skip: an evaluator that judges whether a change is a proper solution, between-task budget caps, and offline-first observability you can replay end to end.",
+    stack: ["Python", "OpenRouter", "Agents"],
     signals: ["Build", "Teach"],
     links: [
-      { label: "Repo", href: "#" }, // TODO: real repo URL
-      { label: "Read the post", href: "#" }, // TODO: AlteredCraft post URL
+      { label: "Repo", href: "https://github.com/AlteredCraft/tilth" },
+      { label: "Docs", href: "https://alteredcraft.github.io/tilth/" },
     ],
   },
   {
-    slug: "chat-rag-explorer",
-    name: "chat-rag-explorer",
-    oneLiner: "A working RAG chatbot that doubled as newsletter teaching material.",
-    description:
-      "A Flask + ChromaDB retrieval-augmented chatbot built to explore RAG patterns hands-on, then turned into explainer content for readers.",
-    stack: ["Python", "Flask", "ChromaDB"],
-    signals: ["Build", "Teach"],
-    links: [
-      { label: "Repo", href: "#" }, // TODO: real repo URL
-      { label: "Read the post", href: "#" }, // TODO: AlteredCraft post URL
-    ],
-  },
-  {
-    slug: "workshop-rag-basics",
-    name: "workshop-rag-basics",
-    oneLiner: "Open-source curriculum teaching RAG to developers from scratch.",
-    description:
-      "A co-authored GitHub curriculum with purpose-built datasets (WikiVoyage, Paul Graham essays) used to teach retrieval patterns in live workshops.",
-    stack: ["Python", "Teaching materials"],
-    signals: ["Teach", "Empathy"],
-    links: [
-      { label: "Repo", href: "#" }, // TODO: real repo URL
-    ],
-  },
-  {
-    slug: "raise",
-    name: "RAISE — Responsible AI-assisted Software Engineering",
+    slug: "knobs-cc",
+    name: "knobs.cc",
     oneLiner:
-      "A community framework for the 'quality floor collapse' in AI-assisted dev.",
+      "A desktop inspector for every knob Claude Code gives you: where it lives, what it's set to, and which layer wins.",
     description:
-      "A practitioner framework addressing how AI coding tools can erode baseline quality, and what teams should do about it. Thought leadership grounded in real engineering practice.",
-    stack: ["Framework", "Writing"],
-    signals: ["Empathy", "Teach"],
-    links: [
-      { label: "Framework", href: "#" }, // TODO: real repo / landing URL
-      { label: "Read the post", href: "#" }, // TODO: AlteredCraft post URL
-    ],
-  },
-  {
-    slug: "hermes",
-    name: "Hermes — local research agent",
-    oneLiner: "An always-on research agent running on local LLM inference.",
-    description:
-      "A build-in-public agent assistant designed to run on local hardware via Ollama, exploring practical, private AI infrastructure for developers.",
-    stack: ["Python", "Ollama", "Local LLMs"],
-    signals: ["Build"],
+      "Claude Code's configuration spans settings files at several layers, environment variables, and permissions. knobs.cc is a local desktop app that surfaces every setting, its value, and which layer takes precedence. Read-only inspector, pre-release.",
+    stack: ["Tauri", "Rust"],
+    signals: ["Build", "Empathy"],
     inProgress: true,
+    links: [{ label: "Repo", href: "https://github.com/AlteredCraft/knobs-cc" }],
+  },
+  {
+    slug: "claude-code-plugins",
+    name: "Claude Code Plugins",
+    oneLiner:
+      "A marketplace of Claude Code plugins for AI-assisted development.",
+    description:
+      "A growing collection of Claude Code plugins built at Altered Craft, installable straight from the marketplace. Small, reusable tooling that extends Claude Code for everyday work.",
+    stack: ["Claude Code", "Plugins"],
+    signals: ["Build", "Teach"],
     links: [
-      { label: "Repo", href: "#" }, // TODO: real repo URL (or remove if staying private)
+      {
+        label: "Repo",
+        href: "https://github.com/AlteredCraft/claude-code-plugins",
+      },
+    ],
+  },
+  {
+    slug: "rag-lab",
+    name: "RAG Lab",
+    oneLiner:
+      "An educational chat and RAG app for exploring retrieval patterns hands-on.",
+    description:
+      "A teaching app that demonstrates a streaming chat interface over LLMs with retrieval-augmented generation. Flask backend, OpenRouter for model access, and a vanilla JavaScript front end. Cross-platform, and used as workshop material.",
+    stack: ["Python", "Flask", "OpenRouter"],
+    signals: ["Build", "Teach"],
+    links: [
+      {
+        label: "Repo",
+        href: "https://github.com/AlteredCraft/chat-rag-explorer",
+      },
     ],
   },
 ];
