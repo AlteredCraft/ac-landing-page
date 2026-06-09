@@ -174,46 +174,12 @@ export default function Home() {
                 <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(2rem,4vw,3rem)] leading-tight mb-4">
                   The newsletter
                 </h2>
-                <p className="text-[var(--color-muted)] mb-8 max-w-[600px]">
+                <p className="text-[var(--color-muted)] mb-12 max-w-[600px]">
                   Every week, I dig into what&apos;s actually working in the new
                   AI abstraction layer so you can make informed decisions without
-                  drowning in hype.
+                  drowning in hype. A consistent weekly AI review for developers,
+                  plus long-form deep dives that go beyond the headlines.
                 </p>
-
-                {/* Tier Cards */}
-                <div className="grid md:grid-cols-2 gap-8 mb-12">
-                  <div className="p-8 bg-[var(--color-base)] rounded-lg">
-                    <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-2xl mb-2">
-                      <a
-                        href="https://writing.alteredcraft.com/t/weekly-ai-review"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:text-[var(--color-accent)] transition-colors"
-                      >
-                        Monday AI Review
-                      </a>
-                    </h3>
-                    <p className="text-[var(--color-muted)]">
-                      Signal filtering: what matters this week in AI for developers.
-                    </p>
-                  </div>
-                  <div className="p-8 bg-[var(--color-base)] border-[3px] border-[var(--color-accent)] rounded-lg">
-                    <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-2xl mb-2">
-                      <a
-                        href="https://writing.alteredcraft.com/t/deep-dives-insights"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="hover:text-[var(--color-accent)] transition-colors"
-                      >
-                        Deep Dives & Insights
-                      </a>
-                    </h3>
-                    <p className="text-[var(--color-muted)]">
-                      Tech Explorations & Industry Analysis. Go deeper than the
-                      headlines.
-                    </p>
-                  </div>
-                </div>
 
                 {/* Latest Posts - loaded client-side on page view */}
                 <LatestPosts />
