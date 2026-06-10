@@ -181,9 +181,6 @@ export default function Home() {
                   plus long-form deep dives that go beyond the headlines.
                 </p>
 
-                {/* Latest Posts - loaded client-side on page view */}
-                <LatestPosts />
-
                 {/* What makes it different */}
                 <h4 className="font-semibold mb-4">What makes it different</h4>
                 <div className="flex flex-col gap-3 mb-8">
@@ -204,20 +201,22 @@ export default function Home() {
                   ))}
                 </div>
 
-                {/* CTA */}
-                <div className="p-8 bg-[var(--color-base)] text-center rounded-lg">
-                  <p className="text-[var(--color-muted)] mb-4">
-                    Subscribe on Substack
-                  </p>
-                  <a
-                    href="https://writing.alteredcraft.com/subscribe"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-9 py-4 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg"
-                  >
-                    Subscribe free →
-                  </a>
-                </div>
+                <p>
+                <a
+                  href="https://writing.alteredcraft.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-medium font-semibold tracking-wide text-[var(--color-accent)] hover:gap-3 transition-all"
+                >
+                  See all the content on Substack
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+                </p>
+                <br />
+
+                {/* Latest Posts - loaded client-side on page view */}
+                <LatestPosts />
+
               </div>
             </div>
           </div>
