@@ -26,26 +26,28 @@ The Substack RSS integration works as: `src/lib/substack.ts` parses the RSS feed
 
 ### Pages
 
-- `/` — main landing page. Single-scroll narrative: hero → writing → projects preview → workshops → about, with section ids `#writing`, `#projects`, `#workshops`, `#about`.
+- `/` — main landing page. Single-scroll narrative: hero → newsletter → projects preview → community (workshops + speaking) → about, with section ids `#writing`, `#projects`, `#community`, `#about`. (The newsletter section's anchor is still `#writing`; only the nav label changed to "Newsletter".)
 - `/projects` — expanded view of the homepage projects section; full grid of the curated list
 - `/journal` — reverse-chronological stream of short dated notes; `/journal/[slug]` renders each entry
-- `/speaking` — talks, panels, demos
+- `/speaking` — talks, panels, demos (also surfaced inline in the homepage Community section; both render from `src/lib/speaking.ts`)
 - `/previous-workshops` — full archive of past workshops/teaching engagements
 - `/press-kit` — brand assets, logos, colors, typography guidelines
 - Custom `not-found.tsx` with terminal-style 404
 
 ### Navigation model
 
-`NAV_LINKS` (`src/lib/nav.ts`) drives desktop nav, `MobileMenu`, and the footer. Two link kinds:
+`NAV_LINKS` (`src/lib/nav.ts`) drives desktop nav, `MobileMenu`, and the footer, in this order: Newsletter, Journal, Projects, Community, About. Labels render through `NavLabel` (`src/components/NavLabel.tsx`), which prefixes an optional Lucide icon — Journal carries a `PenLine` pen icon. Two link kinds:
 
-- **Section links** scroll to homepage sections: Writing, Projects, Workshops, About (`/#…`).
-- **Subpage links** navigate to standalone pages: Journal, Speaking.
+- **Section links** scroll to homepage sections: Newsletter (`/#writing`), Projects, Community, About (`/#…`).
+- **Subpage links** navigate to standalone pages: Journal.
 
-A homepage section that has an expanded/detail page links to it via a "See all →" link (Projects → `/projects`, Workshops → `/previous-workshops`). Every detail/subpage carries a top-left back link (`ArrowLeft` + destination name) to its parent: `/projects` → `/#projects`, `/previous-workshops` → `/#workshops`, `/journal/[slug]` → `/journal`, and `/journal` + `/speaking` → `/` ("Home").
+A homepage section that has an expanded/detail page links to it via a "See all →" link (Projects → `/projects`; Community → `/previous-workshops` for workshops and → `/speaking` for talks). Every detail/subpage carries a top-left back link (`ArrowLeft` + destination name) to its parent: `/projects` → `/#projects`, `/previous-workshops` → `/#community`, `/speaking` → `/#community`, `/journal/[slug]` → `/journal`, and `/journal` → `/` ("Home").
 
-### Workshops content model
+### Community content model (Workshops + Speaking)
 
-The Workshops section on `/` (`src/app/page.tsx`, `id="workshops"`) has three labeled subsections. Place new entries based on what kind of offering it is — not when it happens.
+The **Community** section on `/` (`src/app/page.tsx`, `id="community"`) has two sub-groups: **Workshops** and **Speaking**.
+
+The **Workshops** sub-group has three labeled subsections. Place new entries based on what kind of offering it is — not when it happens.
 
 | Subsection | What goes here | Date shown? |
 |------------|----------------|-------------|
@@ -58,6 +60,8 @@ Rules:
 - **Do not duplicate "Always available" items on `/previous-workshops`.** Evergreen offerings are not "previous" — they are still available.
 - **When an Upcoming workshop happens**, move it: either to "Previous" on `/` (which may displace an older entry down to `/previous-workshops`) or directly to `/previous-workshops`.
 - Update dates and links inline in `src/app/page.tsx` and `src/app/previous-workshops/page.tsx`. There is no data source — these are hand-edited.
+
+The **Speaking** sub-group (past engagements + recordings) is sourced from `src/lib/speaking.ts` (`UPCOMING`, `PAST`) and rendered by the shared `EngagementRow` and `SpeakingRecordings` components — the same data and components power the full `/speaking` page, so edit them in one place. The homepage Community section shows the past engagements and recordings inline and links out to `/speaking` ("See all talks & panels →") for the full archive, upcoming engagements, and the inquire CTA.
 
 ### Key Components
 

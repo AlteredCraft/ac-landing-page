@@ -4,6 +4,7 @@ import { BrandLockup } from "@/components/BrandLockup";
 import { MobileMenu } from "@/components/MobileMenu";
 import { ArrowLeft } from "lucide-react";
 import { NAV_LINKS } from "@/lib/nav";
+import { NavLabel } from "@/components/NavLabel";
 import { getJournalEntries, formatJournalDate } from "@/lib/journal";
 
 export const metadata: Metadata = {
@@ -42,7 +43,7 @@ export default function JournalPage() {
                 href={link.href}
                 className="text-sm font-medium tracking-wide text-white hover:text-[var(--color-accent)] transition-colors"
               >
-                {link.label}
+                <NavLabel link={link} />
               </Link>
             </li>
           ))}

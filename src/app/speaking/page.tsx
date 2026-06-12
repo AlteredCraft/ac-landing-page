@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { BrandLockup } from "@/components/BrandLockup";
 import { MobileMenu } from "@/components/MobileMenu";
-import { ExternalLink, ArrowRight, ArrowLeft, Mic } from "lucide-react";
+import { NavLabel } from "@/components/NavLabel";
+import { ArrowRight, ArrowLeft, Mic } from "lucide-react";
 import { NAV_LINKS } from "@/lib/nav";
-import oaiaThumb from "../../../public/oaia-thumb.png";
+import { UPCOMING, PAST } from "@/lib/speaking";
+import { EngagementRow } from "@/components/EngagementRow";
+import { SpeakingRecordings } from "@/components/SpeakingRecordings";
 
 export const metadata: Metadata = {
   title: "Speaking | AlteredCraft",
@@ -20,78 +22,6 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
-
-type Engagement = {
-  date: string;
-  location: string;
-  host: string;
-  title: string;
-  description: string;
-  links: { label: string; href: string }[];
-};
-
-const UPCOMING: Engagement[] = [];
-
-const PAST: Engagement[] = [
-  {
-    date: "MAY 20, 2026",
-    location: "PORTLAND, OR",
-    host: "Maseeh College of Engineering · Portland State University",
-    title: "Panelist: AI Futures",
-    description:
-      "Joined the AI Futures industry panel at the Maseeh Exchange: Events With Impact, alongside PSU faculty exploring how AI is being applied to real-world challenges.",
-    links: [
-      { label: "Event details", href: "https://www.pdx.edu/engineering/exchange" },
-    ],
-  },
-  {
-    date: "MAY 14, 2026",
-    location: "PORTLAND, OR",
-    host: "Portland WIP AI Demos Lunch · UpStart Collective",
-    title: "Presented knobs.cc",
-    description:
-      "Demoed the in-progress build at Portland’s informal show-and-tell for AI builders: a desktop inspector for every knob Claude Code gives you, where it lives, what it’s set to, and which layer wins.",
-    links: [
-      {
-        label: "Event details",
-        href: "https://eventship.com/event/portland-wip-ai-demo-lunch",
-      },
-      { label: "knobs.cc on GitHub", href: "https://github.com/AlteredCraft/knobs-cc" },
-    ],
-  },
-];
-
-function EngagementRow({ event }: { event: Engagement }) {
-  return (
-    <li className="py-8 grid gap-3 sm:grid-cols-[200px_1fr] sm:gap-8">
-      <div className="text-xs font-semibold tracking-widest text-[var(--color-muted)] uppercase">
-        <div>{event.date}</div>
-        <div className="mt-1">{event.location}</div>
-      </div>
-      <div>
-        <p className="text-sm text-[var(--color-muted)] mb-1">{event.host}</p>
-        <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl text-[var(--color-text)] mb-2">
-          {event.title}
-        </h3>
-        <p className="text-[var(--color-muted)] mb-4">{event.description}</p>
-        <div className="flex flex-wrap gap-x-5 gap-y-2">
-          {event.links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors"
-            >
-              {link.label}
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
-          ))}
-        </div>
-      </div>
-    </li>
-  );
-}
 
 export default function SpeakingPage() {
   return (
@@ -113,7 +43,7 @@ export default function SpeakingPage() {
                 href={link.href}
                 className="text-sm font-medium tracking-wide text-white hover:text-[var(--color-accent)] transition-colors"
               >
-                {link.label}
+                <NavLabel link={link} />
               </Link>
             </li>
           ))}
@@ -126,11 +56,11 @@ export default function SpeakingPage() {
         {/* Hero */}
         <section className="pt-12 pb-10">
           <Link
-            href="/"
+            href="/#community"
             className="inline-flex items-center gap-1.5 text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors mb-6"
           >
             <ArrowLeft className="w-4 h-4" />
-            Home
+            Community
           </Link>
           <h1 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-4xl sm:text-5xl text-[var(--color-text)]">
             Speaking
@@ -193,72 +123,7 @@ export default function SpeakingPage() {
           <h3 className="font-[family-name:var(--font-plus-jakarta)] font-semibold text-xl text-[var(--color-text)] mb-6">
             Recordings
           </h3>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* GOTO Conference Interview */}
-            <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg overflow-hidden flex flex-col">
-              <div className="aspect-video">
-                <iframe
-                  src="https://www.youtube-nocookie.com/embed/AeA7PShEkD8"
-                  title="Clean Architecture with Python, GOTO Conference"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                />
-              </div>
-              <div className="p-6 flex flex-col flex-grow">
-                <span className="inline-flex self-start px-2.5 py-1 bg-[var(--color-accent)]/15 text-[var(--color-accent)] text-xs font-semibold tracking-wide rounded-full mb-3">
-                  GOTO Conferences · Interview
-                </span>
-                <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl text-[var(--color-text)] mb-2">
-                  &ldquo;Clean Architecture with Python&rdquo;
-                </h3>
-                <p className="text-[var(--color-muted)] text-sm">
-                  Interview on the GOTO Conferences channel about the book and
-                  building maintainable software systems.
-                </p>
-              </div>
-            </div>
-
-            {/* Oregon AI Accelerator — Observability in AI */}
-            <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg overflow-hidden flex flex-col">
-              <a
-                href="https://www.youtube.com/watch?v=DPqnZzD2glU"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block"
-              >
-                <div className="relative aspect-video">
-                  <Image
-                    src={oaiaThumb}
-                    alt="Observability in AI: slide showing the antipattern of unmonitored LLM calls"
-                    fill
-                    className="object-cover object-top"
-                  />
-                </div>
-              </a>
-              <div className="p-6 flex flex-col flex-grow">
-                <span className="inline-flex self-start px-2.5 py-1 bg-[var(--color-accent)]/15 text-[var(--color-accent)] text-xs font-semibold tracking-wide rounded-full mb-3">
-                  Oregon AI Accelerator · Screencast
-                </span>
-                <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl text-[var(--color-text)] mb-2">
-                  &ldquo;Observability in AI&rdquo;
-                </h3>
-                <p className="text-[var(--color-muted)] text-sm mb-4 flex-grow">
-                  Screencast presentation on observability patterns for AI
-                  systems in production.
-                </p>
-                <a
-                  href="https://www.youtube.com/watch?v=DPqnZzD2glU"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors self-start"
-                >
-                  Watch on YouTube
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-              </div>
-            </div>
-          </div>
+          <SpeakingRecordings />
         </section>
 
         {/* CTA */}

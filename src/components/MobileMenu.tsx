@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { NAV_LINKS } from "@/lib/nav";
+import { NavLabel } from "@/components/NavLabel";
 
 export function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -55,7 +56,7 @@ export function MobileMenu() {
                 onClick={() => setIsOpen(false)}
                 className="px-4 py-3 text-sm font-medium uppercase tracking-widest text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors rounded-lg"
               >
-                {link.label}
+                <NavLabel link={link} />
               </a>
             ))}
           </nav>

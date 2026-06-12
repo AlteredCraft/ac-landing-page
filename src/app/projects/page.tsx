@@ -5,6 +5,7 @@ import { MobileMenu } from "@/components/MobileMenu";
 import { ProjectCard } from "@/components/ProjectCard";
 import { ArrowLeft } from "lucide-react";
 import { NAV_LINKS } from "@/lib/nav";
+import { NavLabel } from "@/components/NavLabel";
 import { PROJECTS } from "@/lib/projects";
 
 export const metadata: Metadata = {
@@ -41,7 +42,7 @@ export default function ProjectsPage() {
                 href={link.href}
                 className="text-sm font-medium tracking-wide text-white hover:text-[var(--color-accent)] transition-colors"
               >
-                {link.label}
+                <NavLabel link={link} />
               </Link>
             </li>
           ))}

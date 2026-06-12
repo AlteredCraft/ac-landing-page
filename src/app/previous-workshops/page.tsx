@@ -5,6 +5,7 @@ import { BrandLockup } from "@/components/BrandLockup";
 import { MobileMenu } from "@/components/MobileMenu";
 import { ExternalLink, ArrowRight, ArrowLeft } from "lucide-react";
 import { NAV_LINKS } from "@/lib/nav";
+import { NavLabel } from "@/components/NavLabel";
 import ragWorkshopImg from "../../../public/speaker.png";
 import hackathonImg from "../../../public/hackathon-podium.png";
 import contextEngineeringImg from "../../../public/maven-ce-ws.png";
@@ -43,7 +44,7 @@ export default function PreviousWorkshopsPage() {
                 href={link.href}
                 className="text-sm font-medium tracking-wide text-white hover:text-[var(--color-accent)] transition-colors"
               >
-                {link.label}
+                <NavLabel link={link} />
               </Link>
             </li>
           ))}
@@ -56,11 +57,11 @@ export default function PreviousWorkshopsPage() {
         {/* Hero */}
         <section className="pt-12 pb-12">
           <Link
-            href="/#workshops"
+            href="/#community"
             className="inline-flex items-center gap-1.5 text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors mb-6"
           >
             <ArrowLeft className="w-4 h-4" />
-            Workshops
+            Community
           </Link>
           <h1 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-4xl sm:text-5xl text-[var(--color-text)]">
             Previous Workshops
@@ -193,10 +194,10 @@ export default function PreviousWorkshopsPage() {
                 <ArrowRight className="w-4 h-4" />
               </a>
               <Link
-                href="/#workshops"
+                href="/#community"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-[var(--color-border)] text-[var(--color-text)] font-medium text-sm hover:border-[var(--color-text)] transition-colors rounded-lg"
               >
-                Back to workshops
+                Back to community
               </Link>
             </div>
           </div>

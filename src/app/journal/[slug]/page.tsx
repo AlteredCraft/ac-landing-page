@@ -6,6 +6,7 @@ import { BrandLockup } from "@/components/BrandLockup";
 import { MobileMenu } from "@/components/MobileMenu";
 import { Markdown } from "@/components/Markdown";
 import { NAV_LINKS } from "@/lib/nav";
+import { NavLabel } from "@/components/NavLabel";
 import {
   getJournalEntries,
   getJournalEntry,
@@ -65,7 +66,7 @@ export default async function JournalEntryPage({
                 href={link.href}
                 className="text-sm font-medium tracking-wide text-white hover:text-[var(--color-accent)] transition-colors"
               >
-                {link.label}
+                <NavLabel link={link} />
               </Link>
             </li>
           ))}
