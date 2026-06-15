@@ -21,8 +21,11 @@ Almost entirely server-rendered. The main page (`src/app/page.tsx`) contains all
 
 - `MobileMenu` — mobile nav toggle
 - `LatestPosts` — fetches recent Substack posts client-side via `/api/posts`
+- `UpcomingMeetups` — fetches upcoming Portland AI Engineers meetups client-side via `/api/meetups`
 
 The Substack RSS integration works as: `src/lib/substack.ts` parses the RSS feed -> `src/app/api/posts/route.ts` exposes it as JSON -> `LatestPosts` component fetches on mount.
+
+The Luma meetup integration follows the same shape: `src/lib/luma.ts` fetches the Portland AI Engineers calendar JSON API (`api.lu.ma/calendar/get-items`, `period=future`, hourly revalidate) -> `src/app/api/meetups/route.ts` exposes it as JSON -> `UpcomingMeetups` component fetches on mount and renders a callout at the top of the Community section. The calendar id (`cal-DfQe2kBQ7UiNr4y`) is hardcoded in `luma.ts`. Both lib functions degrade to `[]` on any error, so the components render nothing rather than break the page. Note: Luma `start_at` is UTC — `UpcomingMeetups` formats each date in the event's own `timezone` (e.g. a `00:00Z` start is the prior evening in PT), so never format in the viewer's local zone.
 
 ### Pages
 
@@ -125,6 +128,7 @@ Headings use `font-[family-name:var(--font-plus-jakarta)]` with `font-bold` or `
 
 - **Newsletter**: Substack at `writing.alteredcraft.com`
 - **Workshops**: Maven at `maven.com/altered-craft-learning`
+- **Meetups**: Luma — Portland AI Engineers calendar at `luma.com/portland-ai-engineers` (live feed, see Architecture)
 - **Booking**: Fantastical at `fantastical.app/samkeen/meet-with-sam-keen`
 - **Email**: sam@alteredcraft.com
 
