@@ -17,6 +17,7 @@ import { PROJECTS } from "@/lib/projects";
 import { PAST as SPEAKING_PAST } from "@/lib/speaking";
 import { EngagementRow } from "@/components/EngagementRow";
 import { SpeakingRecordings } from "@/components/SpeakingRecordings";
+import { UpcomingMeetups } from "@/components/UpcomingMeetups";
 
 
 
@@ -272,6 +273,10 @@ export default function Home() {
               along the way.
             </p>
           </div>
+
+          {/* Up next: Portland AI Engineers meetups (live feed from Luma).
+              Renders nothing when there are no upcoming events. */}
+          <UpcomingMeetups />
 
           {/* Workshops */}
           <div className="mb-20">
