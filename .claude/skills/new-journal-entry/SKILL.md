@@ -34,7 +34,7 @@ Journal entries are markdown files in `content/journal/`, one file per entry, na
 `<date>-<slug>.md`. `src/lib/journal.ts` reads the directory at build time, parses
 frontmatter with `gray-matter`, sorts by `date` descending, and `/journal/[slug]` prerenders
 each via `generateStaticParams`. There is no CMS — publishing is: write the file, commit,
-open a PR, merge; the host (Vercel/CI) builds and deploys.
+open a PR, merge; the host (Netlify deploy preview / CI) builds and deploys.
 
 The existing entries in `content/journal/` are the canonical reference for voice, length, and
 format. **Read them first** before drafting metadata or polishing prose.
@@ -118,7 +118,7 @@ in frontmatter must match the slug in the filename.
 ### 6. Fast validation (no full build)
 
 Do **not** run `npm run build` in a web/cloud or mobile session — it installs and builds the
-whole Next.js app, which is slow on a phone and burns shared rate limits. The PR's Vercel/CI
+whole Next.js app, which is slow on a phone and burns shared rate limits. The PR's Netlify deploy-preview / CI
 build is the authoritative build gate.
 
 Instead run a portable, tooling-free check:
