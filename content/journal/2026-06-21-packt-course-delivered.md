@@ -56,6 +56,6 @@ I also made a bit of progress on [lsp4agents](https://github.com/AlteredCraft/ls
 }
 ```
 
-It's a preview of a cross-file rename: every edit the change would make, listed before it touches a file.
+It's a preview of a cross-file rename: every edit the change would make, listed before it touches a file. Use `--apply` have the changes made on the filesystem. 
 
 Lastly, I'm starting to plan a Tech Builder Demo event to host here in Vancouver, WA. Looking forward to that one.
