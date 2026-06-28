@@ -8,7 +8,7 @@ import { NAV_LINKS } from "@/lib/nav";
 import { NavLabel } from "@/components/NavLabel";
 import ragWorkshopImg from "../../../public/speaker.png";
 import hackathonImg from "../../../public/hackathon-podium.png";
-import contextEngineeringImg from "../../../public/maven-ce-ws.png";
+import packtWorkshopImg from "../../../public/packt-ws-00.png";
 
 export const metadata: Metadata = {
   title: "Previous Workshops | AlteredCraft",
@@ -72,43 +72,45 @@ export default function PreviousWorkshopsPage() {
           </p>
         </section>
 
-        {/* Three cards: Context Engineering, RAG Workshop, Hackathon */}
+        {/* Three cards: Effective Software Engineering, RAG Workshop, Hackathon.
+            Context Engineering is now an evergreen "Always available" offering on
+            the home page, so it is intentionally not listed here. */}
         <section className="pb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Context Engineering for Claude Code */}
+            {/* Effective Software Engineering with Claude Code */}
             <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg overflow-hidden flex flex-col">
               <a
-                href="https://maven.com/altered-craft-learning/context-engineering-for-claude-code"
+                href="https://www.eventbrite.co.uk/e/effective-software-engineering-with-claude-code-from-prompts-to-systems-tickets-1988571262176"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block relative aspect-[2/1] bg-white"
+                className="block relative aspect-[2/1] bg-[#1F2547]"
               >
                 <Image
-                  src={contextEngineeringImg}
-                  alt="Maven course card for Context Engineering for Claude Code by Sam Keen"
+                  src={packtWorkshopImg}
+                  alt="Packt × Deep Engineering: Effective Software Engineering with Claude Code"
                   fill
-                  className="object-contain"
+                  className="object-cover"
                 />
               </a>
               <div className="p-6 flex flex-col flex-grow">
                 <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-lg text-[var(--color-text)] mb-1">
-                  Context Engineering for Claude Code
+                  Effective Software Engineering with Claude Code
                 </h3>
                 <p className="text-sm text-[var(--color-muted)] mb-2">
-                  Maven · 3-hour cohort workshop
+                  Packt · Deep Engineering · June 20, 2026
                 </p>
                 <p className="text-sm text-[var(--color-muted)] mb-4 flex-grow">
-                  Build the context layer that turns Claude Code from a
-                  suggestion engine into a development partner. CLAUDE.md,
-                  skills, hooks, and the maturity ladder, all hands-on.
+                  From prompts to systems. CLAUDE.md context layers, reusable
+                  skills, guardrails, and team-level practices for senior
+                  engineers, tech leads, and architects.
                 </p>
                 <a
-                  href="https://maven.com/altered-craft-learning/context-engineering-for-claude-code"
+                  href="https://www.eventbrite.co.uk/e/effective-software-engineering-with-claude-code-from-prompts-to-systems-tickets-1988571262176"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors self-start"
                 >
-                  View on Maven
+                  View event
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               </div>

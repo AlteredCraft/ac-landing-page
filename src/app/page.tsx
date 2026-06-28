@@ -8,7 +8,6 @@ import samImg from "../../public/press-kit/sam-keen-headshot-editorial.jpg";
 import samCasualImg from "../../public/press-kit/sam-keen-headshot-casual.png";
 import packtWorkshopImg from "../../public/packt-ws-00.png";
 import ragWorkshopImg from "../../public/speaker.png";
-import contextEngineeringImg from "../../public/maven-ce-ws.png";
 import { LatestPosts } from "@/components/LatestPosts";
 import { ProjectCard } from "@/components/ProjectCard";
 import { NAV_LINKS } from "@/lib/nav";
@@ -296,7 +295,7 @@ export default function Home() {
               <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl text-[var(--color-text)] mb-5 flex items-center gap-3">
                 <span className="text-[var(--color-accent)]">/</span> Always available
               </h3>
-              <div className="max-w-[520px]">
+              <div className="grid md:grid-cols-2 gap-8 max-w-[1000px]">
                 <div className="p-6 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg flex flex-col">
                   <span className="inline-flex self-start px-2.5 py-1 bg-[var(--color-accent)]/15 text-[var(--color-accent)] text-xs font-semibold tracking-wide rounded-full mb-3">
                     Free
@@ -319,58 +318,43 @@ export default function Home() {
                     <ArrowRight className="w-4 h-4" />
                   </a>
                 </div>
-              </div>
-            </div>
 
-            {/* Upcoming */}
-            <div className="mb-16">
-              <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl text-[var(--color-text)] mb-5 flex items-center gap-3">
-                <span className="text-[var(--color-accent)]">/</span> Upcoming
-              </h3>
-              <div className="max-w-[520px]">
-                <div className="bg-[var(--color-surface)] border-[3px] border-[var(--color-accent)] rounded-lg flex flex-col overflow-hidden">
+                {/* Context Engineering — perpetual Maven cohort. Update the
+                    "Next cohort" date as new cohorts are scheduled. */}
+                <div className="p-6 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg flex flex-col">
+                  <span className="inline-flex self-start px-2.5 py-1 bg-[var(--color-accent)]/15 text-[var(--color-accent)] text-xs font-semibold tracking-wide rounded-full mb-3">
+                    Maven · Live cohort
+                  </span>
+                  <h4 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-lg mb-2">
+                    Context Engineering for Claude Code
+                  </h4>
+                  <p className="text-sm font-semibold text-[var(--color-text)] mb-3">
+                    Next cohort: July 28, 2026
+                  </p>
+                  <p className="text-sm text-[var(--color-muted)] mb-5 flex-grow">
+                    A live cohort workshop, run on a recurring basis. Build the
+                    context layer that turns Claude Code from a suggestion
+                    engine into a development partner: CLAUDE.md, skills, hooks,
+                    and the maturity ladder, all hands-on.
+                  </p>
                   <a
-                    href="https://www.eventbrite.co.uk/e/effective-software-engineering-with-claude-code-from-prompts-to-systems-tickets-1988571262176"
+                    href="https://maven.com/altered-craft-learning/context-engineering-for-claude-code"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block relative aspect-[2/1] bg-[#1F2547]"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg self-start"
                   >
-                    <Image
-                      src={packtWorkshopImg}
-                      alt="Packt × Deep Engineering: Effective Software Engineering with Claude Code, June 20, 2026"
-                      fill
-                      className="object-cover"
-                    />
+                    Enroll on Maven
+                    <ArrowRight className="w-4 h-4" />
                   </a>
-                  <div className="p-6 flex flex-col flex-grow">
-                    <span className="inline-flex self-start px-2.5 py-1 bg-[var(--color-accent)]/15 text-[var(--color-accent)] text-xs font-semibold tracking-wide rounded-full mb-3">
-                      Hosted by Packt · Deep Engineering
-                    </span>
-                    <h4 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-lg mb-2">
-                      Effective Software Engineering with Claude Code
-                    </h4>
-                    <p className="text-sm text-[var(--color-muted)] mb-3">
-                      June 20, 2026 · 10:30 AM EDT (4 hours)
-                    </p>
-                    <p className="text-sm text-[var(--color-muted)] mb-5 flex-grow">
-                      From prompts to systems. For senior engineers, tech leads,
-                      and architects already using Claude Code who want
-                      repeatable results: CLAUDE.md context layers, reusable
-                      skills, guardrails, and team-level practices.
-                    </p>
-                    <a
-                      href="https://www.eventbrite.co.uk/e/effective-software-engineering-with-claude-code-from-prompts-to-systems-tickets-1988571262176"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg self-start"
-                    >
-                      Register on Eventbrite
-                      <ArrowRight className="w-4 h-4" />
-                    </a>
-                  </div>
                 </div>
               </div>
             </div>
+
+            {/* Upcoming — no scheduled one-off workshops right now. When one is
+                booked, add an "Upcoming" subsection here (header pattern matches
+                "Always available"/"Previous" above and below; the prior Packt
+                card lives in git history), then move it to "Previous" once it
+                has happened. */}
 
             {/* Previous */}
             {/* FUTURE-AGENT NOTE: Keep this list to the 2 most recent past workshops.
@@ -381,39 +365,40 @@ export default function Home() {
                 <span className="text-[var(--color-accent)]">/</span> Previous
               </h3>
               <div className="grid md:grid-cols-2 gap-8 max-w-[1000px]">
-                {/* Context Engineering for Claude Code */}
+                {/* Effective Software Engineering with Claude Code */}
                 <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg overflow-hidden flex flex-col">
                   <a
-                    href="https://maven.com/altered-craft-learning/context-engineering-for-claude-code"
+                    href="https://www.eventbrite.co.uk/e/effective-software-engineering-with-claude-code-from-prompts-to-systems-tickets-1988571262176"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block relative aspect-[2/1] bg-white"
+                    className="block relative aspect-[2/1] bg-[#1F2547]"
                   >
                     <Image
-                      src={contextEngineeringImg}
-                      alt="Maven course card for Context Engineering for Claude Code by Sam Keen"
+                      src={packtWorkshopImg}
+                      alt="Packt × Deep Engineering: Effective Software Engineering with Claude Code"
                       fill
-                      className="object-contain"
+                      className="object-cover"
                     />
                   </a>
                   <div className="p-5 flex flex-col flex-grow">
                     <h4 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[1rem] text-[var(--color-text)] mb-1">
-                      Context Engineering for Claude Code
+                      Effective Software Engineering with Claude Code
                     </h4>
                     <p className="text-xs text-[var(--color-muted)] mb-2">
-                      Maven · 3-hour cohort workshop
+                      Packt · Deep Engineering · June 20, 2026
                     </p>
                     <p className="text-sm text-[var(--color-muted)] mb-4 flex-grow">
-                      Build the context layer that turns Claude Code from a
-                      suggestion engine into a development partner.
+                      From prompts to systems. CLAUDE.md context layers, reusable
+                      skills, guardrails, and team-level practices for senior
+                      engineers and tech leads.
                     </p>
                     <a
-                      href="https://maven.com/altered-craft-learning/context-engineering-for-claude-code"
+                      href="https://www.eventbrite.co.uk/e/effective-software-engineering-with-claude-code-from-prompts-to-systems-tickets-1988571262176"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors self-start"
                     >
-                      View on Maven
+                      View event
                       <ExternalLink className="w-3.5 h-3.5" />
                     </a>
                   </div>
