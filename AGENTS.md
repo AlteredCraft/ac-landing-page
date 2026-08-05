@@ -69,15 +69,13 @@ The **Speaking** sub-group (past engagements + recordings) is sourced from `src/
 ### Key Components
 
 - `BrandLockup` — reusable brand mark (icon + "/altered craft" wordmark), supports horizontal/stacked variants and light/dark themes
-- `CodeBarDivider` — decorative colored bar divider element
 
 ### Projects content model
 
 The project cards on `/projects` and the 3-card homepage preview are driven by one array: `PROJECTS` in `src/lib/projects.ts`. `ProjectCard` (`src/components/ProjectCard.tsx`) renders each. The homepage shows `PROJECTS.slice(0, 3)`, so list order matters (lead with the strongest evidence).
 
-- Each project maps to the dev-rel triad via `signals`: `Build`, `Teach`, `Empathy` (rendered as Lucide-icon badges).
+- Each project carries `tags` (categorical labels, Title-Case) and `stack` (tech/tools in their natural casing), rendered as pill badges. `status` is an optional badge string (e.g. `"Active-Development"`).
 - A link with `href: "#"` is a **placeholder**: `ProjectCard` renders it as a visible "(add link)" marker so a missing URL is caught in review, not shipped. Replace `#` with the real repo/post URL.
-- Set `inProgress: true` for work that isn't public yet (shows an "In progress" badge).
 
 ### Journal content model
 
