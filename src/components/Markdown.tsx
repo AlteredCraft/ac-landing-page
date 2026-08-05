@@ -22,7 +22,7 @@ const components: Components = {
     return (
       <a
         href={href}
-        className="text-[var(--color-accent)] underline hover:no-underline"
+        className="text-[var(--color-link)] underline underline-offset-2 hover:no-underline"
         {...(isExternal
           ? { target: "_blank", rel: "noopener noreferrer" }
           : {})}
@@ -59,7 +59,7 @@ const components: Components = {
     </code>
   ),
   pre: ({ children }) => (
-    <pre className="mb-6 p-4 rounded-lg overflow-x-auto bg-[#1F1D1D] text-white text-sm font-mono [&>code]:bg-transparent [&>code]:text-white [&>code]:p-0">
+    <pre className="mb-6 p-4 rounded-lg overflow-x-auto bg-[var(--color-ink)] text-white text-sm font-mono [&>code]:bg-transparent [&>code]:text-white [&>code]:p-0">
       {children}
     </pre>
   ),

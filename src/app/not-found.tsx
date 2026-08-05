@@ -12,7 +12,7 @@ export default function NotFound() {
 
       {/* Terminal-style 404 card */}
       <div className="w-full max-w-lg">
-        <div className="bg-[#1F1D1D] rounded-t-lg px-4 py-2.5 flex items-center gap-2">
+        <div className="bg-[var(--color-ink)] rounded-t-lg px-4 py-2.5 flex items-center gap-2">
           <div className="flex gap-1.5">
             <span className="w-3 h-3 rounded-full bg-[#FF5F57]" />
             <span className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
@@ -20,7 +20,7 @@ export default function NotFound() {
           </div>
           <span className="ml-2 text-xs text-zinc-500 font-mono">not-found</span>
         </div>
-        <div className="bg-[#2A2727] rounded-b-lg p-6 font-mono text-sm leading-relaxed">
+        <div className="bg-[#21262B] rounded-b-lg p-6 font-mono text-sm leading-relaxed">
           <p className="text-zinc-500">
             <span className="text-[#D4B84A]">$</span> curl alteredcraft.com
             <span className="text-[#D4B84A]">/</span>
@@ -50,7 +50,7 @@ export default function NotFound() {
       {/* CTA */}
       <Link
         href="/"
-        className="mt-10 inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-accent)] text-[var(--color-text)] font-semibold rounded-lg hover:bg-[var(--color-accent-hover)] transition-colors"
+        className="mt-10 inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-accent)] text-[var(--color-ink)] font-semibold rounded-lg hover:bg-[var(--color-accent-hover)] transition-colors"
       >
         <ArrowLeft className="w-4 h-4" />
         Back to home

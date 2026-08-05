@@ -3,7 +3,7 @@ import type { Project } from "@/lib/projects";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="flex flex-col h-full p-6 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg">
+    <div className="flex flex-col h-full p-6 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl transition-all duration-200 hover:border-[var(--color-accent)]/60 hover:shadow-md hover:-translate-y-0.5">
       <div className="flex items-start justify-between gap-3 mb-2">
         <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl leading-snug">
           {project.name}
@@ -28,7 +28,7 @@ export function ProjectCard({ project }: { project: Project }) {
         {project.tags.map((tag) => (
           <span
             key={tag}
-            className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium border border-[var(--color-accent)] text-[var(--color-accent)]"
+            className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-[var(--color-accent)]/12 border border-[var(--color-accent)]/40 text-[var(--color-text)]"
           >
             {tag}
           </span>
@@ -64,7 +64,7 @@ export function ProjectCard({ project }: { project: Project }) {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-sm text-[var(--color-accent)] hover:underline"
+              className="inline-flex items-center gap-1 text-sm font-medium text-[var(--color-link)] hover:text-[var(--color-link-hover)] hover:underline transition-colors"
             >
               {link.label}
               <ExternalLink className="w-3.5 h-3.5" />

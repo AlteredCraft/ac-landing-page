@@ -1,22 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  /* Warm Gold Palette - Rebrand */
-  --color-base: #F5F3EF;
-  --color-text: #1F1D1D;
+  /* Porcelain & Ink palette — cool neutrals, brand gold, evergreen links.
+     Gold stays (it's in the logo); the neutrals shifted from warm cream/taupe
+     to cool porcelain/slate, and links use a deep evergreen pulled from the
+     logo's green code bar. */
+  --color-base: #F6F7F5;
+  --color-text: #1C2124;
+  --color-ink: #15191C;
   --color-accent: #D4B84A;
-  --color-accent-hover: #C4A83A;
-  --color-muted: #8A877E;
-  --color-border: #E0DDD6;
-  --color-surface: #FDFCF9;
-  --color-surface-alt: #EFECE5;
+  --color-accent-hover: #C2A63C;
+  --color-link: #20794F;
+  --color-link-hover: #175C3B;
+  --color-muted: #5C666D;
+  --color-border: #E2E4E1;
+  --color-surface: #FCFCFB;
+  --color-surface-alt: #ECEFEC;
 }
 
 @theme inline {
   --color-base: var(--color-base);
   --color-text: var(--color-text);
+  --color-ink: var(--color-ink);
   --color-accent: var(--color-accent);
   --color-accent-hover: var(--color-accent-hover);
+  --color-link: var(--color-link);
+  --color-link-hover: var(--color-link-hover);
   --color-muted: var(--color-muted);
   --color-border: var(--color-border);
   --color-surface: var(--color-surface);
@@ -34,6 +43,44 @@ body {
   background: var(--color-base);
   color: var(--color-text);
   font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-accent) 35%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Subtle hero texture: faint dot grid fading out, plus a soft gold glow. */
+.hero-texture {
+  background-image: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--color-text) 8%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 26px 26px;
+  mask-image: radial-gradient(
+    ellipse 75% 65% at 78% 18%,
+    black 0%,
+    transparent 72%
+  );
+}
+
+.hero-glow {
+  background:
+    radial-gradient(
+      ellipse 60% 45% at 80% 8%,
+      color-mix(in srgb, var(--color-accent) 14%, transparent),
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 45% 35% at 5% 95%,
+      color-mix(in srgb, var(--color-link) 7%, transparent),
+      transparent 60%
+    );
 }
 
 /* Substack embed styling */

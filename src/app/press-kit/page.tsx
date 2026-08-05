@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { BrandLockup } from "@/components/BrandLockup";
+import { SiteFooter } from "@/components/SiteFooter";
 import { Download, ArrowLeft } from "lucide-react";
 import headshotCasual from "../../../public/press-kit/sam-keen-headshot-casual.png";
 import headshotEditorial from "../../../public/press-kit/sam-keen-headshot-editorial.jpg";
@@ -20,14 +21,14 @@ const LOGO_ASSETS = [
       {
         label: "Light background",
         preview: "/press-kit/ac-logo-wm-horiz-light-bg.png",
-        bg: "bg-[#F5F3EF]",
+        bg: "bg-[#F6F7F5]",
         svg: "/press-kit/ac-logo-wm-horiz-light-bg.svg",
         png: "/press-kit/ac-logo-wm-horiz-light-bg.png",
       },
       {
         label: "Dark background",
         preview: "/press-kit/ac-logo-wm-horiz-dark-bg.png",
-        bg: "bg-[#1F1D1D]",
+        bg: "bg-[var(--color-ink)]",
         svg: "/press-kit/ac-logo-wm-horiz-dark-bg.svg",
         png: "/press-kit/ac-logo-wm-horiz-dark-bg.png",
       },
@@ -41,14 +42,14 @@ const LOGO_ASSETS = [
       {
         label: "Light background",
         preview: "/press-kit/ac-logo-wm-vert-light-bg.png",
-        bg: "bg-[#F5F3EF]",
+        bg: "bg-[#F6F7F5]",
         svg: "/press-kit/ac-logo-wm-vert-light-bg.svg",
         png: "/press-kit/ac-logo-wm-vert-light-bg.png",
       },
       {
         label: "Dark background",
         preview: "/press-kit/ac-logo-wm-vert-dark-bg.png",
-        bg: "bg-[#1F1D1D]",
+        bg: "bg-[var(--color-ink)]",
         svg: "/press-kit/ac-logo-wm-vert-dark-bg.svg",
         png: "/press-kit/ac-logo-wm-vert-dark-bg.png",
       },
@@ -62,14 +63,14 @@ const LOGO_ASSETS = [
       {
         label: "Light background",
         preview: "/press-kit/ac-logo-light-bg.png",
-        bg: "bg-[#F5F3EF]",
+        bg: "bg-[#F6F7F5]",
         svg: "/press-kit/ac-logo-light-bg.svg",
         png: "/press-kit/ac-logo-light-bg.png",
       },
       {
         label: "Dark background",
         preview: "/press-kit/ac-logo-dark-bg.png",
-        bg: "bg-[#1F1D1D]",
+        bg: "bg-[var(--color-ink)]",
         svg: "/press-kit/ac-logo-dark-bg.svg",
         png: "/press-kit/ac-logo-dark-bg.png",
       },
@@ -83,14 +84,14 @@ const LOGO_ASSETS = [
       {
         label: "Light background",
         preview: "/press-kit/ac-wm-light-bg.png",
-        bg: "bg-[#F5F3EF]",
+        bg: "bg-[#F6F7F5]",
         svg: "/press-kit/ac-wm-light-bg.svg",
         png: "/press-kit/ac-wm-light-bg.png",
       },
       {
         label: "Dark background",
         preview: "/press-kit/ac-wm-dark-bg.png",
-        bg: "bg-[#1F1D1D]",
+        bg: "bg-[var(--color-ink)]",
         svg: "/press-kit/ac-wm-dark-bg.svg",
         png: "/press-kit/ac-wm-dark-bg.png",
       },
@@ -104,14 +105,14 @@ const LOGO_ASSETS = [
       {
         label: "Light background",
         preview: "/press-kit/ac-wm-stacked-light-bg.png",
-        bg: "bg-[#F5F3EF]",
+        bg: "bg-[#F6F7F5]",
         svg: "/press-kit/ac-wm-stacked-light-bg.svg",
         png: "/press-kit/ac-wm-stacked-light-bg.png",
       },
       {
         label: "Dark background",
         preview: "/press-kit/ac-wm-stacked-dark-bg.png",
-        bg: "bg-[#1F1D1D]",
+        bg: "bg-[var(--color-ink)]",
         svg: "/press-kit/ac-wm-stacked-dark-bg.svg",
         png: "/press-kit/ac-wm-stacked-dark-bg.png",
       },
@@ -121,12 +122,14 @@ const LOGO_ASSETS = [
 ];
 
 const BRAND_COLORS = [
-  { name: "Gold", hex: "#D4B84A", usage: "CTAs, links, slash mark" },
-  { name: "Near Black", hex: "#1F1D1D", usage: "Primary text, dark sections" },
-  { name: "Off White", hex: "#F5F3EF", usage: "Page background" },
-  { name: "Surface", hex: "#FDFCF9", usage: "Cards, content areas" },
-  { name: "Muted", hex: "#8A877E", usage: "Secondary text" },
-  { name: "Border", hex: "#E0DDD6", usage: "Borders, dividers" },
+  { name: "Gold", hex: "#D4B84A", usage: "CTAs, badges, slash mark" },
+  { name: "Ink", hex: "#15191C", usage: "Nav, footer, dark sections" },
+  { name: "Text", hex: "#1C2124", usage: "Primary text" },
+  { name: "Porcelain", hex: "#F6F7F5", usage: "Page background" },
+  { name: "Surface", hex: "#FCFCFB", usage: "Cards, content areas" },
+  { name: "Slate", hex: "#5C666D", usage: "Secondary text" },
+  { name: "Border", hex: "#E2E4E1", usage: "Borders, dividers" },
+  { name: "Evergreen", hex: "#20794F", usage: "Text links, live indicators" },
 ];
 
 const CODE_BAR_COLORS = [
@@ -139,14 +142,14 @@ export default function PressKitPage() {
   return (
     <div className="min-h-screen bg-[var(--color-base)]">
       {/* Nav */}
-      <nav className="sticky top-0 z-50 bg-[#1F1D1D] border-b border-white/10">
+      <nav className="sticky top-0 z-50 bg-[var(--color-ink)] border-b border-white/10">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
           <Link href="/">
             <BrandLockup variant="horizontal" size="sm" theme="dark" />
           </Link>
           <Link
             href="/"
-            className="text-sm text-[var(--color-muted)] hover:text-white transition-colors flex items-center gap-2"
+            className="text-sm text-white/60 hover:text-white transition-colors flex items-center gap-2"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to site
@@ -298,7 +301,7 @@ export default function PressKitPage() {
             <h3 className="text-sm font-semibold text-[var(--color-text)] mb-4 uppercase tracking-wider">
               Primary Palette
             </h3>
-            <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
+            <div className="grid grid-cols-3 sm:grid-cols-4 gap-4">
               {BRAND_COLORS.map((color) => (
                 <div key={color.hex} className="text-center">
                   <div
@@ -407,27 +410,7 @@ export default function PressKitPage() {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="py-12 px-6 lg:px-12 bg-[#1F1D1D]">
-        <div className="max-w-[1000px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-          <BrandLockup variant="horizontal" size="sm" theme="dark" />
-          <div className="flex items-center gap-6 text-sm text-[var(--color-muted)]">
-            <Link href="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
-            <a
-              href="mailto:sam@alteredcraft.com"
-              className="hover:text-white transition-colors"
-            >
-              sam@alteredcraft.com
-            </a>
-          </div>
-        </div>
-        <div className="max-w-[1000px] mx-auto mt-8 pt-6 border-t border-white/10 text-center text-[var(--color-muted)] text-sm">
-          &copy; {new Date().getFullYear()} Altered Craft, LLC. All rights
-          reserved.
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

@@ -21,7 +21,7 @@ export function EngagementRow({ event }: { event: Engagement }) {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-link)] hover:text-[var(--color-link-hover)] transition-colors"
             >
               {link.label}
               <ExternalLink className="w-3.5 h-3.5" />
