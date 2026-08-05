@@ -342,7 +342,8 @@ export default function Home() {
                   </div>
 
                   {/* Context Engineering — perpetual Maven cohort. Update the
-                      "Next cohort" date as new cohorts are scheduled. */}
+                      "Next cohort" line as new cohorts are scheduled (waitlist
+                      copy when none is on the calendar). */}
                   <div className="p-6 bg-[var(--color-base)] border border-[var(--color-border)] rounded-xl flex flex-col transition-all duration-200 hover:border-[var(--color-accent)]/60 hover:shadow-md">
                     <span className="inline-flex self-start px-2.5 py-1 bg-[var(--color-accent)]/15 text-[var(--color-text)] text-xs font-semibold tracking-wide rounded-full mb-3">
                       Maven · Live cohort
@@ -351,7 +352,7 @@ export default function Home() {
                       Context Engineering for Claude Code
                     </h5>
                     <p className="text-sm font-semibold text-[var(--color-text)] mb-3">
-                      Next cohort: July 28, 2026
+                      Next cohort: TBA &middot; waitlist open
                     </p>
                     <p className="text-sm text-[var(--color-muted)] mb-5 flex-grow">
                       A live cohort workshop, run on a recurring basis. Build
@@ -365,7 +366,7 @@ export default function Home() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--color-accent)] text-[var(--color-ink)] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg self-start"
                     >
-                      Enroll on Maven
+                      Join the waitlist on Maven
                       <ArrowRight className="w-4 h-4" />
                     </a>
                   </div>
