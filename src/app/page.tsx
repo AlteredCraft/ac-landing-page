@@ -165,7 +165,7 @@ export default function Home() {
                     Portland AI Engineers
                   </a>{" "}
                   <strong className="font-semibold text-[var(--color-text)]">
-                    (1,300+ members)
+                    (1,500+ members)
                   </strong>
                 </span>
               </div>
@@ -574,7 +574,7 @@ export default function Home() {
                     >
                       Portland AI Engineers
                     </a>
-                    , a community of 1,300+ practitioners exploring practical AI
+                    , a community of 1,500+ practitioners exploring practical AI
                     together.
                   </p>
                   <p>
