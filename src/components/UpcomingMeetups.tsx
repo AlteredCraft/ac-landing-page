@@ -31,14 +31,21 @@ function formatWhen(startAt: string, timezone: string): string {
 
 export function UpcomingMeetups() {
   const [meetups, setMeetups] = useState<Meetup[]>([]);
+  const [calendars, setCalendars] = useState<Meetup[]>([]);
 
   useEffect(() => {
     fetch("/api/meetups")
       .then((res) => (res.ok ? res.json() : []))
-      // The same event can be cross-listed on multiple group calendars with
-      // an identical URL — keep the first listing so rows (keyed by url)
-      // stay unique and visitors don't see duplicates.
       .then((data: Meetup[]) => {
+        // One "full calendar" link per group with upcoming events, derived
+        // from the full response — before row dedupe, so a group isn't lost
+        // when its only event is cross-listed under another group.
+        setCalendars(
+          Array.from(new Map(data.map((m) => [m.groupUrl, m])).values()),
+        );
+        // The same event can be cross-listed on multiple group calendars
+        // with an identical URL — keep the first listing so rows (keyed by
+        // url) stay unique and visitors don't see duplicates.
         const seen = new Set<string>();
         setMeetups(
           data.filter((m) =>
@@ -50,11 +57,6 @@ export function UpcomingMeetups() {
   }, []);
 
   if (meetups.length === 0) return null;
-
-  // One "full calendar" link per group that actually has upcoming events.
-  const calendars = Array.from(
-    new Map(meetups.map((m) => [m.groupUrl, m])).values(),
-  );
 
   return (
     <div className="mb-16 rounded-xl border border-[var(--color-border)] bg-[var(--color-base)] p-6 sm:p-8">

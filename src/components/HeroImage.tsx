@@ -45,6 +45,7 @@ export default function HeroImage({ portraitSrc, portraitAlt, qrSrc, qrAlt }: Pr
           src={portraitSrc}
           alt={portraitAlt}
           fill
+          priority
           sizes="(min-width: 1024px) 224px, (min-width: 640px) 144px, 112px"
           className="object-cover"
         />
