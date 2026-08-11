@@ -21,7 +21,7 @@ export function BrandLockup({
 }: BrandLockupProps) {
   const config = sizeConfig[size];
   const logoSrc = theme === "dark" ? logoOutlined : logoFilled;
-  const textColor = theme === "dark" ? "text-white" : "text-[#1F1D1D]";
+  const textColor = theme === "dark" ? "text-white" : "text-[var(--color-text)]";
 
   if (variant === "stacked") {
     return (

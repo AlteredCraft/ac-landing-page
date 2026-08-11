@@ -68,7 +68,11 @@ The **Speaking** sub-group (past engagements + recordings) is sourced from `src/
 
 ### Key Components
 
+- `SiteNav` — fixed dark header shared by every page (brand lockup, nav links, Subscribe CTA, `MobileMenu`)
+- `SiteFooter` — shared dark footer; `variant="full"` (homepage: subscribe CTA + link columns) or `variant="compact"` (subpages, the default)
+- `Kicker` — eyebrow label above section/page headings (gold slash + small-caps Space Grotesk)
 - `BrandLockup` — reusable brand mark (icon + "/altered craft" wordmark), supports horizontal/stacked variants and light/dark themes
+- `CodeBarDivider` — decorative colored bar element (gold/green/blue, echoes the logo); used in the full footer
 
 ### Projects content model
 
@@ -88,22 +92,27 @@ Entries are markdown files in `content/journal/` (one file per entry, `<date>-<s
 
 ## Design System
 
-### Color Palette (Warm Gold)
+### Color Palette (Porcelain & Ink)
 
-Defined in `src/app/globals.css` as CSS custom properties:
+Defined in `src/app/globals.css` as CSS custom properties. Cool porcelain/slate neutrals; gold stays for brand marks and CTAs (it's in the logo); text links use a deep evergreen pulled from the logo's green code bar.
 
 | Variable | Value | Usage |
 |----------|-------|-------|
-| `--color-base` | #F5F3EF | Page background |
-| `--color-text` | #1F1D1D | Primary text, dark sections |
-| `--color-accent` | #D4B84A | CTAs, links, gold slash mark |
-| `--color-accent-hover` | #C4A83A | Hover states |
-| `--color-muted` | #8A877E | Secondary text |
-| `--color-border` | #E0DDD6 | Borders |
-| `--color-surface` | #FDFCF9 | Cards, sections |
-| `--color-surface-alt` | #EFECE5 | Alternate surfaces |
+| `--color-base` | #F6F7F5 | Page background (porcelain) |
+| `--color-text` | #1C2124 | Primary text |
+| `--color-ink` | #15191C | Nav, footer, dark sections |
+| `--color-accent` | #D4B84A | CTAs, badges, gold slash mark |
+| `--color-accent-hover` | #C2A63C | CTA hover states |
+| `--color-link` | #20794F | Text links, live indicators (evergreen) |
+| `--color-link-hover` | #175C3B | Link hover states |
+| `--color-muted` | #5C666D | Secondary text (slate) |
+| `--color-border` | #E2E4E1 | Borders |
+| `--color-surface` | #FCFCFB | Cards, sections |
+| `--color-surface-alt` | #ECEFEC | Alternate surfaces |
 
 Tailwind 4 `@theme inline` block maps these to theme tokens so both `var(--color-accent)` and `bg-accent` work.
+
+Two-accent rule: **gold** (`--color-accent`) is for solid CTAs, badges, and the brand slash; **evergreen** (`--color-link`) is for inline/standalone text links and the live-feed indicator — gold text on light backgrounds fails contrast, so don't use it for links. Secondary text on dark backgrounds uses `text-white/55`-style opacities, not `--color-muted` (too dark on ink).
 
 ### Typography
 
@@ -111,16 +120,18 @@ Three Google Fonts loaded in `layout.tsx`:
 
 - **Inter** (`--font-sans`) — body text
 - **Plus Jakarta Sans** (`--font-display`) — headings, wordmark, section titles
-- **Space Grotesk** (`--font-space-grotesk`) — available but not primary
+- **Space Grotesk** (`--font-space-grotesk`) — `Kicker` eyebrow labels
 
 Headings use `font-[family-name:var(--font-plus-jakarta)]` with `font-bold` or `font-semibold`.
 
 ### Visual Style
 
-- Clean, professional, warm aesthetic
+- Clean, professional aesthetic: cool porcelain neutrals, ink dark sections, gold + evergreen accents
 - No emojis anywhere — use Lucide React icons exclusively
-- Dark nav bar and footer (`bg-[#1F1D1D]`), light content sections
+- Dark nav bar and footer (`bg-[var(--color-ink)]`), light content sections; homepage sections alternate base/surface with hairline borders
 - Brand wordmark format: gold `/` followed by `altered craft` in Plus Jakarta Sans
+- Section headers open with a `Kicker` eyebrow (gold slash + small-caps Space Grotesk label)
+- Cards: `rounded-xl`, hairline border, hover = gold-tinted border + soft shadow
 
 ## External Integrations
 
@@ -140,8 +151,18 @@ Headings use `font-[family-name:var(--font-plus-jakarta)]` with `font-bold` or `
 ## Guidelines
 
 1. **Icons**: Always use Lucide React, never emojis
-2. **Colors**: Use CSS variables, not hardcoded values (exception: dark sections use `#1F1D1D` directly)
+2. **Colors**: Use CSS variables, not hardcoded values (dark sections use `var(--color-ink)`; on-dark secondary text uses `text-white/55`-style opacities)
 3. **Components**: Keep client components minimal; prefer server components
 4. **Images**: Use `next/image` with `unoptimized` prop (required for static export)
 5. **Styling**: Use Tailwind utilities with CSS variable references like `text-[var(--color-accent)]` or theme tokens like `bg-accent`
 6. **Headings**: Use Plus Jakarta Sans via `font-[family-name:var(--font-plus-jakarta)]`
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

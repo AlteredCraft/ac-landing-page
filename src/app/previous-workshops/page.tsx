@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { BrandLockup } from "@/components/BrandLockup";
-import { MobileMenu } from "@/components/MobileMenu";
 import { ExternalLink, ArrowRight, ArrowLeft } from "lucide-react";
-import { NAV_LINKS } from "@/lib/nav";
-import { NavLabel } from "@/components/NavLabel";
 import ragWorkshopImg from "../../../public/speaker.png";
 import hackathonImg from "../../../public/hackathon-podium.png";
 import packtWorkshopImg from "../../../public/packt-ws-00.png";
+import { SiteNav } from "@/components/SiteNav";
+import { SiteFooter } from "@/components/SiteFooter";
+import { Kicker } from "@/components/Kicker";
 
 export const metadata: Metadata = {
   title: "Previous Workshops | AlteredCraft",
@@ -27,42 +26,19 @@ export const metadata: Metadata = {
 export default function PreviousWorkshopsPage() {
   return (
     <div className="min-h-screen bg-[var(--color-base)]">
-      {/* Navigation - Dark nav bar (matches home) */}
-      <nav className="fixed top-0 left-0 right-0 py-5 px-6 lg:px-12 flex justify-between items-center bg-[#1F1D1D] z-50">
-        <Link href="/" className="sm:hidden">
-          <BrandLockup variant="horizontal" size="sm" theme="dark" />
-        </Link>
-        <Link href="/" className="hidden sm:block">
-          <BrandLockup variant="horizontal" size="md" theme="dark" />
-        </Link>
-
-        {/* Desktop Nav */}
-        <ul className="hidden md:flex gap-10">
-          {NAV_LINKS.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className="text-sm font-medium tracking-wide text-white hover:text-[var(--color-accent)] transition-colors"
-              >
-                <NavLabel link={link} />
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        <MobileMenu />
-      </nav>
+      <SiteNav />
 
       <main className="max-w-[1200px] mx-auto px-6 lg:px-12 pt-20 lg:pt-24">
         {/* Hero */}
         <section className="pt-12 pb-12">
           <Link
             href="/#community"
-            className="inline-flex items-center gap-1.5 text-sm text-[var(--color-muted)] hover:text-[var(--color-accent)] transition-colors mb-6"
+            className="inline-flex items-center gap-1.5 text-sm text-[var(--color-muted)] hover:text-[var(--color-link)] transition-colors mb-6"
           >
             <ArrowLeft className="w-4 h-4" />
             Community
           </Link>
+          <Kicker className="mb-4">The archive</Kicker>
           <h1 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-4xl sm:text-5xl text-[var(--color-text)]">
             Previous Workshops
           </h1>
@@ -78,7 +54,7 @@ export default function PreviousWorkshopsPage() {
         <section className="pb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Effective Software Engineering with Claude Code */}
-            <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg overflow-hidden flex flex-col">
+            <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl overflow-hidden flex flex-col transition-all duration-200 hover:border-[var(--color-accent)]/60 hover:shadow-md">
               <a
                 href="https://www.eventbrite.co.uk/e/effective-software-engineering-with-claude-code-from-prompts-to-systems-tickets-1988571262176"
                 target="_blank"
@@ -108,7 +84,7 @@ export default function PreviousWorkshopsPage() {
                   href="https://www.eventbrite.co.uk/e/effective-software-engineering-with-claude-code-from-prompts-to-systems-tickets-1988571262176"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors self-start"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-link)] hover:text-[var(--color-link-hover)] transition-colors self-start"
                 >
                   View event
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -117,7 +93,7 @@ export default function PreviousWorkshopsPage() {
             </div>
 
             {/* RAG Workshop */}
-            <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg overflow-hidden flex flex-col">
+            <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl overflow-hidden flex flex-col transition-all duration-200 hover:border-[var(--color-accent)]/60 hover:shadow-md">
               <div className="relative h-48">
                 <Image
                   src={ragWorkshopImg}
@@ -141,7 +117,7 @@ export default function PreviousWorkshopsPage() {
             </div>
 
             {/* Claude Code Hackathon */}
-            <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg overflow-hidden flex flex-col">
+            <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl overflow-hidden flex flex-col transition-all duration-200 hover:border-[var(--color-accent)]/60 hover:shadow-md">
               <div className="relative h-48">
                 <Image
                   src={hackathonImg}
@@ -165,7 +141,7 @@ export default function PreviousWorkshopsPage() {
                   href="https://photos.app.goo.gl/j3tAtbxr3uUBCUb96"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors self-start"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-link)] hover:text-[var(--color-link-hover)] transition-colors self-start"
                 >
                   View photos
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -177,7 +153,7 @@ export default function PreviousWorkshopsPage() {
 
         {/* CTA */}
         <section className="pb-20">
-          <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg p-8 sm:p-10 text-center">
+          <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl p-8 sm:p-10 text-center">
             <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-2xl text-[var(--color-text)] mb-3">
               Looking for what&apos;s next?
             </h2>
@@ -190,14 +166,14 @@ export default function PreviousWorkshopsPage() {
                 href="https://maven.com/altered-craft-learning"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-accent)] text-[#1F1D1D] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-accent)] text-[var(--color-ink)] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg"
               >
                 Browse upcoming workshops on Maven
                 <ArrowRight className="w-4 h-4" />
               </a>
               <Link
                 href="/#community"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-[var(--color-border)] text-[var(--color-text)] font-medium text-sm hover:border-[var(--color-text)] transition-colors rounded-lg"
+                className="inline-flex items-center gap-2 px-6 py-3 border border-[var(--color-border)] bg-[var(--color-base)] text-[var(--color-text)] font-medium text-sm hover:border-[var(--color-muted)] transition-colors rounded-lg"
               >
                 Back to community
               </Link>
@@ -206,33 +182,7 @@ export default function PreviousWorkshopsPage() {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="py-12 px-6 lg:px-12 bg-[#1F1D1D]">
-        <div className="max-w-[1200px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-          <BrandLockup variant="horizontal" size="sm" theme="dark" />
-          <div className="flex items-center gap-6 text-sm text-[var(--color-muted)]">
-            <Link href="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
-            <Link
-              href="/press-kit"
-              className="hover:text-white transition-colors"
-            >
-              Press Kit
-            </Link>
-            <a
-              href="mailto:sam@alteredcraft.com"
-              className="hover:text-white transition-colors"
-            >
-              sam@alteredcraft.com
-            </a>
-          </div>
-        </div>
-        <div className="max-w-[1200px] mx-auto mt-8 pt-6 border-t border-white/10 text-center text-[var(--color-muted)] text-sm">
-          &copy; {new Date().getFullYear()} Altered Craft, LLC. All rights
-          reserved.
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
