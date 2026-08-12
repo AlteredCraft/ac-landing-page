@@ -13,6 +13,17 @@ export const UPCOMING: Engagement[] = [];
 
 export const PAST: Engagement[] = [
   {
+    date: "AUG 6, 2026",
+    location: "PORTLAND, OR",
+    host: "Oregon AIR Challenge · Core Defender AI",
+    title: "Judge: Oregon AIR Challenge Pitch Day",
+    description:
+      "Judged the pitch event for the inaugural Oregon AIR Challenge cohort, Core Defender AI’s statewide AI and robotics competition for students. A strong field of pitches made picking a winner genuinely difficult — looking forward to future cohorts.",
+    links: [
+      { label: "Event details", href: "https://oregonair.coredefender.ai/" },
+    ],
+  },
+  {
     date: "MAY 20, 2026",
     location: "PORTLAND, OR",
     host: "Maseeh College of Engineering · Portland State University",
