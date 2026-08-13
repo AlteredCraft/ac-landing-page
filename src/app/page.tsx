@@ -81,7 +81,7 @@ export default function Home() {
               working with machines that write code.
             </h1>
             <p className="text-xl lg:text-2xl text-[var(--color-text)] mb-6 lg:mb-8 max-w-[680px] leading-relaxed">
-              Research, writing, and mentorship on agentic coding — for
+              Research, writing, and mentorship on agentic coding for
               engineers who ship.
             </p>
             <HeroImage
@@ -92,7 +92,7 @@ export default function Home() {
             />
             <p className="text-xl lg:text-[1.375rem] text-[var(--color-muted)] mb-8 lg:mb-10 max-w-[680px] leading-relaxed">
               I&apos;m Sam Keen. I work hands-on with coding agents, then
-              write and teach what actually holds up — through a weekly
+              write and teach what actually holds up via weekly
               newsletter, live workshops, and the classroom. Author of{" "}
               <a
                 href="https://www.amazon.com/Clean-Architecture-Python-maintainable-architectural/dp/183664289X"
