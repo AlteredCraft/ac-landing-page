@@ -77,9 +77,13 @@ export default function Home() {
           <div className="w-full max-w-[1000px] mx-auto">
             <Kicker className="mb-5">Newsletter · Workshops · Projects</Kicker>
             <h1 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(3rem,8vw,5rem)] leading-[1.05] tracking-tight mb-6 lg:mb-8">
-              Building with AI,{" "}
-              <span className="text-[var(--color-accent)]">in the open.</span>
+              The craft of working with machines that{" "}
+              <span className="text-[var(--color-accent)]">write code.</span>
             </h1>
+            <p className="text-xl lg:text-2xl text-[var(--color-text)] mb-6 lg:mb-8 max-w-[680px] leading-relaxed">
+              Research, writing, and mentorship on agentic coding — for
+              engineers who ship.
+            </p>
             <HeroImage
               portraitSrc={samImg}
               portraitAlt="Sam Keen"
@@ -87,9 +91,9 @@ export default function Home() {
               qrAlt="QR code linking to alteredcraft.com"
             />
             <p className="text-xl lg:text-[1.375rem] text-[var(--color-muted)] mb-8 lg:mb-10 max-w-[680px] leading-relaxed">
-              I&apos;m Sam Keen. I work hands-on with AI-assisted development,
-              then write and teach what actually holds up, through a weekly
-              newsletter and live workshops. Author of{" "}
+              I&apos;m Sam Keen. I work hands-on with coding agents, then
+              write and teach what actually holds up — through a weekly
+              newsletter, live workshops, and the classroom. Author of{" "}
               <a
                 href="https://www.amazon.com/Clean-Architecture-Python-maintainable-architectural/dp/183664289X"
                 target="_blank"
