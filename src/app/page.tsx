@@ -77,8 +77,8 @@ export default function Home() {
           <div className="w-full max-w-[1000px] mx-auto">
             <Kicker className="mb-5">Newsletter · Workshops · Projects</Kicker>
             <h1 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(3rem,8vw,5rem)] leading-[1.05] tracking-tight mb-6 lg:mb-8">
-              The craft of working with machines that{" "}
-              <span className="text-[var(--color-accent)]">write code.</span>
+              <span className="text-[var(--color-accent)]">The craft</span> of
+              working with machines that write code.
             </h1>
             <p className="text-xl lg:text-2xl text-[var(--color-text)] mb-6 lg:mb-8 max-w-[680px] leading-relaxed">
               Research, writing, and mentorship on agentic coding — for
@@ -171,6 +171,17 @@ export default function Home() {
                   <strong className="font-semibold text-[var(--color-text)]">
                     (1,500+ members)
                   </strong>
+                </span>
+                <span>
+                  Founder of{" "}
+                  <a
+                    href="https://luma.com/cascadia-bc"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-[var(--color-link)] hover:text-[var(--color-link-hover)] transition-colors"
+                  >
+                    Cascadia Builders Club
+                  </a>
                 </span>
               </div>
             </div>
