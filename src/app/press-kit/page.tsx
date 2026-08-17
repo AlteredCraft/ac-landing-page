@@ -166,7 +166,7 @@ export default function PressKitPage() {
         </div>
       </nav>
 
-      <main id="main-content" className="max-w-[1000px] mx-auto px-6 lg:px-12">
+      <main id="main-content" tabIndex={-1} className="max-w-[1000px] mx-auto px-6 lg:px-12">
         {/* Hero */}
         <section className="pt-20 pb-12">
           <h1 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-4xl sm:text-5xl text-[var(--color-text)]">

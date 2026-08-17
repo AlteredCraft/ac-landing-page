@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Menu, X } from "lucide-react";
 import { NAV_LINKS } from "@/lib/nav";
 import { NavLabel } from "@/components/NavLabel";
 
@@ -16,35 +17,9 @@ export function MobileMenu() {
         aria-expanded={isOpen}
       >
         {isOpen ? (
-          <svg
-            aria-hidden="true"
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+          <X aria-hidden="true" className="w-6 h-6" />
         ) : (
-          <svg
-            aria-hidden="true"
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
+          <Menu aria-hidden="true" className="w-6 h-6" />
         )}
       </button>
 

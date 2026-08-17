@@ -61,7 +61,7 @@ export default function Home() {
     <div className="min-h-screen bg-[var(--color-base)]">
       <SiteNav />
 
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1}>
         {/* Hero Section */}
         <section className="relative overflow-hidden lg:min-h-screen flex flex-col lg:justify-center pt-24 lg:pt-28 pb-14 lg:pb-20 px-6 lg:px-12">
           <div aria-hidden="true" className="absolute inset-0 -z-10 hero-glow" />

@@ -27,7 +27,7 @@ export default function JournalPage() {
     <div className="min-h-screen bg-[var(--color-base)]">
       <SiteNav />
 
-      <main id="main-content" className="max-w-[820px] mx-auto px-6 lg:px-12 pt-20 lg:pt-24">
+      <main id="main-content" tabIndex={-1} className="max-w-[820px] mx-auto px-6 lg:px-12 pt-20 lg:pt-24">
         {/* Hero */}
         <section className="pt-12 pb-10">
           <Link
