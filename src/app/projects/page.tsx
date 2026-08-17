@@ -26,7 +26,7 @@ export default function ProjectsPage() {
     <div className="min-h-screen bg-[var(--color-base)]">
       <SiteNav />
 
-      <main className="max-w-[1200px] mx-auto px-6 lg:px-12 pt-20 lg:pt-24">
+      <main id="main-content" tabIndex={-1} className="max-w-[1200px] mx-auto px-6 lg:px-12 pt-20 lg:pt-24">
         {/* Hero */}
         <section className="pt-12 pb-10">
           <Link

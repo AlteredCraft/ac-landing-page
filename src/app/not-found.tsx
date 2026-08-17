@@ -18,10 +18,10 @@ export default function NotFound() {
             <span className="w-3 h-3 rounded-full bg-[#FEBC2E]" />
             <span className="w-3 h-3 rounded-full bg-[#28C840]" />
           </div>
-          <span className="ml-2 text-xs text-zinc-500 font-mono">not-found</span>
+          <span className="ml-2 text-xs text-zinc-300 font-mono">not-found</span>
         </div>
         <div className="bg-[#21262B] rounded-b-lg p-6 font-mono text-sm leading-relaxed">
-          <p className="text-zinc-500">
+          <p className="text-zinc-300">
             <span className="text-[#D4B84A]">$</span> curl alteredcraft.com
             <span className="text-[#D4B84A]">/</span>
             <span className="text-zinc-400 line-through decoration-zinc-600">
@@ -35,12 +35,12 @@ export default function NotFound() {
               out of existence.
             </p>
           </div>
-          <p className="mt-4 text-zinc-600">
+          <p className="mt-4 text-zinc-400">
             Could be a typo. Could be the site owner being
             <br />
             reckless with paths. Our apologies.
           </p>
-          <p className="mt-6 text-zinc-500">
+          <p className="mt-6 text-zinc-300">
             <span className="text-[#D4B84A]">$</span>{" "}
             <span className="animate-pulse">_</span>
           </p>

@@ -8,10 +8,17 @@ import { NavLabel } from "@/components/NavLabel";
 // subscribe CTA. Mobile nav lives in <MobileMenu>.
 export function SiteNav() {
   return (
-    <nav
-      aria-label="Main"
-      className="fixed top-0 left-0 right-0 z-50 bg-[var(--color-ink)]/95 backdrop-blur border-b border-white/10"
-    >
+    <>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[var(--color-accent)] focus:text-[var(--color-ink)] focus:rounded-lg focus:font-semibold focus:text-sm"
+      >
+        Skip to content
+      </a>
+      <nav
+        aria-label="Main"
+        className="fixed top-0 left-0 right-0 z-50 bg-[var(--color-ink)]/95 backdrop-blur border-b border-white/10"
+      >
       <div className="px-6 lg:px-12 py-4 flex items-center justify-between gap-6">
         <Link href="/" className="sm:hidden">
           <BrandLockup variant="horizontal" size="sm" theme="dark" />
@@ -47,5 +54,6 @@ export function SiteNav() {
         </div>
       </div>
     </nav>
+    </>
   );
 }

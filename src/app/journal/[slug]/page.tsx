@@ -49,7 +49,7 @@ export default async function JournalEntryPage({
     <div className="min-h-screen bg-[var(--color-base)]">
       <SiteNav />
 
-      <main className="max-w-[760px] mx-auto px-6 lg:px-12 pt-20 lg:pt-24">
+      <main id="main-content" tabIndex={-1} className="max-w-[760px] mx-auto px-6 lg:px-12 pt-20 lg:pt-24">
         <article className="pt-12 pb-16">
           <Link
             href="/journal"

@@ -142,7 +142,16 @@ export default function PressKitPage() {
   return (
     <div className="min-h-screen bg-[var(--color-base)]">
       {/* Nav */}
-      <nav className="sticky top-0 z-50 bg-[var(--color-ink)] border-b border-white/10">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[var(--color-accent)] focus:text-[var(--color-ink)] focus:rounded-lg focus:font-semibold focus:text-sm"
+      >
+        Skip to content
+      </a>
+      <nav
+        aria-label="Main"
+        className="sticky top-0 z-50 bg-[var(--color-ink)] border-b border-white/10"
+      >
         <div className="max-w-[1200px] mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
           <Link href="/">
             <BrandLockup variant="horizontal" size="sm" theme="dark" />
@@ -157,7 +166,7 @@ export default function PressKitPage() {
         </div>
       </nav>
 
-      <main className="max-w-[1000px] mx-auto px-6 lg:px-12">
+      <main id="main-content" tabIndex={-1} className="max-w-[1000px] mx-auto px-6 lg:px-12">
         {/* Hero */}
         <section className="pt-20 pb-12">
           <h1 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-4xl sm:text-5xl text-[var(--color-text)]">
