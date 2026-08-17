@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink, ArrowRight, ArrowLeft } from "lucide-react";
-import ragWorkshopImg from "../../../public/speaker.png";
-import hackathonImg from "../../../public/hackathon-podium.png";
-import packtWorkshopImg from "../../../public/packt-ws-00.png";
+import ragWorkshopImg from "../../../public/speaker.webp";
+import hackathonImg from "../../../public/hackathon-podium.webp";
+import packtWorkshopImg from "../../../public/packt-ws-00.webp";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Kicker } from "@/components/Kicker";
@@ -28,7 +28,7 @@ export default function PreviousWorkshopsPage() {
     <div className="min-h-screen bg-[var(--color-base)]">
       <SiteNav />
 
-      <main className="max-w-[1200px] mx-auto px-6 lg:px-12 pt-20 lg:pt-24">
+      <main id="main-content" className="max-w-[1200px] mx-auto px-6 lg:px-12 pt-20 lg:pt-24">
         {/* Hero */}
         <section className="pt-12 pb-12">
           <Link
@@ -65,6 +65,7 @@ export default function PreviousWorkshopsPage() {
                   src={packtWorkshopImg}
                   alt="Packt × Deep Engineering: Effective Software Engineering with Claude Code"
                   fill
+                  sizes="(min-width: 1024px) 373px, (min-width: 768px) 50vw, 100vw"
                   className="object-cover"
                 />
               </a>
@@ -99,6 +100,7 @@ export default function PreviousWorkshopsPage() {
                   src={ragWorkshopImg}
                   alt="Sam Keen teaching a RAG workshop to a room of developers"
                   fill
+                  sizes="(min-width: 1024px) 373px, (min-width: 768px) 50vw, 100vw"
                   className="object-cover object-top"
                 />
               </div>
@@ -123,6 +125,7 @@ export default function PreviousWorkshopsPage() {
                   src={hackathonImg}
                   alt="Sam Keen presenting at the Claude Code Hackathon"
                   fill
+                  sizes="(min-width: 1024px) 373px, (min-width: 768px) 50vw, 100vw"
                   className="object-cover object-top"
                 />
               </div>

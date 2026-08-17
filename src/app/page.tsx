@@ -4,8 +4,8 @@ import HeroImage from "@/components/HeroImage";
 import { Check, Mail, ExternalLink, ArrowRight } from "lucide-react";
 import samImg from "../../public/press-kit/sam-keen-headshot-editorial.jpg";
 import samCasualImg from "../../public/press-kit/sam-keen-headshot-casual.png";
-import packtWorkshopImg from "../../public/packt-ws-00.png";
-import ragWorkshopImg from "../../public/speaker.png";
+import packtWorkshopImg from "../../public/packt-ws-00.webp";
+import ragWorkshopImg from "../../public/speaker.webp";
 import { LatestPosts } from "@/components/LatestPosts";
 import { ProjectCard } from "@/components/ProjectCard";
 import { PROJECTS } from "@/lib/projects";
@@ -22,7 +22,7 @@ const SOCIAL_LINKS = [
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/samkeen",
     icon: (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+      <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
       </svg>
     ),
@@ -31,7 +31,7 @@ const SOCIAL_LINKS = [
     label: "Substack",
     href: "https://writing.alteredcraft.com",
     icon: (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+      <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
         <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z" />
       </svg>
     ),
@@ -40,7 +40,7 @@ const SOCIAL_LINKS = [
     label: "Threads",
     href: "https://www.threads.net/@sam.keen",
     icon: (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+      <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
         <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.96-.065-1.18.408-2.26 1.332-3.04.88-.744 2.107-1.17 3.555-1.234 1.07-.047 2.064.078 2.967.367.026-.78.013-1.526-.038-2.207-.166-2.205-1.021-3.148-3.067-3.186h-.09c-1.233.014-2.275.397-2.939 1.078l-1.434-1.435C8.063 3.46 9.618 2.846 11.567 2.82h.108c1.263.015 2.402.261 3.388.733 1.073.513 1.903 1.283 2.468 2.289.528.94.83 2.09.898 3.42.033.646.04 1.327.022 2.038.47.27.897.577 1.278.92 1.192 1.073 1.876 2.534 1.975 4.222.107 1.842-.413 3.541-1.505 4.918-1.813 2.286-4.534 3.489-8.087 3.575l-.064.001zm-.12-10.863c-1.073.047-1.93.344-2.477.86-.494.466-.706 1.056-.633 1.752.073.695.386 1.195.931 1.488.587.316 1.378.443 2.168.396 1.11-.06 1.96-.462 2.53-1.194.442-.57.755-1.322.934-2.248-.925-.383-1.948-.582-3.044-.582-.134 0-.272.004-.41.012v-.484z" />
       </svg>
     ),
@@ -49,7 +49,7 @@ const SOCIAL_LINKS = [
     label: "X",
     href: "https://x.com/samkeen",
     icon: (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+      <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
       </svg>
     ),
@@ -59,13 +59,6 @@ const SOCIAL_LINKS = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-[var(--color-base)]">
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[var(--color-accent)] focus:text-[var(--color-ink)] focus:rounded-lg focus:font-semibold focus:text-sm"
-      >
-        Skip to content
-      </a>
-
       <SiteNav />
 
       <main id="main-content">
@@ -86,7 +79,7 @@ export default function Home() {
             </p>
             <HeroImage
               portraitSrc={samImg}
-              portraitAlt="Sam Keen"
+              portraitAlt="Sam Keen, founder of AlteredCraft"
               qrSrc="/alteredcraft-qr.png"
               qrAlt="QR code linking to alteredcraft.com"
             />
@@ -125,7 +118,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-3 border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text)] font-medium text-sm hover:border-[var(--color-muted)] transition-colors rounded-lg"
               >
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                 </svg>
                 Connect
@@ -329,8 +322,10 @@ export default function Home() {
               {/* Always available */}
               <div className="mb-16">
                 <h4 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl text-[var(--color-text)] mb-5 flex items-center gap-3">
-                  <span className="text-[var(--color-accent)]">/</span> Always
-                  available
+                  <span aria-hidden="true" className="text-[var(--color-accent)]">
+                    /
+                  </span>{" "}
+                  Always available
                 </h4>
                 <div className="grid md:grid-cols-2 gap-8 max-w-[1000px]">
                   <div className="p-6 bg-[var(--color-base)] border border-[var(--color-border)] rounded-xl flex flex-col transition-all duration-200 hover:border-[var(--color-accent)]/60 hover:shadow-md">
@@ -400,7 +395,10 @@ export default function Home() {
                   of the "See all previous workshops" link below). */}
               <div className="mb-12">
                 <h4 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl text-[var(--color-text)] mb-5 flex items-center gap-3">
-                  <span className="text-[var(--color-accent)]">/</span> Previous
+                  <span aria-hidden="true" className="text-[var(--color-accent)]">
+                    /
+                  </span>{" "}
+                  Previous
                 </h4>
                 <div className="grid md:grid-cols-2 gap-8 max-w-[1000px]">
                   {/* Effective Software Engineering with Claude Code */}
@@ -415,6 +413,7 @@ export default function Home() {
                         src={packtWorkshopImg}
                         alt="Packt × Deep Engineering: Effective Software Engineering with Claude Code"
                         fill
+                        sizes="(min-width: 768px) 468px, 100vw"
                         className="object-cover"
                       />
                     </a>
@@ -449,6 +448,7 @@ export default function Home() {
                         src={ragWorkshopImg}
                         alt="Sam Keen teaching a RAG workshop to a room of developers"
                         fill
+                        sizes="(min-width: 768px) 468px, 100vw"
                         className="object-cover object-top"
                       />
                     </div>
@@ -537,8 +537,9 @@ export default function Home() {
               <div className="aspect-square bg-[var(--color-surface-alt)] rounded-2xl relative overflow-hidden ring-1 ring-[var(--color-border)] shadow-sm">
                 <Image
                   src={samCasualImg}
-                  alt="Sam Keen"
+                  alt="Sam Keen, founder of AlteredCraft"
                   fill
+                  sizes="(min-width: 1024px) 300px, 100vw"
                   className="object-cover"
                 />
               </div>

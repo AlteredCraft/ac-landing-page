@@ -17,6 +17,7 @@ export function MobileMenu() {
       >
         {isOpen ? (
           <svg
+            aria-hidden="true"
             className="w-6 h-6"
             fill="none"
             stroke="currentColor"
@@ -31,6 +32,7 @@ export function MobileMenu() {
           </svg>
         ) : (
           <svg
+            aria-hidden="true"
             className="w-6 h-6"
             fill="none"
             stroke="currentColor"
@@ -48,7 +50,7 @@ export function MobileMenu() {
 
       {isOpen && (
         <div className="absolute top-full left-0 right-0 bg-[var(--color-ink)] border-b border-white/10 shadow-lg">
-          <nav className="flex flex-col p-4 gap-1">
+          <nav aria-label="Mobile" className="flex flex-col p-4 gap-1">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}

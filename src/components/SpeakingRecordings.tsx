@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
-import oaiaThumb from "../../public/oaia-thumb.png";
+import oaiaThumb from "../../public/oaia-thumb.webp";
 
 // Recorded talks / screencasts. Shared between /speaking and the homepage
 // Community section.
@@ -45,6 +45,7 @@ export function SpeakingRecordings() {
               src={oaiaThumb}
               alt="Observability in AI: slide showing the antipattern of unmonitored LLM calls"
               fill
+              sizes="(min-width: 1024px) 540px, 100vw"
               className="object-cover object-top"
             />
           </div>
