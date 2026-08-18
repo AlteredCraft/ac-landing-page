@@ -1,0 +1,6 @@
+# robots.txt for https://alteredcraft.com
+# Structured summary for LLM agents: https://alteredcraft.com/llms.txt
+
+User-agent: *
+Allow: /
+Disallow: /api/

@@ -1,0 +1,50 @@
+# AlteredCraft
+
+> AlteredCraft is Sam Keen's writing, teaching, and research on AI-assisted software development — the craft of working with machines that write code. It centers on a weekly newsletter, live workshops, open-source agent tooling, and a public build journal, all aimed at working engineers using coding agents like Claude Code.
+
+Sam Keen has spent 25+ years shipping production software at Nike, Lululemon, AWS, and startups, led the GenAI Innovation Lab at AWS, authored *Clean Architecture with Python* (Packt), and co-founded Portland AI Engineers, a 1,500+ member practitioner community. The through-line of the work is building *with* AI, not building AI.
+
+alteredcraft.com is a single-scroll landing page (sections: Newsletter `#writing`, Projects `#projects`, Community `#community`, About `#about`) plus a small set of detail pages. Long-form writing and workshops live on external platforms — Substack and Maven — and those are the canonical sources for that content. Note that `alteredcraft.com/p/*` and `/i/*` permanently redirect to the newsletter at `writing.alteredcraft.com`.
+
+## Pages
+
+- [Home](https://alteredcraft.com/): Landing page — positioning, newsletter, featured projects, workshops and speaking, and bio.
+- [Journal](https://alteredcraft.com/journal): Reverse-chronological stream of short dated notes on in-progress work — agent harnesses, tooling experiments, model comparisons, learning in public. Each entry has its own page at `/journal/<slug>`; this index lists every entry.
+- [Projects](https://alteredcraft.com/projects): Full list of open-source projects with descriptions, tags, tech stack, and repo links.
+- [Speaking](https://alteredcraft.com/speaking): Talks, panels, judging, and demos, plus recordings where available.
+- [Previous workshops](https://alteredcraft.com/previous-workshops): Archive of past workshops and teaching engagements.
+
+## Writing and teaching
+
+- [Newsletter](https://writing.alteredcraft.com): Weekly Substack on AI-assisted development. Canonical home for all long-form articles.
+- [Subscribe](https://writing.alteredcraft.com/subscribe): Newsletter signup.
+- [Workshops on Maven](https://maven.com/altered-craft-learning): Live, hands-on workshops for developers and teams on Claude Code, context engineering, and agentic coding practice.
+- [Clean Architecture with Python](https://www.amazon.com/Clean-Architecture-Python-maintainable-architectural/dp/183664289X): Book by Sam Keen (Packt) on maintainable architectural patterns in Python.
+
+## Projects
+
+- [Tilth](https://github.com/AlteredCraft/tilth): A minimal harness for long-running autonomous coding agents against any OpenAI-compatible endpoint — an evaluator that judges whether a change actually solves the task, between-task budget caps, and offline-first observability you can replay end to end. Python. Active development.
+- [Tilth docs](https://alteredcraft.github.io/tilth/): Documentation for the Tilth agent harness.
+- [LSP4Agents](https://github.com/AlteredCraft/lsp4agents): A Language Server Protocol client designed for coding agents rather than IDEs — go to definition, find references, real type errors as agent tools. Rust CLI. Active development.
+- [knobs.cc](https://github.com/AlteredCraft/knobs-cc): A local desktop app (Tauri + Rust) that inspects every Claude Code configuration knob — where each setting lives, its value, and which layer takes precedence.
+- [Claude Code Plugins](https://github.com/AlteredCraft/claude-code-plugins): A marketplace of Claude Code plugins built at AlteredCraft, installable directly from the marketplace.
+- [RAG Lab](https://github.com/AlteredCraft/chat-rag-explorer): An educational streaming chat and retrieval-augmented-generation app used as workshop material. Python, Flask, OpenRouter, vanilla JS.
+- [GitHub organization](https://github.com/AlteredCraft): All AlteredCraft open-source repositories.
+
+## Community
+
+- [Portland AI Engineers](https://www.meetup.com/portland-ai-engineers/): Meetup co-founded by Sam Keen — 1,500+ practitioners in Portland, OR exploring practical AI.
+- [Portland AI Engineers events](https://luma.com/portland-ai-engineers): Luma calendar of upcoming meetups.
+- [Cascadia Buildes Club](https://luma.com/cascadia-bc): Luma calendar of upcoming meetups.
+
+## Contact
+
+- [Book a call](https://fantastical.app/samkeen/meet-with-sam-keen): Scheduling link for consulting inquiries and workshop conversations.
+- [Email](mailto:sam@alteredcraft.com): sam@alteredcraft.com
+- [LinkedIn](https://www.linkedin.com/in/samkeen): Primary professional profile.
+
+## Optional
+
+- [Press kit](https://alteredcraft.com/press-kit): Brand assets — logos, color palette, typography, and usage guidelines.
+- [X/Twitter](https://x.com/samkeen)
+- [Threads](https://www.threads.net/@sam.keen)
