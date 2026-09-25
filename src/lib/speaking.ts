@@ -13,8 +13,8 @@ export const UPCOMING: Engagement[] = [];
 
 export const PAST: Engagement[] = [
   {
-    date: "AUG 6, 2026",
-    location: "PORTLAND, OR",
+    date: "Aug 6, 2026",
+    location: "Portland, OR",
     host: "Oregon AIR Challenge · Core Defender AI",
     title: "Judge: Oregon AIR Challenge Pitch Day",
     description:
@@ -24,8 +24,8 @@ export const PAST: Engagement[] = [
     ],
   },
   {
-    date: "MAY 20, 2026",
-    location: "PORTLAND, OR",
+    date: "May 20, 2026",
+    location: "Portland, OR",
     host: "Maseeh College of Engineering · Portland State University",
     title: "Panelist: AI Futures",
     description:
@@ -35,8 +35,8 @@ export const PAST: Engagement[] = [
     ],
   },
   {
-    date: "MAY 14, 2026",
-    location: "PORTLAND, OR",
+    date: "May 14, 2026",
+    location: "Portland, OR",
     host: "Portland WIP AI Demos Lunch · UpStart Collective",
     title: "Presented knobs.cc",
     description:

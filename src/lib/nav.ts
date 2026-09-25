@@ -1,4 +1,4 @@
-import { PenLine, type LucideIcon } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 export type NavLink = {
   href: string;
@@ -12,7 +12,7 @@ export type NavLink = {
 // combines workshops and speaking.
 export const NAV_LINKS: NavLink[] = [
   { href: "/#writing", label: "Newsletter" },
-  { href: "/journal", label: "Journal", Icon: PenLine },
+  { href: "/journal", label: "Journal" },
   { href: "/#projects", label: "Projects" },
   { href: "/#community", label: "Community" },
   { href: "/#about", label: "About" },

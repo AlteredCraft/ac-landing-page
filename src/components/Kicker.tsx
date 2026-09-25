@@ -1,20 +1,11 @@
-// Eyebrow label above section headings: gold slash + small-caps label in
-// Space Grotesk. Gives every section a consistent, scannable entry point.
+// Eyebrow label above headings: a mono "/ label" line in muted slate.
+// Pass `className` to recolor it (e.g. lime on ink surfaces).
 export function Kicker({
   children,
-  className = "",
+  className = "text-[var(--color-muted)]",
 }: {
   children: React.ReactNode;
   className?: string;
 }) {
-  return (
-    <p
-      className={`flex items-center gap-2 font-[family-name:var(--font-space-grotesk)] text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-muted)] ${className}`}
-    >
-      <span aria-hidden="true" className="text-sm text-[var(--color-accent)]">
-        /
-      </span>
-      {children}
-    </p>
-  );
+  return <p className={`mono lowercase ${className}`}>/ {children}</p>;
 }

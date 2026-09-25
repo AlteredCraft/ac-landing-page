@@ -1,8 +1,12 @@
 // Curated project list for the Projects section (homepage preview + /projects).
 // `tags` are categorical labels (Title-Case, hyphenated compounds, acronyms upper).
 // `stack` are sub-tags: the tech/tools, in their natural product casing.
-// `status` is an optional badge (e.g., "Active-Development").
-// Copy is grounded in each repo's README. All repos verified public.
+// `status` is an optional badge (e.g., "Active-Development"); a project with a
+// status gets the emphasized (ink-bordered) card. `kind` is an optional
+// secondary badge (e.g., "Desktop App") shown when there is no status.
+// Copy is grounded in each repo's README. All linked repos verified public;
+// Marginalia's repo is private, so its link is a placeholder until it has a
+// public URL.
 // The homepage preview shows the first 3 (PROJECTS.slice(0, 3)), so order matters.
 
 export type ProjectLink = {
@@ -19,9 +23,48 @@ export type Project = {
   stack: string[];
   links: ProjectLink[];
   status?: string;
+  kind?: string;
 };
 
 export const PROJECTS: Project[] = [
+  {
+    slug: "marginalia",
+    name: "Marginalia",
+    kind: "Web App",
+    oneLiner:
+      "A place to read difficult papers with other people and with AI guides.",
+    description:
+      "A group keeps a small library of papers, uploaded as PDFs or imported from arXiv. Ask a question beside the paper and the AI guide you choose reads the whole PDF and replies in the discussion for everyone to see. Every guide call's tokens and cost are recorded, and members rate each reply accurate or inaccurate, so those measurements decide what gets built next.",
+    tags: ["Research", "Reading", "AI-Guides"],
+    stack: ["Next.js", "Postgres", "OpenRouter"],
+    links: [{ label: "Repo", href: "#" }],
+  },
+  {
+    slug: "b2",
+    name: "B2",
+    kind: "Desktop App",
+    oneLiner:
+      "A notes app for research: plain Markdown in a folder you own, with an AI layer that finds the connections you haven't made yet.",
+    description:
+      "My daily notes app, built to replace Obsidian. Beside every note is a ranked list of related notes it isn't linked to yet, and a model explains what they have in common. Keyword and semantic search, typed links (supports, contradicts), and answers grounded in your notes with citations you can check. Local first: embeddings run on your machine and chat uses Ollama by default.",
+    tags: ["PKM", "Research", "Local-First"],
+    stack: ["Rust", "Tauri", "Ollama"],
+    links: [{ label: "Repo", href: "https://github.com/AlteredCraft/B2" }],
+  },
+  {
+    slug: "tricorder",
+    name: "Tricorder",
+    kind: "IoT",
+    oneLiner:
+      "A handheld, agent-assisted instrument for exploring the physical world.",
+    description:
+      "Built on the M5Stack Tab5 (ESP32-P4): hold it, point it, move it, and ask questions while a person and an agent investigate something together in real time. ESP-IDF firmware on the device, a Mac-side Python investigation service, and local speech-to-text and spoken guidance. Co-developed with OpenAI Codex and Claude Code.",
+    tags: ["Hardware", "Agents", "Research"],
+    stack: ["ESP32-P4", "C++", "Python"],
+    links: [
+      { label: "Repo", href: "https://github.com/AlteredCraft/tricorder" },
+    ],
+  },
   {
     slug: "tilth",
     name: "Tilth",
@@ -53,6 +96,7 @@ export const PROJECTS: Project[] = [
   {
     slug: "knobs-cc",
     name: "knobs.cc",
+    kind: "Desktop App",
     oneLiner:
       "A desktop inspector for every knob Claude Code gives you: where it lives, what it's set to, and which layer wins.",
     description:

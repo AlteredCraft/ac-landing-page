@@ -1,30 +1,40 @@
-import { ExternalLink } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import type { Engagement } from "@/lib/speaking";
+import { monoLink } from "@/lib/styles";
 
+// One speaking engagement: mono date/location column, then host, serif title,
+// description, and links. Rendered inside a list whose items carry the rules.
 export function EngagementRow({ event }: { event: Engagement }) {
   return (
-    <li className="py-8 grid gap-3 sm:grid-cols-[200px_1fr] sm:gap-8">
-      <div className="text-xs font-semibold tracking-widest text-[var(--color-muted)] uppercase">
-        <div>{event.date}</div>
-        <div className="mt-1">{event.location}</div>
+    <li className="grid gap-2 sm:gap-6 sm:grid-cols-[150px_minmax(0,1fr)] py-4 sm:py-[22px] border-t border-[var(--color-border)] last:border-b">
+      <div className="mono flex sm:flex-col gap-1">
+        <span className="text-[var(--color-text)] font-medium">{event.date}</span>
+        <span className="text-[var(--color-muted)]">
+          <span className="sm:hidden">· </span>
+          {event.location}
+        </span>
       </div>
-      <div>
-        <p className="text-sm text-[var(--color-muted)] mb-1">{event.host}</p>
-        <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl text-[var(--color-text)] mb-2">
+      <div className="flex flex-col gap-2">
+        <p className="mono text-[var(--color-muted)] order-2 sm:order-none">
+          {event.host}
+        </p>
+        <h3 className="serif m-0 text-2xl sm:text-[28px] leading-[1.05]">
           {event.title}
         </h3>
-        <p className="text-[var(--color-muted)] mb-4">{event.description}</p>
-        <div className="flex flex-wrap gap-x-5 gap-y-2">
+        <p className="m-0 text-[14.5px] leading-[1.55] text-[var(--color-body)] order-3 sm:order-none">
+          {event.description}
+        </p>
+        <div className="flex flex-wrap gap-x-5 gap-y-1 order-4 sm:order-none">
           {event.links.map((link) => (
             <a
               key={link.href}
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-link)] hover:text-[var(--color-link-hover)] transition-colors"
+              className={monoLink}
             >
               {link.label}
-              <ExternalLink className="w-3.5 h-3.5" />
+              <ArrowUpRight aria-hidden="true" className="w-3.5 h-3.5" />
             </a>
           ))}
         </div>

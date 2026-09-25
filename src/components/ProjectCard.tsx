@@ -1,60 +1,77 @@
-import { ExternalLink } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/lib/projects";
+import { badge, chip, lift } from "@/lib/styles";
+
+// "Active-Development" -> "active development". Only plain Title-Case words
+// are lowercased, so acronyms keep their casing ("IoT" stays "IoT").
+function badgeText(value: string): string {
+  return value
+    .split(/[-\s]+/)
+    .map((word) => (/^[A-Z][a-z]+$/.test(word) ? word.toLowerCase() : word))
+    .join(" ");
+}
 
 export function ProjectCard({ project }: { project: Project }) {
+  const active = Boolean(project.status);
+
   return (
-    <div className="flex flex-col h-full p-6 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl transition-all duration-200 hover:border-[var(--color-accent)]/60 hover:shadow-md hover:-translate-y-0.5">
-      <div className="flex items-start justify-between gap-3 mb-2">
-        <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl leading-snug">
-          {project.name}
-        </h3>
-        {project.status && (
-          <span className="flex-shrink-0 px-2.5 py-1 rounded-full text-xs font-medium bg-[var(--color-surface-alt)] text-[var(--color-muted)] whitespace-nowrap">
-            {project.status}
+    <article
+      className={`flex flex-col h-full gap-3 lg:gap-4 p-5 lg:px-7 lg:py-[26px] bg-[var(--color-surface)] rounded-[10px] ${lift} ${
+        active
+          ? "border-[1.5px] border-[var(--color-ink)]"
+          : "border border-[var(--color-border)]"
+      }`}
+    >
+      <div className="flex items-center justify-between gap-3">
+        {project.status ? (
+          <span className={badge.lime}>
+            <span
+              aria-hidden="true"
+              className="w-2 h-2 rounded-full bg-[var(--color-ink)]"
+            />
+            {badgeText(project.status)}
           </span>
+        ) : project.kind ? (
+          <span className={badge.soft}>
+            {badgeText(project.kind)}
+          </span>
+        ) : (
+          <span />
         )}
+        <span className="mono text-[var(--color-muted)] lowercase text-right">
+          {project.stack.join(" · ")}
+        </span>
       </div>
 
-      <p className="font-medium text-[var(--color-text)] mb-3">
+      <h3 className="serif m-0 text-4xl lg:text-[44px] leading-none">
+        {project.name}
+      </h3>
+
+      <p className="m-0 text-[15.5px] lg:text-[17px] leading-[1.4] font-medium">
         {project.oneLiner}
       </p>
 
-      <p className="text-sm text-[var(--color-muted)] mb-5 flex-grow">
+      <p className="m-0 text-sm lg:text-[14.5px] leading-[1.55] text-[var(--color-body)]">
         {project.description}
       </p>
 
-      {/* Tags — categorical labels */}
-      <div className="flex flex-wrap gap-2 mb-3">
-        {project.tags.map((tag) => (
-          <span
-            key={tag}
-            className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-[var(--color-accent)]/12 border border-[var(--color-accent)]/40 text-[var(--color-text)]"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
+      {project.tags.length > 0 && (
+        <ul className="flex flex-wrap gap-1.5" aria-label="Tags">
+          {project.tags.map((tag) => (
+            <li key={tag} className={chip}>
+              {tag}
+            </li>
+          ))}
+        </ul>
+      )}
 
-      {/* Sub-tags — tech / tools */}
-      <div className="flex flex-wrap gap-2 mb-5">
-        {project.stack.map((tech) => (
-          <span
-            key={tech}
-            className="px-2.5 py-1 rounded-md text-xs bg-[var(--color-surface-alt)] text-[var(--color-muted)]"
-          >
-            {tech}
-          </span>
-        ))}
-      </div>
-
-      {/* Links */}
-      <div className="flex flex-wrap gap-x-5 gap-y-2 mt-auto pt-1">
+      <div className="mono mt-auto flex flex-wrap gap-x-[22px] gap-y-2 pt-3 lg:pt-4 border-t border-[var(--color-hairline)] text-[13px]">
         {project.links.map((link) =>
           link.href === "#" ? (
             <span
               key={link.label}
               title="Placeholder — add the real URL in src/lib/projects.ts"
-              className="inline-flex items-center text-sm text-[var(--color-muted)] border-b border-dashed border-[var(--color-muted)]"
+              className="inline-flex items-center min-h-6 text-[var(--color-muted)] border-b border-dashed border-[var(--color-muted)]"
             >
               {link.label} (add link)
             </span>
@@ -64,14 +81,14 @@ export function ProjectCard({ project }: { project: Project }) {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-sm font-medium text-[var(--color-link)] hover:text-[var(--color-link-hover)] hover:underline transition-colors"
+              className="inline-flex items-center gap-1.5 min-h-6 text-[var(--color-text)] hover:text-[var(--color-blue)] transition-colors"
             >
               {link.label}
-              <ExternalLink className="w-3.5 h-3.5" />
+              <ArrowUpRight aria-hidden="true" className="w-3.5 h-3.5" />
             </a>
           )
         )}
       </div>
-    </div>
+    </article>
   );
 }

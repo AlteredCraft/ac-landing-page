@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ProjectCard } from "@/components/ProjectCard";
-import { ArrowLeft } from "lucide-react";
 import { PROJECTS } from "@/lib/projects";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
-import { Kicker } from "@/components/Kicker";
+import { PageHeader } from "@/components/PageHeader";
+import { container } from "@/lib/styles";
 
 export const metadata: Metadata = {
   title: "Projects | AlteredCraft",
@@ -23,34 +22,23 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <div className="min-h-screen bg-[var(--color-base)]">
+    <div className="min-h-screen flex flex-col bg-[var(--color-base)]">
       <SiteNav />
 
-      <main id="main-content" tabIndex={-1} className="max-w-[1200px] mx-auto px-6 lg:px-12 pt-20 lg:pt-24">
-        {/* Hero */}
-        <section className="pt-12 pb-10">
-          <Link
-            href="/#projects"
-            className="inline-flex items-center gap-1.5 text-sm text-[var(--color-muted)] hover:text-[var(--color-link)] transition-colors mb-6"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Projects
-          </Link>
-          <Kicker className="mb-4">Built in the open</Kicker>
-          <h1 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-4xl sm:text-5xl text-[var(--color-text)]">
-            Projects
-          </h1>
-          <p className="mt-4 text-lg text-[var(--color-muted)] max-w-[720px]">
-            Things I build while writing and teaching about AI-assisted
-            development. Each one sits on both sides of the work: shipping the
-            thing and explaining it. The tags flag what each project is about;
-            the smaller chips are the tech behind it.
-          </p>
-        </section>
+      <main id="main-content" tabIndex={-1} className={`${container} flex-grow`}>
+        <PageHeader
+          back={{ href: "/#projects", label: "projects" }}
+          kicker="built in the open"
+          title="Projects"
+        >
+          Things I build while writing and teaching about AI-assisted
+          development. Each one sits on both sides of the work: shipping the
+          thing and explaining it. The chips flag what each project is about;
+          the stack sits top right.
+        </PageHeader>
 
-        {/* Project grid */}
-        <section className="pt-8 pb-16 border-t border-[var(--color-border)]">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="pt-6 lg:pt-8 pb-16 lg:pb-24 border-t-[1.5px] border-[var(--color-ink)]">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {PROJECTS.map((project) => (
               <ProjectCard key={project.slug} project={project} />
             ))}

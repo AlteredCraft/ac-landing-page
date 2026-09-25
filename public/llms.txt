@@ -23,6 +23,8 @@ alteredcraft.com is a single-scroll landing page (sections: Newsletter `#writing
 
 ## Projects
 
+- [B2](https://github.com/AlteredCraft/B2): A notes app for research — plain Markdown in a folder you own, with an AI layer that surfaces unlinked related notes, explains the connection, and answers questions from your notes with checkable citations. Local-first. Rust + Tauri desktop app and CLI.
+- [Tricorder](https://github.com/AlteredCraft/tricorder): A handheld, agent-assisted instrument for exploring the physical world on the M5Stack Tab5 (ESP32-P4), co-developed with OpenAI Codex and Claude Code. Firmware in C++, Mac-side service in Python.
 - [Tilth](https://github.com/AlteredCraft/tilth): A minimal harness for long-running autonomous coding agents against any OpenAI-compatible endpoint — an evaluator that judges whether a change actually solves the task, between-task budget caps, and offline-first observability you can replay end to end. Python. Active development.
 - [Tilth docs](https://alteredcraft.github.io/tilth/): Documentation for the Tilth agent harness.
 - [LSP4Agents](https://github.com/AlteredCraft/lsp4agents): A Language Server Protocol client designed for coding agents rather than IDEs — go to definition, find references, real type errors as agent tools. Rust CLI. Active development.
