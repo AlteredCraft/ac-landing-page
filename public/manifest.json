@@ -4,8 +4,8 @@
   "description": "Applied AI guidance for software teams",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#F6F7F5",
-  "theme_color": "#15191C",
+  "background_color": "#F7F8FA",
+  "theme_color": "#10151B",
   "icons": [
     {
       "src": "icon-192.png",
