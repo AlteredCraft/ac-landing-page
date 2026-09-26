@@ -1,89 +1,112 @@
 @import "tailwindcss";
 
 :root {
-  /* Porcelain & Ink palette — cool neutrals, brand gold, evergreen links.
-     Gold stays (it's in the logo); the neutrals shifted from warm cream/taupe
-     to cool porcelain/slate, and links use a deep evergreen pulled from the
-     logo's green code bar. */
-  --color-base: #F6F7F5;
-  --color-text: #1C2124;
-  --color-ink: #15191C;
-  --color-accent: #D4B84A;
-  --color-accent-hover: #C2A63C;
-  --color-link: #20794F;
-  --color-link-hover: #175C3B;
-  --color-muted: #5C666D;
-  --color-border: #E2E4E1;
-  --color-surface: #FCFCFB;
-  --color-surface-alt: #ECEFEC;
+  /* Signal palette — cool paper neutrals and ink, with two accents:
+     blue for the brand slash and text links, lime for highlights, badges,
+     and CTAs on dark surfaces. Primary buttons are solid ink. */
+  --color-base: #F7F8FA;
+  --color-surface: #FFFFFF;
+  --color-text: #10151B;
+  --color-ink: #10151B;
+  --color-body: #3C4550;
+  --color-muted: #5B6573;
+  --color-border: #D9DDE3;
+  --color-hairline: #E6E9ED;
+  --color-chip-border: #D3D8DE;
+
+  --color-blue: #2B3FE0;
+  --color-blue-hover: #1F2FB8;
+  --color-blue-soft: #E4E8FD;
+  --color-lime: #D4F53C;
+  --color-lime-hover: #C4E52A;
+
+  /* On-ink (dark surface) tones */
+  --color-ink-raised: #1A2129;
+  --color-ink-border: #2C3440;
+  --color-ink-input-border: #3A4350;
+  --color-on-ink: #F2F4F7;
+  --color-on-ink-body: #C3CAD3;
+  --color-on-ink-muted: #9AA4B1;
 }
 
+/* --color-base is deliberately not mapped: a `base` color token would make
+   Tailwind's `text-base` emit a color (the page background) as well as the
+   font size. Use var(--color-base) directly. */
 @theme inline {
-  --color-base: var(--color-base);
+  --color-surface: var(--color-surface);
   --color-text: var(--color-text);
   --color-ink: var(--color-ink);
-  --color-accent: var(--color-accent);
-  --color-accent-hover: var(--color-accent-hover);
-  --color-link: var(--color-link);
-  --color-link-hover: var(--color-link-hover);
+  --color-body: var(--color-body);
   --color-muted: var(--color-muted);
   --color-border: var(--color-border);
-  --color-surface: var(--color-surface);
-  --color-surface-alt: var(--color-surface-alt);
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-plus-jakarta);
+  --color-hairline: var(--color-hairline);
+  --color-chip-border: var(--color-chip-border);
+  --color-blue: var(--color-blue);
+  --color-blue-hover: var(--color-blue-hover);
+  --color-blue-soft: var(--color-blue-soft);
+  --color-lime: var(--color-lime);
+  --color-lime-hover: var(--color-lime-hover);
+  --color-ink-raised: var(--color-ink-raised);
+  --color-ink-border: var(--color-ink-border);
+  --color-ink-input-border: var(--color-ink-input-border);
+  --color-on-ink: var(--color-on-ink);
+  --color-on-ink-body: var(--color-on-ink-body);
+  --color-on-ink-muted: var(--color-on-ink-muted);
+  --font-sans: var(--font-geist);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-instrument-serif);
+}
+
+/* Small mono label (kickers, meta lines, chips, footer headings). */
+@utility mono {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 12.5px;
+  letter-spacing: 0;
+}
+
+/* Instrument Serif display type for headings. Only ships in 400. */
+@utility serif {
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.005em;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 6rem;
 }
 
 body {
   background: var(--color-base);
   color: var(--color-text);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-geist), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--color-accent) 35%, transparent);
+  background: var(--color-lime);
+  color: var(--color-ink);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--color-blue);
   outline-offset: 2px;
 }
 
-/* Subtle hero texture: faint dot grid fading out, plus a soft gold glow. */
-.hero-texture {
-  background-image: radial-gradient(
-    circle,
-    color-mix(in srgb, var(--color-text) 8%, transparent) 1px,
-    transparent 1px
+/* Lime marker highlight behind a phrase; wraps cleanly across lines.
+   Painted as a band (20%–90% of the font box) rather than a solid fill: in
+   tight-leading display type the full box is taller than the line, so a
+   wrapped second line would paint over the descenders of the line above.
+   20% sits just under Instrument Serif's cap height. */
+.highlight {
+  background: linear-gradient(
+    to bottom,
+    transparent 20%,
+    var(--color-lime) 20%,
+    var(--color-lime) 90%,
+    transparent 90%
   );
-  background-size: 26px 26px;
-  mask-image: radial-gradient(
-    ellipse 75% 65% at 78% 18%,
-    black 0%,
-    transparent 72%
-  );
-}
-
-.hero-glow {
-  background:
-    radial-gradient(
-      ellipse 60% 45% at 80% 8%,
-      color-mix(in srgb, var(--color-accent) 14%, transparent),
-      transparent 65%
-    ),
-    radial-gradient(
-      ellipse 45% 35% at 5% 95%,
-      color-mix(in srgb, var(--color-link) 7%, transparent),
-      transparent 60%
-    );
-}
-
-/* Substack embed styling */
-.substack-embed iframe {
-  border: none !important;
+  color: var(--color-ink);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }

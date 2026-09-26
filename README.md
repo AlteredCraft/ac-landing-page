@@ -1,6 +1,6 @@
 # AlteredCraft Landing Page
 
-Single-scroll marketing page for [AlteredCraft](https://alteredcraft.com). Built with Next.js 16, Tailwind CSS 4, and TypeScript. Deployed as a static export to GitHub Pages.
+Single-scroll marketing page for [AlteredCraft](https://alteredcraft.com), plus a few detail pages (projects, journal, speaking, previous workshops, press kit). Built with Next.js 16, Tailwind CSS 4, and TypeScript.
 
 ## Development
 
@@ -13,40 +13,38 @@ Opens at `http://localhost:3000`. Hot-reloads on file changes.
 
 ## Testing the Production Build Locally
 
-To preview exactly what GitHub Pages serves (static export with `basePath`):
-
 ```bash
 npm run preview
 ```
 
-Then open `http://localhost:3000/ac-landing-page/`.
-
-This builds the static export and stages it under `.preview/ac-landing-page/` so the `basePath` resolves correctly, matching the GitHub Pages URL structure.
-
-> `basePath` is set to `/ac-landing-page` in production so assets resolve correctly on `alteredcraft.github.io/ac-landing-page/`. This will be removed when the custom domain (`alteredcraft.com`) is configured.
+Runs `next build`, then serves the result with `next start` at `http://localhost:3000`. The site is not a static export: the `/api/posts` (Substack) and `/api/meetups` (Luma) routes run on the server.
 
 ## Deployment
 
-Pushes to `main` trigger the GitHub Actions workflow (`.github/workflows/deploy.yml`), which builds and deploys to GitHub Pages automatically.
-
-Live at: https://alteredcraft.github.io/ac-landing-page/
+Deployed on Netlify, which builds with `npm run build` (see `netlify.toml`). The config also redirects `/p/*` and `/i/*` to the newsletter at `writing.alteredcraft.com`.
 
 ## Project Structure
 
 ```
+content/journal/          # Journal entries (markdown + frontmatter)
 src/
 ├── app/
-│   ├── page.tsx          # All page sections
+│   ├── page.tsx          # Homepage: all sections inline
 │   ├── layout.tsx        # Root layout, fonts, SEO metadata
-│   └── globals.css       # Color palette (CSS custom properties)
-└── components/
-    └── MobileMenu.tsx    # Client component (mobile nav toggle)
-public/                   # Static assets (images, logo)
+│   ├── globals.css       # Color tokens, `mono` / `serif` utilities
+│   ├── api/              # Substack posts + Luma meetups JSON routes
+│   └── */page.tsx        # journal, projects, speaking, previous-workshops, press-kit
+├── components/           # SiteNav, SiteFooter, PageHeader, ProjectCard, …
+└── lib/                  # Data (projects, speaking, nav), feeds, shared styles
+public/                   # Static assets (images, logos, llms.txt)
 ```
 
 ## Key Conventions
 
-- **Icons**: Lucide React only, no emojis
+See `CLAUDE.md` for the full design system and content models. In short:
+
+- **Type**: Instrument Serif headings, Geist body, Geist Mono labels
 - **Colors**: CSS variables defined in `globals.css`, referenced via `var(--color-*)`
+- **Icons**: Lucide React only, no emojis
 - **Components**: Server components by default; client components only when needed
-- **Images**: `next/image` with `unoptimized: true` (required for static export)
+- **Images**: `next/image` (image optimization is disabled in `next.config.ts`)

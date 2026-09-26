@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
+import { card, lift } from "@/lib/styles";
 
 interface SubstackPost {
   title: string;
@@ -9,6 +10,8 @@ interface SubstackPost {
   url: string;
 }
 
+// Latest newsletter issues, fetched client-side from /api/posts. Renders
+// nothing until posts arrive (or if the feed is unavailable).
 export function LatestPosts() {
   const [posts, setPosts] = useState<SubstackPost[]>([]);
 
@@ -22,33 +25,33 @@ export function LatestPosts() {
   if (posts.length === 0) return null;
 
   return (
-    <div>
-      <h3 className="font-[family-name:var(--font-plus-jakarta)] font-semibold text-lg mb-5">
-        Latest posts
-      </h3>
-      <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-base)] divide-y divide-[var(--color-border)] overflow-hidden">
+    <div className="flex flex-col gap-3.5 mt-6 lg:mt-8">
+      <p className="mono text-[var(--color-muted)]">latest issues</p>
+      <ul className="grid gap-3 lg:gap-4 md:grid-cols-3">
         {posts.map((post) => (
-          <a
-            key={post.url}
-            href={post.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group block p-5 hover:bg-[var(--color-surface-alt)]/60 transition-colors"
-          >
-            <h4 className="font-medium text-sm leading-snug flex items-start justify-between gap-3">
-              <span className="group-hover:text-[var(--color-link)] transition-colors">
-                {post.title}
-              </span>
-              <ArrowUpRight className="w-4 h-4 flex-shrink-0 mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity text-[var(--color-link)]" />
-            </h4>
-            {post.subtitle && (
-              <p className="mt-1.5 text-xs text-[var(--color-muted)] line-clamp-2 leading-relaxed">
-                {post.subtitle}
-              </p>
-            )}
-          </a>
+          <li key={post.url}>
+            <a
+              href={post.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${card} group h-full flex flex-col gap-2 p-5 ${lift}`}
+            >
+              <h3 className="serif text-2xl leading-[1.1] flex items-start justify-between gap-3 group-hover:text-[var(--color-blue)] transition-colors">
+                <span>{post.title}</span>
+                <ArrowUpRight
+                  aria-hidden="true"
+                  className="w-4 h-4 flex-shrink-0 mt-1.5"
+                />
+              </h3>
+              {post.subtitle && (
+                <p className="text-sm leading-normal text-[var(--color-body)] line-clamp-2">
+                  {post.subtitle}
+                </p>
+              )}
+            </a>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 }

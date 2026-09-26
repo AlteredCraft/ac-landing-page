@@ -5,46 +5,39 @@ import { Menu, X } from "lucide-react";
 import { NAV_LINKS } from "@/lib/nav";
 import { NavLabel } from "@/components/NavLabel";
 
-export function MobileMenu() {
+export function MobileMenu({ current }: { current?: string }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="md:hidden">
       <button
+        type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="p-2 text-white"
-        aria-label="Toggle menu"
+        className="w-11 h-11 inline-flex items-center justify-center text-[var(--color-ink)]"
+        aria-label={isOpen ? "Close menu" : "Open menu"}
         aria-expanded={isOpen}
       >
         {isOpen ? (
-          <X aria-hidden="true" className="w-6 h-6" />
+          <X aria-hidden="true" className="w-5 h-5" />
         ) : (
-          <Menu aria-hidden="true" className="w-6 h-6" />
+          <Menu aria-hidden="true" className="w-5 h-5" />
         )}
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 bg-[var(--color-ink)] border-b border-white/10 shadow-lg">
-          <nav aria-label="Mobile" className="flex flex-col p-4 gap-1">
+        <div className="absolute top-full left-0 right-0 bg-[var(--color-base)] border-b border-[var(--color-hairline)] shadow-[0_12px_24px_-12px_rgba(16,21,27,0.18)]">
+          <nav aria-label="Mobile" className="flex flex-col px-5 py-2">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="px-4 py-3 text-sm font-medium uppercase tracking-widest text-white/85 hover:text-[var(--color-accent)] transition-colors rounded-lg"
+                aria-current={current === link.href ? "page" : undefined}
+                className="py-3.5 border-b border-[var(--color-hairline)] last:border-b-0 serif text-[28px] leading-none text-[var(--color-text)] hover:text-[var(--color-blue)] transition-colors"
               >
                 <NavLabel link={link} />
               </a>
             ))}
-            <a
-              href="https://writing.alteredcraft.com/subscribe"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setIsOpen(false)}
-              className="mt-2 mx-4 mb-3 inline-flex items-center justify-center px-4 py-3 bg-[var(--color-accent)] text-[var(--color-ink)] text-sm font-semibold tracking-wide rounded-lg hover:bg-[var(--color-accent-hover)] transition-colors"
-            >
-              Subscribe to the newsletter
-            </a>
           </nav>
         </div>
       )}

@@ -51,12 +51,12 @@ export function getJournalEntry(slug: string): JournalEntry | undefined {
   return getJournalEntries().find((entry) => entry.slug === slug);
 }
 
-// "2026-06-07" -> "June 7, 2026" (UTC to avoid timezone date shifts).
+// "2026-06-07" -> "Jun 7, 2026" (UTC to avoid timezone date shifts).
 export function formatJournalDate(date: string): string {
   if (!date) return "";
   return new Date(`${date}T00:00:00Z`).toLocaleDateString("en-US", {
     year: "numeric",
-    month: "long",
+    month: "short",
     day: "numeric",
     timeZone: "UTC",
   });

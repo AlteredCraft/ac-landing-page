@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import HeroImage from "@/components/HeroImage";
-import { Check, Mail, ExternalLink, ArrowRight } from "lucide-react";
-import samImg from "../../public/press-kit/sam-keen-headshot-editorial.jpg";
+import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import samCasualImg from "../../public/press-kit/sam-keen-headshot-casual.png";
 import packtWorkshopImg from "../../public/packt-ws-00.webp";
 import ragWorkshopImg from "../../public/speaker.webp";
@@ -16,44 +14,57 @@ import { UpcomingMeetups } from "@/components/UpcomingMeetups";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Kicker } from "@/components/Kicker";
+import { SectionHeading } from "@/components/SectionHeading";
+import { badge, btn, card, container, lift, proseLink } from "@/lib/styles";
+
+const WAYS_IN = [
+  {
+    href: "#writing",
+    title: "The newsletter",
+    body: "A weekly AI review for developers, plus long-form deep dives.",
+  },
+  {
+    href: "#community",
+    title: "Workshops",
+    body: "Live, hands-on sessions on Maven. Build it, then take it back to work.",
+  },
+  {
+    href: "#projects",
+    title: "Projects",
+    body: "Tools for coding agents, built in the open.",
+  },
+];
+
+const CREDENTIALS = [
+  { label: "formerly at", value: "AWS · Lululemon · Nike" },
+  { label: "shipping software", value: "25+ years in production" },
+  {
+    label: "co-founder",
+    value: "Portland AI Engineers",
+    note: "1,500+ members",
+    href: "https://www.meetup.com/portland-ai-engineers/",
+  },
+  {
+    label: "founder",
+    value: "Cascadia Builders Club",
+    href: "https://luma.com/cascadia-bc",
+  },
+];
+
+const DIFFERENTIATORS: { title: string; note?: string }[] = [
+  { title: "Production-informed, not demo magic" },
+  {
+    title: "Written by someone who shipped code for 25+ years",
+    note: "ex AWS · Lululemon · Nike",
+  },
+  { title: "No hype, grounded in hands-on research and experimentation" },
+];
 
 const SOCIAL_LINKS = [
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/samkeen",
-    icon: (
-      <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-      </svg>
-    ),
-  },
-  {
-    label: "Substack",
-    href: "https://writing.alteredcraft.com",
-    icon: (
-      <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z" />
-      </svg>
-    ),
-  },
-  {
-    label: "Threads",
-    href: "https://www.threads.net/@sam.keen",
-    icon: (
-      <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.96-.065-1.18.408-2.26 1.332-3.04.88-.744 2.107-1.17 3.555-1.234 1.07-.047 2.064.078 2.967.367.026-.78.013-1.526-.038-2.207-.166-2.205-1.021-3.148-3.067-3.186h-.09c-1.233.014-2.275.397-2.939 1.078l-1.434-1.435C8.063 3.46 9.618 2.846 11.567 2.82h.108c1.263.015 2.402.261 3.388.733 1.073.513 1.903 1.283 2.468 2.289.528.94.83 2.09.898 3.42.033.646.04 1.327.022 2.038.47.27.897.577 1.278.92 1.192 1.073 1.876 2.534 1.975 4.222.107 1.842-.413 3.541-1.505 4.918-1.813 2.286-4.534 3.489-8.087 3.575l-.064.001zm-.12-10.863c-1.073.047-1.93.344-2.477.86-.494.466-.706 1.056-.633 1.752.073.695.386 1.195.931 1.488.587.316 1.378.443 2.168.396 1.11-.06 1.96-.462 2.53-1.194.442-.57.755-1.322.934-2.248-.925-.383-1.948-.582-3.044-.582-.134 0-.272.004-.41.012v-.484z" />
-      </svg>
-    ),
-  },
-  {
-    label: "X",
-    href: "https://x.com/samkeen",
-    icon: (
-      <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-      </svg>
-    ),
-  },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/samkeen" },
+  { label: "Substack", href: "https://writing.alteredcraft.com" },
+  { label: "Threads", href: "https://www.threads.net/@sam.keen" },
+  { label: "X", href: "https://x.com/samkeen" },
 ];
 
 export default function Home() {
@@ -62,566 +73,543 @@ export default function Home() {
       <SiteNav />
 
       <main id="main-content" tabIndex={-1}>
-        {/* Hero Section */}
-        <section className="relative overflow-hidden lg:min-h-screen flex flex-col lg:justify-center pt-24 lg:pt-28 pb-14 lg:pb-20 px-6 lg:px-12">
-          <div aria-hidden="true" className="absolute inset-0 -z-10 hero-glow" />
-          <div aria-hidden="true" className="absolute inset-0 -z-10 hero-texture" />
-
-          <div className="w-full max-w-[1000px] mx-auto">
-            <Kicker className="mb-5">Newsletter · Workshops · Projects</Kicker>
-            <h1 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(3rem,8vw,5rem)] leading-[1.05] tracking-tight mb-6 lg:mb-8">
-              <span className="text-[var(--color-accent)]">The craft</span> of
-              working with machines that write code.
+        {/* Hero */}
+        <section
+          className={`${container} grid gap-10 lg:gap-20 lg:grid-cols-[minmax(0,1fr)_400px] lg:items-end pt-10 lg:pt-[88px] pb-9 lg:pb-16`}
+        >
+          <div className="flex flex-col gap-5 lg:gap-7">
+            <Kicker>newsletter · workshops · projects</Kicker>
+            <h1 className="serif m-0 text-[50px] sm:text-[68px] lg:text-[88px] leading-[0.98]">
+              The craft of working with{" "}
+              <span className="highlight px-[5px] lg:px-2">
+                machines that write code
+              </span>
+              .
             </h1>
-            <p className="text-xl lg:text-2xl text-[var(--color-text)] mb-6 lg:mb-8 max-w-[680px] leading-relaxed">
-              Research, writing, and mentorship on agentic coding for
-              engineers who ship.
+            <p className="m-0 text-lg lg:text-[22px] leading-[1.45] max-w-[32em]">
+              Research, writing, and mentorship on agentic coding for engineers
+              who ship.
             </p>
-            <HeroImage
-              portraitSrc={samImg}
-              portraitAlt="Sam Keen, founder of AlteredCraft"
-              qrSrc="/alteredcraft-qr.png"
-              qrAlt="QR code linking to alteredcraft.com"
-            />
-            <p className="text-xl lg:text-[1.375rem] text-[var(--color-muted)] mb-8 lg:mb-10 max-w-[680px] leading-relaxed">
-              I&apos;m Sam Keen. I work hands-on with coding agents, then
-              write and teach what actually holds up via weekly
-              newsletter, live workshops, and the classroom. Author of{" "}
+            <p className="m-0 text-[15.5px] lg:text-[17px] leading-relaxed text-[var(--color-body)] max-w-[40em]">
+              I&apos;m Sam Keen. I work hands-on with coding agents, then write
+              and teach what actually holds up via weekly newsletter, live
+              workshops, and the classroom. Author of{" "}
               <a
                 href="https://www.amazon.com/Clean-Architecture-Python-maintainable-architectural/dp/183664289X"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[var(--color-link)] hover:text-[var(--color-link-hover)] transition-colors"
+                className={proseLink}
               >
-                <em>Clean Architecture with Python</em>
+                Clean Architecture with Python
               </a>
               , and formerly a generative AI architect at AWS.
             </p>
-
-            <div className="clear-both flex flex-wrap items-center gap-4 lg:gap-6">
-              <a
-                href="#writing"
-                className="flex items-center justify-center gap-2.5 w-full lg:w-auto px-9 py-4 bg-[var(--color-accent)] text-[var(--color-ink)] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg shadow-sm"
-              >
-                <Mail className="w-4 h-4" />
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-3 pt-1">
+              <a href="#writing" className={btn.primary}>
                 Read the newsletter
               </a>
-              <a
-                href="#community"
-                className="inline-flex items-center gap-2 px-5 py-3 border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text)] font-medium text-sm hover:border-[var(--color-muted)] transition-colors rounded-lg"
-              >
-                Workshops
+              <a href="#community" className={btn.outline}>
+                Community
               </a>
               <a
                 href="https://www.linkedin.com/in/samkeen"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text)] font-medium text-sm hover:border-[var(--color-muted)] transition-colors rounded-lg"
+                className="mono hidden sm:inline-flex items-center gap-1.5 h-12 px-2.5 text-[13px] hover:text-[var(--color-blue)] transition-colors"
               >
-                <svg aria-hidden="true" className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
                 Connect
+                <ArrowUpRight aria-hidden="true" className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+
+          <nav
+            aria-label="Three ways in"
+            className={`${card} hidden lg:flex flex-col px-6 py-[22px]`}
+          >
+            <p className="mono text-[var(--color-muted)] pb-3">Three ways in</p>
+            {WAYS_IN.map((way, i) => (
+              <a
+                key={way.href}
+                href={way.href}
+                className={`group grid grid-cols-[40px_minmax(0,1fr)_16px] gap-x-3 gap-y-1 items-start border-t border-[var(--color-hairline)] ${
+                  i === WAYS_IN.length - 1 ? "pt-4" : "py-4"
+                }`}
+              >
+                <span className="mono text-[var(--color-blue)] pt-2">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="flex flex-col gap-1">
+                  <span className="serif text-[28px] leading-[1.1] group-hover:text-[var(--color-blue)] transition-colors">
+                    {way.title}
+                  </span>
+                  <span className="text-sm leading-[1.45] text-[var(--color-body)]">
+                    {way.body}
+                  </span>
+                </span>
+                <ArrowRight
+                  aria-hidden="true"
+                  className="w-3.5 h-3.5 mt-3 transition-transform group-hover:translate-x-0.5"
+                />
+              </a>
+            ))}
+          </nav>
+        </section>
+
+        {/* Credentials strip */}
+        <section aria-label="Background" className={`${container} pb-10 lg:pb-24`}>
+          <dl className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-[18px] lg:gap-6 border-t-[1.5px] border-[var(--color-ink)] pt-4 lg:pt-5">
+            {CREDENTIALS.map((item) => (
+              <div key={item.label} className="flex flex-col gap-1.5 lg:gap-2">
+                <dt className="mono text-[var(--color-muted)]">{item.label}</dt>
+                <dd className="text-[15px] lg:text-[17px] font-semibold leading-[1.3]">
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-[var(--color-blue)] transition-colors"
+                    >
+                      {item.value}
+                    </a>
+                  ) : (
+                    item.value
+                  )}
+                  {item.note && (
+                    <span className="mono hidden lg:block mt-1 font-normal text-[var(--color-muted)]">
+                      {item.note}
+                    </span>
+                  )}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
+        {/* Newsletter */}
+        <section id="writing" className={`${container} pb-12 lg:pb-[104px]`}>
+          <div className="grid gap-[18px] lg:gap-[72px] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] px-[22px] py-7 lg:p-14 bg-[var(--color-ink)] text-[var(--color-on-ink)] rounded-xl lg:rounded-[14px]">
+            <div className="flex flex-col gap-[18px] lg:gap-[22px]">
+              <Kicker className="text-[var(--color-lime)]">newsletter</Kicker>
+              <h2 className="serif m-0 text-[44px] lg:text-[68px] leading-[0.98] text-white">
+                Signal over hype, weekly.
+              </h2>
+              <p className="m-0 text-[15px] lg:text-[17px] leading-relaxed text-[var(--color-on-ink-body)] max-w-[32em]">
+                Every week, I dig into what&apos;s actually working in the new
+                AI abstraction layer so you can make informed decisions without
+                drowning in hype. A consistent weekly AI review for developers,
+                plus long-form deep dives that go beyond the headlines.
+              </p>
+
+              {/* Hands the email to Substack's subscribe page, which prefills
+                  it and completes the signup there. */}
+              <form
+                action="https://writing.alteredcraft.com/subscribe"
+                method="get"
+                target="_blank"
+                className="flex flex-col gap-2 mt-2 max-w-[460px]"
+              >
+                <label htmlFor="nl-email" className="mono text-[var(--color-on-ink-body)]">
+                  Email
+                </label>
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <input
+                    id="nl-email"
+                    name="email"
+                    type="email"
+                    required
+                    autoComplete="email"
+                    placeholder="you@example.com"
+                    className="flex-grow min-w-0 h-12 px-3.5 rounded-md border border-[var(--color-ink-input-border)] bg-[var(--color-ink-raised)] text-white text-[15px] placeholder:text-[var(--color-on-ink-muted)] focus-visible:outline-[var(--color-lime)]"
+                  />
+                  <button
+                    type="submit"
+                    className="h-12 px-5 rounded-md bg-[var(--color-lime)] text-[var(--color-ink)] text-[15px] font-semibold hover:bg-[var(--color-lime-hover)] transition-colors cursor-pointer"
+                  >
+                    Subscribe free
+                  </button>
+                </div>
+              </form>
+
+              <a
+                href="https://writing.alteredcraft.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mono self-start inline-flex items-center gap-1.5 min-h-6 text-[var(--color-on-ink)] underline underline-offset-4 hover:text-[var(--color-lime)] transition-colors"
+              >
+                Browse the archive on Substack
+                <ArrowUpRight aria-hidden="true" className="w-3.5 h-3.5" />
               </a>
             </div>
 
-            {/* Proof strip: career logos + the numbers that back the pitch */}
-            <div className="mt-12 lg:mt-14 pt-7 border-t border-[var(--color-border)] flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10">
-              <div className="flex items-center gap-6 lg:gap-8 flex-shrink-0">
-                <span className="text-xs text-[var(--color-muted)] uppercase tracking-widest flex-shrink-0">
-                  Formerly at
-                </span>
-                <div className="flex items-center gap-7 lg:gap-9 opacity-60">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/logos/aws.svg" alt="Amazon Web Services" className="h-6 lg:h-7 w-auto" />
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/logos/lululemon.svg" alt="lululemon athletica" className="h-4 lg:h-5 w-auto" />
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/logos/nike.svg" alt="Nike" className="h-5 lg:h-6 w-auto" />
-                </div>
-              </div>
-              <div
-                aria-hidden="true"
-                className="hidden lg:block w-px h-9 bg-[var(--color-border)]"
-              />
-              <div className="flex flex-wrap items-center gap-x-8 gap-y-2 text-sm text-[var(--color-muted)]">
-                <span>
-                  <strong className="font-semibold text-[var(--color-text)]">
-                    25+ years
-                  </strong>{" "}
-                  shipping production software
-                </span>
-                <span>
-                  Co-founder of{" "}
-                  <a
-                    href="https://www.meetup.com/portland-ai-engineers/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium text-[var(--color-link)] hover:text-[var(--color-link-hover)] transition-colors"
+            <div className="flex flex-col lg:self-end">
+              <p className="mono text-[var(--color-on-ink-muted)] pb-3.5 hidden lg:block">
+                What makes it different
+              </p>
+              <ul>
+                {DIFFERENTIATORS.map((item, i) => (
+                  <li
+                    key={item.title}
+                    className={`grid grid-cols-[22px_minmax(0,1fr)] lg:grid-cols-[28px_minmax(0,1fr)] gap-2.5 lg:gap-3 items-start border-t border-[var(--color-ink-border)] ${
+                      i === DIFFERENTIATORS.length - 1
+                        ? "py-3.5 lg:pt-5 lg:pb-0 border-b lg:border-b-0"
+                        : "py-3.5 lg:py-5"
+                    }`}
                   >
-                    Portland AI Engineers
-                  </a>{" "}
-                  <strong className="font-semibold text-[var(--color-text)]">
-                    (1,500+ members)
-                  </strong>
-                </span>
-                <span>
-                  Founder of{" "}
-                  <a
-                    href="https://luma.com/cascadia-bc"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium text-[var(--color-link)] hover:text-[var(--color-link-hover)] transition-colors"
-                  >
-                    Cascadia Builders Club
-                  </a>
-                </span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Newsletter Section */}
-        <section
-          id="writing"
-          className="py-24 px-6 lg:px-12 bg-[var(--color-surface)] border-y border-[var(--color-border)]"
-        >
-          <div className="max-w-[1200px] mx-auto">
-            <Kicker className="mb-4">Newsletter</Kicker>
-            <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(2rem,4vw,3rem)] leading-tight mb-4">
-              Signal over hype, weekly
-            </h2>
-            <p className="text-[var(--color-muted)] max-w-[620px]">
-              Every week, I dig into what&apos;s actually working in the new
-              AI abstraction layer so you can make informed decisions without
-              drowning in hype. A consistent weekly AI review for developers,
-              plus long-form deep dives that go beyond the headlines.
-            </p>
-
-            <div className="grid lg:grid-cols-[1fr_460px] gap-12 lg:gap-16 mt-12">
-              <div>
-                <h3 className="font-[family-name:var(--font-plus-jakarta)] font-semibold text-lg mb-5">
-                  What makes it different
-                </h3>
-                <div className="flex flex-col gap-3.5 mb-10">
-                  {[
-                    "Production-informed, not demo magic",
-                    "Written by someone who shipped code for 25+ years (ex AWS | Lululemon | Nike)",
-                    "No hype, grounded in hands-on research and experimentation",
-                  ].map((item) => (
-                    <div
-                      key={item}
-                      className="flex items-start gap-3 text-[var(--color-muted)]"
-                    >
-                      <span className="w-5 h-5 mt-0.5 bg-[var(--color-accent)] rounded-full flex items-center justify-center text-[var(--color-ink)] flex-shrink-0">
-                        <Check className="w-3 h-3" strokeWidth={3} />
-                      </span>
-                      {item}
+                    <Check
+                      aria-hidden="true"
+                      strokeWidth={2.25}
+                      className="w-3.5 h-3.5 lg:w-4 lg:h-4 mt-[5px] lg:mt-2 text-[var(--color-lime)]"
+                    />
+                    <div className="flex flex-col gap-1.5">
+                      <p className="serif text-[22px] lg:text-[30px] leading-[1.1] text-white">
+                        {item.title}
+                      </p>
+                      {item.note && (
+                        <p className="mono hidden lg:block text-[var(--color-on-ink-muted)]">
+                          {item.note}
+                        </p>
+                      )}
                     </div>
-                  ))}
-                </div>
-
-                <div className="flex flex-wrap items-center gap-5">
-                  <a
-                    href="https://writing.alteredcraft.com/subscribe"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 bg-[var(--color-accent)] text-[var(--color-ink)] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg shadow-sm"
-                  >
-                    <Mail className="w-4 h-4" />
-                    Subscribe free
-                  </a>
-                  <a
-                    href="https://writing.alteredcraft.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-[var(--color-link)] hover:gap-3 hover:text-[var(--color-link-hover)] transition-all"
-                  >
-                    Browse the archive on Substack
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
-                </div>
-              </div>
-
-              {/* Latest Posts - loaded client-side on page view */}
-              <LatestPosts />
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
+
+          {/* Latest issues - loaded client-side on page view */}
+          <LatestPosts />
         </section>
 
         {/* Projects preview — full list lives on /projects */}
         <section
           id="projects"
-          className="py-24 px-6 lg:px-12 max-w-[1200px] mx-auto"
+          className={`${container} flex flex-col gap-[18px] lg:gap-7 pb-12 lg:pb-[104px]`}
         >
-          <div className="mb-12">
-            <Kicker className="mb-4">Projects</Kicker>
-            <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(2rem,4vw,3rem)] leading-tight mb-4">
-              Built in the open
-            </h2>
-            <p className="text-[var(--color-muted)] max-w-[700px]">
-              A few things I&apos;ve built alongside the writing. The newsletter
-              shows how I think; these show what I ship.
-            </p>
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <SectionHeading title="Built in the open" label="projects" />
+          <p className="m-0 text-[15.5px] lg:text-lg leading-[1.55] text-[var(--color-body)] max-w-[40em]">
+            A few things I&apos;ve built alongside the writing. The newsletter
+            shows how I think; these show what I ship.
+          </p>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {PROJECTS.slice(0, 3).map((project) => (
               <ProjectCard key={project.slug} project={project} />
             ))}
           </div>
-
-          <div className="mt-10">
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-[var(--color-link)] hover:gap-3 hover:text-[var(--color-link-hover)] transition-all"
-            >
-              See all projects
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
+          <Link href="/projects" className={`${btn.outline} sm:self-center`}>
+            See all projects
+            <ArrowRight aria-hidden="true" className="w-4 h-4" />
+          </Link>
         </section>
 
-        {/* Community Section — Workshops (Maven) + Speaking */}
+        {/* Community — Workshops (Maven) + Speaking */}
         {/* NOTE: Update workshop dates/links inline below. Speaking entries
             live in src/lib/speaking.ts and also render on /speaking. */}
         <section
           id="community"
-          className="py-24 px-6 lg:px-12 bg-[var(--color-surface)] border-t border-[var(--color-border)]"
+          className={`${container} flex flex-col gap-[18px] lg:gap-7 pb-12 lg:pb-[104px]`}
         >
-          <div className="max-w-[1200px] mx-auto">
-            <div className="mb-16">
-              <Kicker className="mb-4">Community</Kicker>
-              <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[clamp(2rem,4vw,3rem)] leading-tight mb-4">
-                Workshops &amp; speaking
-              </h2>
-              <p className="text-[var(--color-muted)] max-w-[700px]">
-                Teaching and showing up in the developer community: live,
-                hands-on workshops, plus the talks, panels, and demos I give
-                along the way.
-              </p>
-            </div>
+          <SectionHeading title="Community" label="workshops · speaking" />
+          <p className="m-0 text-[15.5px] lg:text-lg leading-[1.55] text-[var(--color-body)] max-w-[40em]">
+            Teaching and showing up in the developer community: live, hands-on
+            workshops, plus the talks, panels, and demos I give along the way.
+          </p>
 
-            {/* Up next: Portland AI Engineers meetups (live feed from Luma).
-                Renders nothing when there are no upcoming events. */}
-            <UpcomingMeetups />
+          {/* Up next: community meetups (live feed from Luma).
+              Renders nothing when there are no upcoming events. */}
+          <UpcomingMeetups />
 
-            {/* Workshops */}
-            <div className="mb-20">
-              <div className="mb-10 pb-4 border-b border-[var(--color-border)]">
-                <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-2xl sm:text-3xl text-[var(--color-text)]">
-                  Workshops
-                </h3>
-                <p className="text-[var(--color-muted)] mt-3 max-w-[700px]">
-                  Live, hands-on sessions on Maven. You won&apos;t just hear
-                  about AI tools. You&apos;ll use them in real time, building
-                  artifacts you take back to work.
-                </p>
+          {/* Workshops */}
+          <div className="flex items-baseline justify-between gap-6 pt-2 lg:pt-3">
+            <h3 className="serif m-0 text-[28px] lg:text-4xl leading-none">
+              Workshops
+            </h3>
+            <p className="mono text-[var(--color-muted)] hidden sm:block">
+              live, hands-on sessions on Maven
+            </p>
+          </div>
+
+          {/* Always available — evergreen / on-demand offerings */}
+          <p className="mono text-[var(--color-muted)] -mb-1 lg:-mb-2">
+            always available
+          </p>
+          <div className="grid gap-4 md:grid-cols-2">
+            <article className="flex flex-col gap-3 lg:gap-4 px-5 py-[22px] lg:px-8 lg:py-[30px] bg-[var(--color-surface)] border-[1.5px] border-[var(--color-ink)] rounded-[10px]">
+              <div className="flex flex-wrap items-center gap-2.5">
+                <span className={badge.lime}>
+                  free
+                </span>
+                <span className="mono text-[var(--color-muted)]">
+                  30-min lightning lesson
+                </span>
               </div>
-
-              {/* Always available */}
-              <div className="mb-16">
-                <h4 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl text-[var(--color-text)] mb-5 flex items-center gap-3">
-                  <span aria-hidden="true" className="text-[var(--color-accent)]">
-                    /
-                  </span>{" "}
-                  Always available
-                </h4>
-                <div className="grid md:grid-cols-2 gap-8 max-w-[1000px]">
-                  <div className="p-6 bg-[var(--color-base)] border border-[var(--color-border)] rounded-xl flex flex-col transition-all duration-200 hover:border-[var(--color-accent)]/60 hover:shadow-md">
-                    <span className="inline-flex self-start px-2.5 py-1 bg-[var(--color-accent)]/15 text-[var(--color-text)] text-xs font-semibold tracking-wide rounded-full mb-3">
-                      Free
-                    </span>
-                    <h5 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-lg mb-2">
-                      Build the CLAUDE.md Your Project Needs
-                    </h5>
-                    <p className="text-sm text-[var(--color-muted)] mb-5 flex-grow">
-                      A 30-minute lightning lesson. Learn the framework for
-                      structuring the project context file that makes Claude
-                      Code actually understand your codebase.
-                    </p>
-                    <a
-                      href="https://maven.com/p/6a115a/build-the-claude-md-your-project-needs"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--color-accent)] text-[var(--color-ink)] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg self-start"
-                    >
-                      Watch free on Maven
-                      <ArrowRight className="w-4 h-4" />
-                    </a>
-                  </div>
-
-                  {/* Context Engineering — perpetual Maven cohort. Update the
-                      "Next cohort" line as new cohorts are scheduled (waitlist
-                      copy when none is on the calendar). */}
-                  <div className="p-6 bg-[var(--color-base)] border border-[var(--color-border)] rounded-xl flex flex-col transition-all duration-200 hover:border-[var(--color-accent)]/60 hover:shadow-md">
-                    <span className="inline-flex self-start px-2.5 py-1 bg-[var(--color-accent)]/15 text-[var(--color-text)] text-xs font-semibold tracking-wide rounded-full mb-3">
-                      Maven · Live cohort
-                    </span>
-                    <h5 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-lg mb-2">
-                      Context Engineering for Claude Code
-                    </h5>
-                    <p className="text-sm font-semibold text-[var(--color-text)] mb-3">
-                      Next cohort: TBA &middot; waitlist open
-                    </p>
-                    <p className="text-sm text-[var(--color-muted)] mb-5 flex-grow">
-                      A live cohort workshop, run on a recurring basis. Build
-                      the context layer that turns Claude Code from a
-                      suggestion engine into a development partner: CLAUDE.md,
-                      skills, hooks, and the maturity ladder, all hands-on.
-                    </p>
-                    <a
-                      href="https://maven.com/altered-craft-learning/context-engineering-for-claude-code"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--color-accent)] text-[var(--color-ink)] font-semibold tracking-wide text-sm hover:bg-[var(--color-accent-hover)] transition-colors rounded-lg self-start"
-                    >
-                      Join the waitlist on Maven
-                      <ArrowRight className="w-4 h-4" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Upcoming — no scheduled one-off workshops right now. When one is
-                  booked, add an "Upcoming" subsection here (header pattern matches
-                  "Always available"/"Previous" above and below; the prior Packt
-                  card lives in git history), then move it to "Previous" once it
-                  has happened. */}
-
-              {/* Previous */}
-              {/* FUTURE-AGENT NOTE: Keep this list to the 2 most recent past workshops.
-                  Additional past events belong on /previous-workshops (the destination
-                  of the "See all previous workshops" link below). */}
-              <div className="mb-12">
-                <h4 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-xl text-[var(--color-text)] mb-5 flex items-center gap-3">
-                  <span aria-hidden="true" className="text-[var(--color-accent)]">
-                    /
-                  </span>{" "}
-                  Previous
-                </h4>
-                <div className="grid md:grid-cols-2 gap-8 max-w-[1000px]">
-                  {/* Effective Software Engineering with Claude Code */}
-                  <div className="bg-[var(--color-base)] border border-[var(--color-border)] rounded-xl overflow-hidden flex flex-col transition-all duration-200 hover:border-[var(--color-accent)]/60 hover:shadow-md">
-                    <a
-                      href="https://www.eventbrite.co.uk/e/effective-software-engineering-with-claude-code-from-prompts-to-systems-tickets-1988571262176"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block relative aspect-[2/1] bg-[#1F2547]"
-                    >
-                      <Image
-                        src={packtWorkshopImg}
-                        alt="Packt × Deep Engineering: Effective Software Engineering with Claude Code"
-                        fill
-                        sizes="(min-width: 768px) 468px, 100vw"
-                        className="object-cover"
-                      />
-                    </a>
-                    <div className="p-5 flex flex-col flex-grow">
-                      <h5 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[1rem] text-[var(--color-text)] mb-1">
-                        Effective Software Engineering with Claude Code
-                      </h5>
-                      <p className="text-xs text-[var(--color-muted)] mb-2">
-                        Packt · Deep Engineering · June 20, 2026
-                      </p>
-                      <p className="text-sm text-[var(--color-muted)] mb-4 flex-grow">
-                        From prompts to systems. CLAUDE.md context layers,
-                        reusable skills, guardrails, and team-level practices
-                        for senior engineers and tech leads.
-                      </p>
-                      <a
-                        href="https://www.eventbrite.co.uk/e/effective-software-engineering-with-claude-code-from-prompts-to-systems-tickets-1988571262176"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-link)] hover:text-[var(--color-link-hover)] transition-colors self-start"
-                      >
-                        View event
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* Building RAG Applications */}
-                  <div className="bg-[var(--color-base)] border border-[var(--color-border)] rounded-xl overflow-hidden flex flex-col transition-all duration-200 hover:border-[var(--color-accent)]/60 hover:shadow-md">
-                    <div className="relative h-40">
-                      <Image
-                        src={ragWorkshopImg}
-                        alt="Sam Keen teaching a RAG workshop to a room of developers"
-                        fill
-                        sizes="(min-width: 768px) 468px, 100vw"
-                        className="object-cover object-top"
-                      />
-                    </div>
-                    <div className="p-5 flex flex-col flex-grow">
-                      <h5 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-[1rem] text-[var(--color-text)] mb-1">
-                        Building RAG Applications
-                      </h5>
-                      <p className="text-xs text-[var(--color-muted)] mb-2">
-                        In-person workshop
-                      </p>
-                      <p className="text-sm text-[var(--color-muted)] flex-grow">
-                        Hands-on workshop teaching retrieval-augmented
-                        generation patterns with real-world datasets.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-col items-center gap-5">
-                <Link
-                  href="/previous-workshops"
-                  className="inline-flex items-center gap-2 px-6 py-3 border border-[var(--color-border)] bg-[var(--color-base)] text-[var(--color-text)] font-semibold tracking-wide text-sm hover:border-[var(--color-accent)] hover:bg-[var(--color-accent)]/10 transition-colors rounded-lg"
-                >
-                  See all previous workshops
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <a
-                  href="https://maven.com/altered-craft-learning"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-muted)] hover:text-[var(--color-link)] transition-colors"
-                >
-                  Browse all offerings on Maven
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
-
-            {/* Speaking */}
-            <div>
-              <div className="mb-10 pb-4 border-b border-[var(--color-border)]">
-                <h3 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-2xl sm:text-3xl text-[var(--color-text)]">
-                  Speaking
-                </h3>
-                <p className="text-[var(--color-muted)] mt-3 max-w-[700px]">
-                  Talks, panels, and demos on AI-assisted software development.
-                </p>
-              </div>
-
-              {SPEAKING_PAST.length > 0 && (
-                <ul className="divide-y divide-[var(--color-border)] mb-12 max-w-[1000px]">
-                  {SPEAKING_PAST.map((event) => (
-                    <EngagementRow key={event.title} event={event} />
-                  ))}
-                </ul>
-              )}
-
-              <h4 className="font-[family-name:var(--font-plus-jakarta)] font-semibold text-xl text-[var(--color-text)] mb-6">
-                Recordings
+              <h4 className="serif m-0 text-[30px] lg:text-[40px] leading-[1.02]">
+                Build the CLAUDE.md Your Project Needs
               </h4>
-              <SpeakingRecordings />
+              <p className="m-0 text-[14.5px] lg:text-[15.5px] leading-[1.55] text-[var(--color-body)]">
+                Learn the framework for structuring the project context file
+                that makes Claude Code actually understand your codebase.
+              </p>
+              <a
+                href="https://maven.com/p/6a115a/build-the-claude-md-your-project-needs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${btn.primary} mt-auto sm:self-start px-5`}
+              >
+                Watch free on Maven
+                <ArrowUpRight aria-hidden="true" className="w-3.5 h-3.5" />
+              </a>
+            </article>
 
-              <div className="mt-10">
-                <Link
-                  href="/speaking"
-                  className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-[var(--color-link)] hover:gap-3 hover:text-[var(--color-link-hover)] transition-all"
-                >
-                  See all talks &amp; panels
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+            {/* Context Engineering — perpetual Maven cohort. Update the
+                cohort line as new cohorts are scheduled (waitlist copy when
+                none is on the calendar). */}
+            <article className="flex flex-col gap-3 lg:gap-4 px-5 py-[22px] lg:px-8 lg:py-[30px] bg-[var(--color-ink)] text-[var(--color-on-ink)] rounded-[10px]">
+              <div className="flex flex-wrap items-center gap-2.5">
+                <span className={badge.blue}>
+                  live cohort
+                </span>
+                <span className="mono text-[var(--color-lime)]">
+                  next cohort: TBA · waitlist open
+                </span>
+              </div>
+              <h4 className="serif m-0 text-[30px] lg:text-[40px] leading-[1.02] text-white">
+                Context Engineering for Claude Code
+              </h4>
+              <p className="m-0 text-[14.5px] lg:text-[15.5px] leading-[1.55] text-[var(--color-on-ink-body)]">
+                A live cohort workshop, run on a recurring basis. Build the
+                context layer that turns Claude Code from a suggestion engine
+                into a development partner: CLAUDE.md, skills, hooks, and the
+                maturity ladder, all hands-on.
+              </p>
+              <a
+                href="https://maven.com/altered-craft-learning/context-engineering-for-claude-code"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${btn.lime} mt-auto sm:self-start`}
+              >
+                Join the waitlist on Maven
+                <ArrowUpRight aria-hidden="true" className="w-3.5 h-3.5" />
+              </a>
+            </article>
+          </div>
+
+          {/* Upcoming — no scheduled one-off workshops right now. When one is
+              booked, add an "upcoming" label + card grid here (same pattern as
+              "always available" above and "previous" below), then move it to
+              "previous" once it has happened. */}
+
+          {/* Previous */}
+          {/* FUTURE-AGENT NOTE: Keep this list to the 2 most recent past workshops.
+              Additional past events belong on /previous-workshops (the destination
+              of the "See all previous workshops" link below). */}
+          <p className="mono text-[var(--color-muted)] pt-1.5 lg:pt-2 -mb-1 lg:-mb-2">
+            previous
+          </p>
+          <div className="grid gap-4 md:grid-cols-2">
+            <a
+              href="https://www.eventbrite.co.uk/e/effective-software-engineering-with-claude-code-from-prompts-to-systems-tickets-1988571262176"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${card} ${lift} group grid xl:grid-cols-[260px_minmax(0,1fr)] overflow-hidden`}
+            >
+              <div className="relative h-[175px] xl:h-full xl:min-h-[230px] bg-[#1F2547]">
+                <Image
+                  src={packtWorkshopImg}
+                  alt="Packt × Deep Engineering: Effective Software Engineering with Claude Code"
+                  fill
+                  sizes="(min-width: 1280px) 260px, (min-width: 768px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-col gap-2.5 px-[18px] py-4 lg:px-6 lg:py-[22px]">
+                <p className="mono text-[var(--color-muted)]">
+                  Packt · Deep Engineering · Jun 20, 2026
+                </p>
+                <h4 className="serif text-2xl lg:text-[28px] leading-[1.05] group-hover:text-[var(--color-blue)] transition-colors">
+                  Effective Software Engineering with Claude Code
+                </h4>
+                <p className="text-sm leading-normal text-[var(--color-body)]">
+                  From prompts to systems. CLAUDE.md context layers, reusable
+                  skills, guardrails, and team-level practices for senior
+                  engineers and tech leads.
+                </p>
+                <span className="mono mt-auto inline-flex items-center gap-1.5 text-[13px] text-[var(--color-blue)]">
+                  View event
+                  <ArrowUpRight aria-hidden="true" className="w-3.5 h-3.5" />
+                </span>
+              </div>
+            </a>
+
+            <div className={`${card} grid xl:grid-cols-[260px_minmax(0,1fr)] overflow-hidden`}>
+              <div className="relative h-[175px] xl:h-full xl:min-h-[230px]">
+                <Image
+                  src={ragWorkshopImg}
+                  alt="Sam Keen teaching a RAG workshop to a room of developers"
+                  fill
+                  sizes="(min-width: 1280px) 260px, (min-width: 768px) 50vw, 100vw"
+                  className="object-cover object-top"
+                />
+              </div>
+              <div className="flex flex-col gap-2.5 px-[18px] py-4 lg:px-6 lg:py-[22px]">
+                <p className="mono text-[var(--color-muted)]">
+                  In-person workshop
+                </p>
+                <h4 className="serif text-2xl lg:text-[28px] leading-[1.05]">
+                  Building RAG Applications
+                </h4>
+                <p className="text-sm leading-normal text-[var(--color-body)]">
+                  Hands-on workshop teaching retrieval-augmented generation
+                  patterns with real-world datasets.
+                </p>
               </div>
             </div>
           </div>
+          <div className="mono flex flex-wrap gap-x-7 gap-y-2 text-[13px]">
+            <Link
+              href="/previous-workshops"
+              className="inline-flex items-center gap-1.5 min-h-6 underline underline-offset-4 hover:text-[var(--color-blue)] transition-colors"
+            >
+              See all previous workshops
+              <ArrowRight aria-hidden="true" className="w-3.5 h-3.5" />
+            </Link>
+            <a
+              href="https://maven.com/altered-craft-learning"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 min-h-6 underline underline-offset-4 hover:text-[var(--color-blue)] transition-colors"
+            >
+              Browse all offerings on Maven
+              <ArrowUpRight aria-hidden="true" className="w-3.5 h-3.5" />
+            </a>
+          </div>
+
+          {/* Speaking */}
+          <div className="flex items-baseline justify-between gap-6 pt-4 lg:pt-9">
+            <h3 className="serif m-0 text-[28px] lg:text-4xl leading-none">
+              Speaking
+            </h3>
+            <p className="mono text-[var(--color-muted)] hidden sm:block text-right">
+              talks, panels, and demos on AI-assisted software development
+            </p>
+          </div>
+          <div className="grid gap-8 lg:gap-14 lg:grid-cols-[minmax(0,1fr)_400px]">
+            {SPEAKING_PAST.length > 0 && (
+              <ol className="flex flex-col">
+                {SPEAKING_PAST.map((event) => (
+                  <EngagementRow key={event.title} event={event} />
+                ))}
+              </ol>
+            )}
+            <aside aria-label="Recordings" className="flex flex-col gap-4">
+              <p className="mono text-[var(--color-muted)]">recordings</p>
+              <SpeakingRecordings className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1" />
+            </aside>
+          </div>
+          <Link href="/speaking" className={`${btn.outline} sm:self-center`}>
+            See all talks &amp; panels
+            <ArrowRight aria-hidden="true" className="w-4 h-4" />
+          </Link>
         </section>
 
-        {/* About Section */}
-        <section
-          id="about"
-          className="py-24 px-6 lg:px-12 border-t border-[var(--color-border)]"
-        >
-          <div className="max-w-[1200px] mx-auto">
-            <Kicker className="mb-10">About</Kicker>
-            <div className="grid lg:grid-cols-[300px_1fr] gap-8 lg:gap-16">
-              {/* Photo */}
-              <div className="aspect-square bg-[var(--color-surface-alt)] rounded-2xl relative overflow-hidden ring-1 ring-[var(--color-border)] shadow-sm">
+        {/* About */}
+        <section id="about" className={`${container} pb-12 lg:pb-[104px]`}>
+          <div className="grid gap-[18px] lg:gap-20 lg:grid-cols-[380px_minmax(0,1fr)] border-t-[1.5px] border-[var(--color-ink)] pt-4 lg:pt-10">
+            <Kicker className="text-[var(--color-muted)] lg:hidden">about</Kicker>
+            <div className="flex flex-col gap-3">
+              <div className="relative w-full max-w-[380px] aspect-square rounded-[10px] overflow-hidden bg-[var(--color-hairline)]">
                 <Image
                   src={samCasualImg}
                   alt="Sam Keen, founder of AlteredCraft"
                   fill
-                  sizes="(min-width: 1024px) 300px, 100vw"
+                  sizes="(min-width: 1024px) 380px, 100vw"
                   className="object-cover"
                 />
               </div>
+              <p className="mono text-[var(--color-muted)] hidden lg:block">
+                Sam Keen · Portland, OR
+              </p>
+            </div>
 
-              {/* Bio */}
-              <div>
-                <h2 className="font-[family-name:var(--font-plus-jakarta)] font-bold text-3xl mb-6">
-                  Sam Keen
-                </h2>
-                <div className="space-y-4 text-[var(--color-muted)]">
-                  <p>
-                    I&apos;ve spent 25+ years shipping production software at
-                    companies like Nike, Lululemon, AWS, and a handful of
-                    startups. I led the GenAI Innovation Lab at AWS, where I
-                    helped teams separate signal from noise in AI adoption.
-                  </p>
-                  <p>
-                    Now my work is AI-assisted development: building in the
-                    open, writing, and teaching. Building <em>with</em> AI, not
-                    building AI. My{" "}
+            <div className="flex flex-col gap-[18px] lg:gap-[22px] max-w-[680px]">
+              <Kicker className="text-[var(--color-muted)] hidden lg:block">about</Kicker>
+              <h2 className="serif m-0 text-[56px] lg:text-[80px] leading-[0.95]">
+                Sam Keen
+              </h2>
+              <p className="m-0 text-[16px] lg:text-lg leading-relaxed text-[var(--color-body)]">
+                I&apos;ve spent 25+ years shipping production software at
+                companies like Nike, Lululemon, AWS, and a handful of startups.
+                I led the GenAI Innovation Lab at AWS, where I helped teams
+                separate signal from noise in AI adoption.
+              </p>
+              <p className="m-0 text-[16px] lg:text-lg leading-relaxed text-[var(--color-body)]">
+                Now my work is AI-assisted development: building in the open,
+                writing, and teaching.{" "}
+                <span className="font-semibold text-[var(--color-text)]">
+                  Building with AI, not building AI.
+                </span>{" "}
+                My{" "}
+                <a
+                  href="https://writing.alteredcraft.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={proseLink}
+                >
+                  newsletter
+                </a>{" "}
+                reaches developers every week, and my{" "}
+                <a
+                  href="https://maven.com/altered-craft-learning"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={proseLink}
+                >
+                  workshops on Maven
+                </a>{" "}
+                give teams hands-on systems for working with tools like Claude
+                Code.
+              </p>
+              <p className="m-0 text-[16px] lg:text-lg leading-relaxed text-[var(--color-body)]">
+                I also co-founded{" "}
+                <a
+                  href="https://www.meetup.com/portland-ai-engineers/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={proseLink}
+                >
+                  Portland AI Engineers
+                </a>
+                , a community of 1,500+ practitioners exploring practical AI
+                together.
+              </p>
+              <div className={`${card} flex flex-col sm:flex-row sm:items-center justify-between gap-3.5 sm:gap-6 p-[18px] sm:px-6 sm:py-5`}>
+                <p className="m-0 text-[14.5px] lg:text-[15.5px] leading-normal text-[var(--color-body)]">
+                  I occasionally take on select consulting engagements for
+                  engineering teams navigating AI adoption.
+                </p>
+                <a
+                  href="https://fantastical.app/samkeen/meet-with-sam-keen"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${btn.blue} flex-shrink-0`}
+                >
+                  Let&apos;s talk
+                </a>
+              </div>
+              <ul className="mono flex flex-wrap gap-x-6 gap-y-2 text-[13px]">
+                {SOCIAL_LINKS.map((link) => (
+                  <li key={link.label}>
                     <a
-                      href="https://writing.alteredcraft.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[var(--color-link)] hover:text-[var(--color-link-hover)] hover:underline transition-colors"
-                    >
-                      newsletter
-                    </a>{" "}
-                    reaches developers every week, and my{" "}
-                    <a
-                      href="https://maven.com/altered-craft-learning"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[var(--color-link)] hover:text-[var(--color-link-hover)] hover:underline transition-colors"
-                    >
-                      workshops on Maven
-                    </a>{" "}
-                    give teams hands-on systems for working with tools like
-                    Claude Code.
-                  </p>
-                  <p>
-                    I also co-founded{" "}
-                    <a
-                      href="https://www.meetup.com/portland-ai-engineers/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[var(--color-link)] hover:text-[var(--color-link-hover)] hover:underline transition-colors"
-                    >
-                      Portland AI Engineers
-                    </a>
-                    , a community of 1,500+ practitioners exploring practical AI
-                    together.
-                  </p>
-                  <p>
-                    I occasionally take on select consulting engagements for
-                    engineering teams navigating AI adoption.{" "}
-                    <a
-                      href="https://fantastical.app/samkeen/meet-with-sam-keen"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[var(--color-link)] hover:text-[var(--color-link-hover)] hover:underline transition-colors"
-                    >
-                      Let&apos;s talk
-                    </a>{" "}
-                    if that&apos;s of interest.
-                  </p>
-                </div>
-                <div className="flex gap-3 mt-8">
-                  {SOCIAL_LINKS.map((link) => (
-                    <a
-                      key={link.label}
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] flex items-center justify-center text-[var(--color-muted)] hover:text-[var(--color-text)] hover:border-[var(--color-accent)] hover:bg-[var(--color-accent)]/10 transition-colors"
-                      aria-label={link.label}
+                      className="inline-flex items-center min-h-6 hover:text-[var(--color-blue)] transition-colors"
                     >
-                      {link.icon}
+                      {link.label}
                     </a>
-                  ))}
-                </div>
-              </div>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>
