@@ -18,69 +18,6 @@ export const metadata: Metadata = {
 
 const LOGO_ASSETS = [
   {
-    name: "Horizontal Lockup",
-    description: "Icon + wordmark, horizontal layout",
-    variants: [
-      {
-        label: "Light background",
-        preview: "/press-kit/ac-logo-wm-horiz-light-bg.png",
-        bg: "bg-[var(--color-base)]",
-        svg: "/press-kit/ac-logo-wm-horiz-light-bg.svg",
-        png: "/press-kit/ac-logo-wm-horiz-light-bg.png",
-      },
-      {
-        label: "Dark background",
-        preview: "/press-kit/ac-logo-wm-horiz-dark-bg.png",
-        bg: "bg-[var(--color-ink)]",
-        svg: "/press-kit/ac-logo-wm-horiz-dark-bg.svg",
-        png: "/press-kit/ac-logo-wm-horiz-dark-bg.png",
-      },
-    ],
-    fullWidth: true,
-  },
-  {
-    name: "Stacked Lockup",
-    description: "Icon + wordmark, vertical layout",
-    variants: [
-      {
-        label: "Light background",
-        preview: "/press-kit/ac-logo-wm-vert-light-bg.png",
-        bg: "bg-[var(--color-base)]",
-        svg: "/press-kit/ac-logo-wm-vert-light-bg.svg",
-        png: "/press-kit/ac-logo-wm-vert-light-bg.png",
-      },
-      {
-        label: "Dark background",
-        preview: "/press-kit/ac-logo-wm-vert-dark-bg.png",
-        bg: "bg-[var(--color-ink)]",
-        svg: "/press-kit/ac-logo-wm-vert-dark-bg.svg",
-        png: "/press-kit/ac-logo-wm-vert-dark-bg.png",
-      },
-    ],
-    fullWidth: false,
-  },
-  {
-    name: "Icon",
-    description: "Standalone icon mark",
-    variants: [
-      {
-        label: "Light background",
-        preview: "/press-kit/ac-logo-light-bg.png",
-        bg: "bg-[var(--color-base)]",
-        svg: "/press-kit/ac-logo-light-bg.svg",
-        png: "/press-kit/ac-logo-light-bg.png",
-      },
-      {
-        label: "Dark background",
-        preview: "/press-kit/ac-logo-dark-bg.png",
-        bg: "bg-[var(--color-ink)]",
-        svg: "/press-kit/ac-logo-dark-bg.svg",
-        png: "/press-kit/ac-logo-dark-bg.png",
-      },
-    ],
-    fullWidth: false,
-  },
-  {
     name: "Wordmark",
     description: "Text-only wordmark, horizontal layout",
     variants: [
@@ -133,12 +70,6 @@ const BRAND_COLORS = [
   { name: "Body", hex: "#3C4550", usage: "Body copy" },
   { name: "Slate", hex: "#5B6573", usage: "Mono labels, secondary text" },
   { name: "Border", hex: "#D9DDE3", usage: "Card borders, dividers" },
-];
-
-const CODE_BAR_COLORS = [
-  { name: "Gold", hex: "#D4B84A" },
-  { name: "Green", hex: "#52C77E" },
-  { name: "Blue", hex: "#5A94D4" },
 ];
 
 const downloadLink =
@@ -312,27 +243,6 @@ export default function PressKitPage() {
             ))}
           </div>
 
-          <div>
-            <p className="mono text-[var(--color-muted)] mb-3">
-              logo code-bar accents
-            </p>
-            <div className="grid grid-cols-3 gap-4 max-w-[300px]">
-              {CODE_BAR_COLORS.map((color) => (
-                <div key={color.hex} className="text-center">
-                  <div
-                    className="w-full aspect-square rounded-[10px]"
-                    style={{ backgroundColor: color.hex }}
-                  />
-                  <p className="mono mt-2 text-[var(--color-text)]">
-                    {color.hex}
-                  </p>
-                  <p className="text-xs text-[var(--color-muted)]">
-                    {color.name}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
         </section>
 
         {/* Typography */}
@@ -357,7 +267,7 @@ export default function PressKitPage() {
             <li>Do not distort, rotate, or alter the proportions of the logo.</li>
             <li>Do not recolor or add effects to any brand marks.</li>
             <li>Use the appropriate light/dark background variant.</li>
-            <li>Maintain clear space equal to the icon height on all sides.</li>
+            <li>Leave clear space around the wordmark at least as wide as the slash.</li>
             <li>Prefer SVG for web and print. Use PNG for social media and contexts that require raster images.</li>
           </ul>
         </section>

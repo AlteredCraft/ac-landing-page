@@ -4,9 +4,7 @@
 // `status` is an optional badge (e.g., "Active-Development"); a project with a
 // status gets the emphasized (ink-bordered) card. `kind` is an optional
 // secondary badge (e.g., "Desktop App") shown when there is no status.
-// Copy is grounded in each repo's README. All linked repos verified public;
-// Marginalia's repo is private, so its link is a placeholder until it has a
-// public URL.
+// Copy is grounded in each repo's README. All repos verified public.
 // The homepage preview shows the first 3 (PROJECTS.slice(0, 3)), so order matters.
 
 export type ProjectLink = {
@@ -37,7 +35,12 @@ export const PROJECTS: Project[] = [
       "A group keeps a small library of papers, uploaded as PDFs or imported from arXiv. Ask a question beside the paper and the AI guide you choose reads the whole PDF and replies in the discussion for everyone to see. Every guide call's tokens and cost are recorded, and members rate each reply accurate or inaccurate, so those measurements decide what gets built next.",
     tags: ["Research", "Reading", "AI-Guides"],
     stack: ["Next.js", "Postgres", "OpenRouter"],
-    links: [{ label: "Repo", href: "#" }],
+    links: [
+      {
+        label: "Repo",
+        href: "https://github.com/AlteredCraft/marginalia-book-club",
+      },
+    ],
   },
   {
     slug: "b2",
