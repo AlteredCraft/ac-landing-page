@@ -23,7 +23,7 @@ alteredcraft.com is a single-scroll landing page (sections: Newsletter `#writing
 
 ## Projects
 
-- [Marginalia](https://github.com/AlteredCraft/marginalia-book-club): A web app for reading difficult papers with other people and with AI guides — PDF or arXiv papers beside group discussions, where the chosen guide reads the whole PDF and replies with page citations; every guide call's cost is recorded and replies are rated for accuracy. Next.js, Postgres, OpenRouter.
+- [RAG Lab](https://github.com/AlteredCraft/chat-rag-explorer): An educational streaming chat and retrieval-augmented-generation app used as workshop material. Python, Flask, OpenRouter, vanilla JS.
 - [B2](https://github.com/AlteredCraft/B2): A notes app for research — plain Markdown in a folder you own, with an AI layer that surfaces unlinked related notes, explains the connection, and answers questions from your notes with checkable citations. Local-first. Rust + Tauri desktop app and CLI.
 - [Tricorder](https://github.com/AlteredCraft/tricorder): A handheld, agent-assisted instrument for exploring the physical world on the M5Stack Tab5 (ESP32-P4), co-developed with OpenAI Codex and Claude Code. Firmware in C++, Mac-side service in Python.
 - [Tilth](https://github.com/AlteredCraft/tilth): A minimal harness for long-running autonomous coding agents against any OpenAI-compatible endpoint — an evaluator that judges whether a change actually solves the task, between-task budget caps, and offline-first observability you can replay end to end. Python. Active development.
@@ -31,7 +31,7 @@ alteredcraft.com is a single-scroll landing page (sections: Newsletter `#writing
 - [LSP4Agents](https://github.com/AlteredCraft/lsp4agents): A Language Server Protocol client designed for coding agents rather than IDEs — go to definition, find references, real type errors as agent tools. Rust CLI. Active development.
 - [knobs.cc](https://github.com/AlteredCraft/knobs-cc): A local desktop app (Tauri + Rust) that inspects every Claude Code configuration knob — where each setting lives, its value, and which layer takes precedence.
 - [Claude Code Plugins](https://github.com/AlteredCraft/claude-code-plugins): A marketplace of Claude Code plugins built at AlteredCraft, installable directly from the marketplace.
-- [RAG Lab](https://github.com/AlteredCraft/chat-rag-explorer): An educational streaming chat and retrieval-augmented-generation app used as workshop material. Python, Flask, OpenRouter, vanilla JS.
+- [Marginalia](https://github.com/AlteredCraft/marginalia-book-club): A web app for reading difficult papers with other people and with AI guides — PDF or arXiv papers beside group discussions, where the chosen guide reads the whole PDF and replies with page citations; every guide call's cost is recorded and replies are rated for accuracy. Next.js, Postgres, OpenRouter.
 - [GitHub organization](https://github.com/AlteredCraft): All AlteredCraft open-source repositories.
 
 ## Community

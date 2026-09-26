@@ -26,19 +26,18 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
-    slug: "marginalia",
-    name: "Marginalia",
-    kind: "Web App",
+    slug: "rag-lab",
+    name: "RAG Lab",
     oneLiner:
-      "A place to read difficult papers with other people and with AI guides.",
+      "An educational chat and RAG app for exploring retrieval patterns hands-on.",
     description:
-      "A group keeps a small library of papers, uploaded as PDFs or imported from arXiv. Ask a question beside the paper and the AI guide you choose reads the whole PDF and replies in the discussion for everyone to see. Every guide call's tokens and cost are recorded, and members rate each reply accurate or inaccurate, so those measurements decide what gets built next.",
-    tags: ["Research", "Reading", "AI-Guides"],
-    stack: ["Next.js", "Postgres", "OpenRouter"],
+      "A teaching app that demonstrates a streaming chat interface over LLMs with retrieval-augmented generation. Flask backend, OpenRouter for model access, and a vanilla JavaScript front end. Cross-platform, and used as workshop material.",
+    tags: ["Teach", "RAG"],
+    stack: ["Python", "Flask", "OpenRouter"],
     links: [
       {
         label: "Repo",
-        href: "https://github.com/AlteredCraft/marginalia-book-club",
+        href: "https://github.com/AlteredCraft/chat-rag-explorer",
       },
     ],
   },
@@ -125,18 +124,19 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    slug: "rag-lab",
-    name: "RAG Lab",
+    slug: "marginalia",
+    name: "Marginalia",
+    kind: "Web App",
     oneLiner:
-      "An educational chat and RAG app for exploring retrieval patterns hands-on.",
+      "A place to read difficult papers with other people and with AI guides.",
     description:
-      "A teaching app that demonstrates a streaming chat interface over LLMs with retrieval-augmented generation. Flask backend, OpenRouter for model access, and a vanilla JavaScript front end. Cross-platform, and used as workshop material.",
-    tags: ["Teach", "RAG"],
-    stack: ["Python", "Flask", "OpenRouter"],
+      "A group keeps a small library of papers, uploaded as PDFs or imported from arXiv. Ask a question beside the paper and the AI guide you choose reads the whole PDF and replies in the discussion for everyone to see. Every guide call's tokens and cost are recorded, and members rate each reply accurate or inaccurate, so those measurements decide what gets built next.",
+    tags: ["Research", "Reading", "AI-Guides"],
+    stack: ["Next.js", "Postgres", "OpenRouter"],
     links: [
       {
         label: "Repo",
-        href: "https://github.com/AlteredCraft/chat-rag-explorer",
+        href: "https://github.com/AlteredCraft/marginalia-book-club",
       },
     ],
   },
