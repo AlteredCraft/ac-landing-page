@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
-import samCasualImg from "../../public/press-kit/sam-keen-headshot-casual.png";
+import samCasualImg from "../../public/press-kit/sam-keen-headshot-casual.webp";
 import packtWorkshopImg from "../../public/packt-ws-00.webp";
 import ragWorkshopImg from "../../public/speaker.webp";
 import { LatestPosts } from "@/components/LatestPosts";

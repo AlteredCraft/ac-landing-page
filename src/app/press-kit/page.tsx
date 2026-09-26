@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { Wordmark } from "@/components/Wordmark";
 import { Download } from "lucide-react";
 import { card, container, proseLink } from "@/lib/styles";
-import headshotCasual from "../../../public/press-kit/sam-keen-headshot-casual.png";
+import headshotCasual from "../../../public/press-kit/sam-keen-headshot-casual.webp";
 import headshotEditorial from "../../../public/press-kit/sam-keen-headshot-editorial.jpg";
 
 export const metadata: Metadata = {
@@ -185,9 +185,9 @@ export default function PressKitPage() {
               {
                 src: headshotCasual,
                 alt: "Sam Keen - casual headshot",
-                label: "Casual — 500 × 500px",
-                href: "/press-kit/sam-keen-headshot-casual.png",
-                format: "PNG",
+                label: "Casual — 1254 × 1254px",
+                href: "/press-kit/sam-keen-headshot-casual.jpg",
+                format: "JPG",
               },
               {
                 src: headshotEditorial,
